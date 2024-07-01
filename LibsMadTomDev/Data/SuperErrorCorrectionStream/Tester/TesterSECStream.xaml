@@ -1,0 +1,25 @@
+﻿<Window x:Class="MadTomDev.App.TesterSECStream"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MadTomDev.App"
+        mc:Ignorable="d"
+        Title="TesterSECStream" Height="450" Width="800">
+    <Grid>
+        <Label Content="源文件" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_source" HorizontalAlignment="Left" Margin="10,41,0,0" Text="D:\A.txt" TextWrapping="Wrap" VerticalAlignment="Top" Width="264"/>
+
+        <Label Content="目标文件" HorizontalAlignment="Left" Margin="10,70,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_target" HorizontalAlignment="Left" Margin="10,101,0,0" Text="D:\A.txt.sec" TextWrapping="Wrap" VerticalAlignment="Top" Width="264"/>
+
+        <Label Content="还原文件" HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_restore" HorizontalAlignment="Left" Margin="10,161,0,0" Text="D:\A.rst.txt" TextWrapping="Wrap" VerticalAlignment="Top" Width="264"/>
+
+        <Button x:Name="btn_SEC" Content="SEC" Click="btn_SEC_Click" HorizontalAlignment="Left" Margin="293,88,0,0" VerticalAlignment="Top" Height="31" Width="65"/>
+        <Button x:Name="btn_restore" Content="Restore" Click="btn_restore_Click" HorizontalAlignment="Left" Margin="293,148,0,0" VerticalAlignment="Top" Height="31" Width="65"/>
+        <Button x:Name="btn_test1" Content="读源文件，从短band复制到长band，然后还原到A.rst1.txt" Click="btn_test1_Click" HorizontalAlignment="Left" Margin="363,88,0,0" VerticalAlignment="Top" Height="31" Width="345"/>
+        <Button x:Name="btn_test2" Content="读源文件，从长band复制到短band，然后还原到A.rst2.txt" Click="btn_test2_Click" HorizontalAlignment="Left" Margin="363,123,0,0" VerticalAlignment="Top" Height="31" Width="345"/>
+
+    </Grid>
+</Window>

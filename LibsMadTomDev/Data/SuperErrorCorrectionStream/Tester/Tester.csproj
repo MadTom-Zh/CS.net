@@ -1,0 +1,49 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>MadTomDev.App</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="images\bbgA.png" />
+    <None Remove="images\bbgC.png" />
+    <None Remove="images\bbgCA.png" />
+    <None Remove="images\bbgR.png" />
+    <None Remove="images\bbgRA.png" />
+    <None Remove="images\bbgRC.png" />
+    <None Remove="images\bbgRCA.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\SimpleStringHelper\SimpleStringHelper.csproj" />
+    <ProjectReference Include="..\SuperErrorCorrectionStream.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\bbgA.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\bbgC.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\bbgCA.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\bbgR.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\bbgRA.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\bbgRC.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="images\bbgRCA.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32126.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPSHelper", "WPSHelper\WPSHelper.csproj", "{67EBF6C0-BB40-4EA7-A589-82CC0261ABDE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewFolder1", "NewFolder1", "{2614BC79-5D2A-4BF8-8D7B-DBECED620BD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tester", "Tester\Tester.csproj", "{4C090302-D812-423E-BB3F-98A320B75D9A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67EBF6C0-BB40-4EA7-A589-82CC0261ABDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67EBF6C0-BB40-4EA7-A589-82CC0261ABDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67EBF6C0-BB40-4EA7-A589-82CC0261ABDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67EBF6C0-BB40-4EA7-A589-82CC0261ABDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C090302-D812-423E-BB3F-98A320B75D9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C090302-D812-423E-BB3F-98A320B75D9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C090302-D812-423E-BB3F-98A320B75D9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C090302-D812-423E-BB3F-98A320B75D9A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E55F82F-3FF6-4ADF-A128-BD5361CCB71B}
+	EndGlobalSection
+EndGlobal

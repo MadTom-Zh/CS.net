@@ -1,0 +1,207 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0-windows7.0": {
+      "PinYinConverterCore/1.0.2": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/PinYinConverterCore.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/PinYinConverterCore.dll": {}
+        }
+      },
+      "UTF.Unknown/2.5.0": {
+        "type": "package",
+        "compile": {
+          "lib/netcoreapp3.0/UtfUnknown.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp3.0/UtfUnknown.dll": {}
+        }
+      },
+      "SimpleStringHelper/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "PinYinConverterCore": "1.0.2",
+          "TextFileDecodeHelper": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SimpleStringHelper.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SimpleStringHelper.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "SuperErrorCorrectionStream/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/SuperErrorCorrectionStream.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SuperErrorCorrectionStream.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      },
+      "TextFileDecodeHelper/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "UTF.Unknown": "2.5.0"
+        },
+        "compile": {
+          "bin/placeholder/TextFileDecodeHelper.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TextFileDecodeHelper.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
+      }
+    }
+  },
+  "libraries": {
+    "PinYinConverterCore/1.0.2": {
+      "sha512": "GWGUL7HYyyTZeVltwgJ2sr8ER+Wyj1aR44KN1A5GS0iB3j/JqXDG62OHupz3iFczCQ4797IhHSSqOet7MvsWJQ==",
+      "type": "package",
+      "path": "pinyinconvertercore/1.0.2",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/PinYinConverterCore.dll",
+        "lib/net45/PinYinConverterCore.xml",
+        "lib/netstandard2.0/PinYinConverterCore.dll",
+        "lib/netstandard2.0/PinYinConverterCore.xml",
+        "pinyinconvertercore.1.0.2.nupkg.sha512",
+        "pinyinconvertercore.nuspec"
+      ]
+    },
+    "UTF.Unknown/2.5.0": {
+      "sha512": "wBnSKuLQG3+tm8oAPUjXDr94fdwlxZIqaO1gyvocaz9TLLz44fbLz7toE7I0yto96xepjshqHCOd9PWIsDCZzA==",
+      "type": "package",
+      "path": "utf.unknown/2.5.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net40/UtfUnknown.dll",
+        "lib/net40/UtfUnknown.xml",
+        "lib/netcoreapp3.0/UtfUnknown.dll",
+        "lib/netcoreapp3.0/UtfUnknown.xml",
+        "lib/netstandard1.0/UtfUnknown.dll",
+        "lib/netstandard1.0/UtfUnknown.xml",
+        "lib/netstandard1.3/UtfUnknown.dll",
+        "lib/netstandard1.3/UtfUnknown.xml",
+        "lib/netstandard2.0/UtfUnknown.dll",
+        "lib/netstandard2.0/UtfUnknown.xml",
+        "utf.unknown.2.5.0.nupkg.sha512",
+        "utf.unknown.nuspec"
+      ]
+    },
+    "SimpleStringHelper/1.0.0": {
+      "type": "project",
+      "path": "../../../Common/SimpleStringHelper/SimpleStringHelper.csproj",
+      "msbuildProject": "../../../Common/SimpleStringHelper/SimpleStringHelper.csproj"
+    },
+    "SuperErrorCorrectionStream/1.0.0": {
+      "type": "project",
+      "path": "../SuperErrorCorrectionStream.csproj",
+      "msbuildProject": "../SuperErrorCorrectionStream.csproj"
+    },
+    "TextFileDecodeHelper/1.0.0": {
+      "type": "project",
+      "path": "../../../Common/TextFileDecodeHelper/TextFileDecodeHelper.csproj",
+      "msbuildProject": "../../../Common/TextFileDecodeHelper/TextFileDecodeHelper.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0-windows7.0": [
+      "SimpleStringHelper >= 1.0.0",
+      "SuperErrorCorrectionStream >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\Intel\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "D:\\Dev.net\\LibsMadTomDev\\Data\\SuperErrorCorrectionStream\\Tester\\Tester.csproj",
+      "projectName": "Tester",
+      "projectPath": "D:\\Dev.net\\LibsMadTomDev\\Data\\SuperErrorCorrectionStream\\Tester\\Tester.csproj",
+      "packagesPath": "C:\\Users\\Intel\\.nuget\\packages\\",
+      "outputPath": "D:\\Dev.net\\LibsMadTomDev\\Data\\SuperErrorCorrectionStream\\Tester\\obj\\",
+      "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
+      "configFilePaths": [
+        "C:\\Users\\Intel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0-windows7.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "projectReferences": {
+            "D:\\Dev.net\\LibsMadTomDev\\Common\\SimpleStringHelper\\SimpleStringHelper.csproj": {
+              "projectPath": "D:\\Dev.net\\LibsMadTomDev\\Common\\SimpleStringHelper\\SimpleStringHelper.csproj"
+            },
+            "D:\\Dev.net\\LibsMadTomDev\\Data\\SuperErrorCorrectionStream\\SuperErrorCorrectionStream.csproj": {
+              "projectPath": "D:\\Dev.net\\LibsMadTomDev\\Data\\SuperErrorCorrectionStream\\SuperErrorCorrectionStream.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0-windows7.0": {
+        "targetAlias": "net5.0-windows",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          },
+          "Microsoft.WindowsDesktop.App.WPF": {
+            "privateAssets": "none"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>MadTomDev.Data</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\SimpleStringHelper\SimpleStringHelper.csproj" />
+    <ProjectReference Include="..\SettingsTxt\SettingsTxt.csproj" />
+  </ItemGroup>
+
+</Project>

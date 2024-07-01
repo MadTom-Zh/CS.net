@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>MadTomDev.Data</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Tester\**" />
+    <EmbeddedResource Remove="Tester\**" />
+    <None Remove="Tester\**" />
+    <Page Remove="Tester\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="~%24待解决-SECS.xlsx" />
+    <None Remove="待解决-SECS.xlsx" />
+  </ItemGroup>
+
+</Project>
