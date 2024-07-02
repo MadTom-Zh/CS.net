@@ -1,0 +1,14 @@
+﻿<Window x:Class="MadTomDev.UI.WindowNotify"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MadTomDev.UI"
+        mc:Ignorable="d"
+        x:Name="window"
+        Title="WindowNotify" Height="200" Width="500">
+    <Grid>
+        <TextBlock x:Name="tb" Margin="53,46,56,46" Text="TextBlock" TextWrapping="Wrap" FontSize="24"/>
+
+    </Grid>
+</Window>

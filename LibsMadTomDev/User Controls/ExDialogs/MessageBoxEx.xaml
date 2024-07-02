@@ -1,0 +1,35 @@
+﻿<Window x:Class="MadTomDev.UI.MessageBoxEx"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MadTomDev.UI"
+        mc:Ignorable="d"
+        Activated="Window_Activated"
+        WindowStartupLocation="CenterScreen"
+        Title="MessageBoxEx" Height="350" MinHeight="350" Width="600">
+    <Grid Margin="24">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" MinHeight="100"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Margin="24">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="img" Height="50" Margin="10" VerticalAlignment="Top" Width="50"/>
+            <TextBlock x:Name="tb_msg" Grid.Column="1" Margin="8" Text="TextBlock" TextWrapping="Wrap" />
+        </Grid>
+
+        <WrapPanel  x:Name="wPanelRadios" Grid.Row="1" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center">
+        </WrapPanel>
+        <WrapPanel  x:Name="wPanelChecks" Grid.Row="2" Orientation="Horizontal" Margin="10" HorizontalAlignment="Center" >
+        </WrapPanel>
+        <WrapPanel  x:Name="wPanelBtns" Grid.Row="3" Orientation="Horizontal" Margin="10" HorizontalAlignment="Right">
+        </WrapPanel>
+    </Grid>
+</Window>

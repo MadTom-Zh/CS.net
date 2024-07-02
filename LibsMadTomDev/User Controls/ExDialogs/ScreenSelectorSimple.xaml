@@ -1,0 +1,49 @@
+﻿<Window x:Class="MadTomDev.UI.ScreenSelectorSimple"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MadTomDev.UI"
+        mc:Ignorable="d"
+        Title="ScreenSelectorSimple" Height="450" Width="800"
+        ResizeMode="NoResize" Topmost="True" WindowState="Normal"
+        WindowStyle="None"
+        Activated="Window_Activated"
+        PreviewKeyDown="Window_PreviewKeyDown"
+        PreviewKeyUp="Window_PreviewKeyUp"
+        >
+    <Grid>
+        <Image x:Name="img_bg" Stretch="None" ></Image>
+        <Rectangle Fill="#80000000" x:Name="rect_grayTop"></Rectangle>
+        <Rectangle Fill="#80000000" x:Name="rect_grayLeft" Visibility="Collapsed"></Rectangle>
+        <Rectangle Fill="#80000000" x:Name="rect_grayRight" Visibility="Collapsed"></Rectangle>
+        <Rectangle Fill="#80000000" x:Name="rect_grayBottom" Visibility="Collapsed"></Rectangle>
+
+
+        <Border x:Name="bdr_handleTopLeft" BorderBrush="Lime" Background="Transparent" Visibility="Collapsed" BorderThickness="1" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" Width="6" Height="6" ></Border>
+        <Border x:Name="bdr_handleTopCenter" BorderBrush="Lime" Background="Transparent" Visibility="Collapsed" BorderThickness="1" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" Width="6" Height="6" ></Border>
+        <Border x:Name="bdr_handleTopRight" BorderBrush="Lime" Background="Transparent" Visibility="Collapsed" BorderThickness="1" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" Width="6" Height="6"></Border>
+
+        <Border x:Name="bdr_handleMidLeft" BorderBrush="Lime" Background="Transparent" Visibility="Collapsed" BorderThickness="1" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" Width="6" Height="6" ></Border>
+        <Border x:Name="bdr_handleMidRight" BorderBrush="Lime" Background="Transparent" Visibility="Collapsed" BorderThickness="1" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" Width="6" Height="6" ></Border>
+
+        <Border x:Name="bdr_handleBottomLeft" BorderBrush="Lime" Background="Transparent" Visibility="Collapsed" BorderThickness="1" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" Width="6" Height="6" ></Border>
+        <Border x:Name="bdr_handleBottomCenter" BorderBrush="Lime" Background="Transparent" Visibility="Collapsed" BorderThickness="1" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" Width="6" Height="6" ></Border>
+        <Border x:Name="bdr_handleBottomRight" BorderBrush="Lime" Background="Transparent" Visibility="Collapsed" BorderThickness="1" 
+                HorizontalAlignment="Left" VerticalAlignment="Top" Width="6" Height="6" ></Border>
+
+        <Rectangle Fill="Transparent" x:Name="rect_touchArea" Cursor="Cross" 
+                   PreviewMouseDown="rect_touchArea_PreviewMouseDown" 
+                   PreviewMouseMove="rect_touchArea_PreviewMouseMove"
+                   PreviewMouseUp="rect_touchArea_PreviewMouseUp"
+                   MouseLeave="rect_touchArea_MouseLeave"   
+                   ></Rectangle>
+    </Grid>
+</Window>

@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="ColorExpertControls\ColorCode.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ColorExpertControls\ColorPanelAllInOne.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ColorExpertControls\ColorPanelARGB.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ColorExpertControls\ColorPanelCache.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ColorExpertControls\ColorPanelCMYK.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ColorExpertControls\ColorPanelCommon.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ColorExpertControls\ColorPanelScreemPixPicker.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ColorExpertControls\ColorPanelSLH.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ColorExpertControls\ColorPanelSVH.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ColorExpertControls\ColorSlider.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ColorExpertControls\ColorSlider2.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ColorExpertDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="FileFolderSelector.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="FontDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MessageBoxEx.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MultiFilesProperties.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="OutputWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ScreenSelectorSimple.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WindowNotify.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="ColorExpertControls\ColorCode.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ColorExpertControls\ColorPanelAllInOne.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ColorExpertControls\ColorPanelARGB.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ColorExpertControls\ColorPanelCache.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ColorExpertControls\ColorPanelCMYK.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ColorExpertControls\ColorPanelCommon.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ColorExpertControls\ColorPanelScreemPixPicker.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ColorExpertControls\ColorPanelSLH.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ColorExpertControls\ColorPanelSVH.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ColorExpertControls\ColorSlider.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ColorExpertControls\ColorSlider2.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ColorExpertDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="FileFolderSelector.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="FontDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MessageBoxEx.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MultiFilesProperties.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="OutputWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ScreenSelectorSimple.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WindowNotify.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
