@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\IconHelper\IconHelper.csproj" />
+    <ProjectReference Include="..\..\..\Common\IOUtilities\IOUtilities.csproj" />
+    <ProjectReference Include="..\..\ExControls\ExControls.csproj" />
+    <ProjectReference Include="..\ExplorerContextMenu\ExplorerContextMenu.csproj" />
+  </ItemGroup>
+
+</Project>

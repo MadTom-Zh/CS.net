@@ -1,0 +1,230 @@
+﻿<Window x:Class="MadTomDev.UI.WindowMenuSettings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:MadTomDev.UI"
+        mc:Ignorable="d"
+        Closed="Window_Closed"
+        Title="{DynamicResource txWindowTitle}" Height="761" Width="800">
+    <Window.Resources>
+
+        <sys:String x:Key="txWindowTitle">Explorer Context Menu Setting</sys:String>
+        <sys:String x:Key="txTabLabel_config">Config</sys:String>
+        <sys:String x:Key="txTabLabel_preview">Preview</sys:String>
+        
+        <sys:String x:Key="txLabel_itemStateWhenDisabled">Item state when disabled</sys:String>
+        <sys:String x:Key="txLabel_disabled">Disabled</sys:String>
+        <sys:String x:Key="txLabel_hidden">Hidden</sys:String>
+        <sys:String x:Key="txDGCol_enable">Enable</sys:String>
+        <sys:String x:Key="txDGCol_whenS">WhenS</sys:String>
+        <sys:String x:Key="txDGCol_whenF">WhenF</sys:String>
+        <sys:String x:Key="txDGCol_name">Name</sys:String>
+        <sys:String x:Key="txDGCol_command">Command</sys:String>
+
+        <sys:String x:Key="txBtn_up">_Up</sys:String>
+        <sys:String x:Key="txBtn_down">_Down</sys:String>
+        <sys:String x:Key="txBtn_delete">Delete</sys:String>
+        <sys:String x:Key="txBtn_TPLT">TPLT...</sys:String>
+
+        <sys:String x:Key="txLabel_itemName">Item Name</sys:String>
+        <sys:String x:Key="txLabel_command">Command</sys:String>
+
+        <sys:String x:Key="txBtn_plus">+</sys:String>
+        <sys:String x:Key="txBtn_update">Update</sys:String>
+        <sys:String x:Key="txBtn_check">Check</sys:String>
+        <!--  \r\n  ==>  &#xD;&#xA;  -->
+        <sys:String x:Key="txLabel_manu" xml:space="preserve">Enable or disable a item in list view, and control availability using WhenS and WhenS;
+Using [new(filename)] to add a "NewFile" command, and you can place a templete file in TPLT (find in your Document folder);
+* File name of TPLT must be same as within script.
+
+Using [newDir(dirname)] to add a "NewDir" command;
+Using "separator" to create a separator;
+Other parameters,
+[date(formate)] to generate a date time string, such as "yyyyMMdd" to get "20221115";
+[pc], name of computer; [user], name of user;
+[parent] means current path, [files] means the files and dirs you selected;
+
+[parentName] get current dir name;
+[file(index)] get full name of file within selection by index;
+[nameOfFile(index)] get name of file within selection by index;
+[nameOfFilePrefix(index)] get prefix name of file within selection by index;
+[nameOfFileSuffix(index)] get suffix name of file within selection by index;
+
+Examples
+Use BandyZip to pack single item, WhenF-FileOrDir, script
+"C:\Program Files\Bandizip\Bandizip.exe" c "[parent]\[nameOfFile(0)].[date(yyyy MMdd HHmmss)].zip" [files]
+
+Use BandyZip to pack multiple items, WhenF-More1, script
+"C:\Program Files\Bandizip\Bandizip.exe" c "[parent]\[parentName] [date(yyyy MMdd HHmmss)].zip" [files]
+
+Use BandyZip to un-pack a zip to current dir, WhenF-File, script
+"C:\Program Files\Bandizip\Bandizip.exe" x -o:"[parent]" "[file(0)]"
+        </sys:String>
+
+        <sys:String x:Key="txLabel_simuFiles">Simu files</sys:String>
+        <sys:String x:Key="txLabel_simuDirs">Simu dirs</sys:String>
+        <sys:String x:Key="txBtn_clickMe">Click me</sys:String>
+        
+        <sys:String x:Key="txBtn_ok">_Ok</sys:String>
+        <sys:String x:Key="txBtn_cancel">_Cancel</sys:String>
+
+        <ObjectDataProvider x:Key="SelectionCountTypesKey" MethodName="GetValues" ObjectType="{x:Type local:SelectionCountTypes}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="{x:Type local:SelectionCountTypes}"></x:Type>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        <ObjectDataProvider x:Key="SelectionFileTypesKey" MethodName="GetValues" ObjectType="{x:Type local:SelectionFileTypes}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type Type="{x:Type local:SelectionFileTypes}"></x:Type>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Grid>
+        <TabControl Margin="10,10,10,44" SelectionChanged="tabControl_SelectionChanged">
+            <TabItem Header="{DynamicResource txTabLabel_config}">
+                <Grid>
+                    <!--不可用项目的处理方法： 隐藏、 禁用-->
+                    <!--标准项目：是否启用，项目名称(或分隔符)-->
+                    <!--项目排序，选中某个项目后，用上下按钮移动-->
+                    <!--新建，文本，命令，参数有 父文件夹[parent]，选中的文件[files]，常用变量[date(format)]，
+                    其中format可以是如yyyyMMdd等，用户名[user],电脑名[pc]
+                    
+                    -->
+
+                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontSize="16" FontWeight="Bold" 
+                               Text="{DynamicResource txLabel_itemStateWhenDisabled}" />
+                    <StackPanel Margin="10,36,0,0" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="299"
+                                Orientation="Horizontal">
+                        <RadioButton x:Name="rb_disable" Margin="8,0,0,0" Content="{DynamicResource txLabel_disabled}"></RadioButton>
+                        <RadioButton x:Name="rb_hide"  Margin="8,0,0,0" Content="{DynamicResource txLabel_hidden}"></RadioButton>
+                    </StackPanel>
+
+                    <DataGrid x:Name="dataGrid" Margin="15,55,79,163" CanUserAddRows="False" CanUserDeleteRows="False"
+                              AutoGenerateColumns="False" SelectionUnit="FullRow" SelectionMode="Single"
+                              SelectionChanged="dataGrid_SelectionChanged"
+                              BeginningEdit="dataGrid_BeginningEdit">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Background" Value="{Binding BrushRow}"></Setter>
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.Header>
+                                    <CheckBox Margin="-4,0,0,-1" Checked="cb_enableAll_checkChanged" Unchecked="cb_enableAll_checkChanged"
+                                              Content="{DynamicResource txDGCol_enable}"></CheckBox>
+                                </DataGridTemplateColumn.Header>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <CheckBox IsChecked="{Binding IsEnabled, Mode=TwoWay}"></CheckBox>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="{DynamicResource txDGCol_whenS}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding SelectionCountType}"></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <ComboBox Margin="-6,-3,0,-3"
+                                            SelectedItem="{Binding SelectionCountType, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource SelectionCountTypesKey}}"></ComboBox>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="{DynamicResource txDGCol_whenF}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding SelectionFileType}"></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <ComboBox Margin="-6,-3,0,-3"
+                                            SelectedItem="{Binding SelectionFileType, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource SelectionFileTypesKey}}"></ComboBox>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="{DynamicResource txDGCol_name}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Width="16" Height="16" Source="{Binding Icon}"></Image>
+                                            <TextBlock Margin="3,0,0,0" Text="{Binding Text}"></TextBlock>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <TextBox Margin="16,-1,0,-1" Text="{Binding Text, Mode=TwoWay}"></TextBox>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="{DynamicResource txDGCol_command}">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Margin="0,0,0,0" Text="{Binding CommandText}"></TextBlock>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <TextBox Margin="-3,-1,0,-1" Text="{Binding CommandText, Mode=TwoWay}"></TextBox>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Button x:Name="btn_up" Click="btn_up_Click"  Content="{DynamicResource txBtn_up}" HorizontalAlignment="Right" Margin="0,115,10,0" VerticalAlignment="Top" Width="69"/>
+                    <Button x:Name="btn_down" Click="btn_down_Click" Content="{DynamicResource txBtn_down}" HorizontalAlignment="Right" Margin="0,140,10,0" VerticalAlignment="Top" Width="69"/>
+                    <Button x:Name="btn_del" Click="btn_del_Click" Content="{DynamicResource txBtn_delete}" HorizontalAlignment="Right" Margin="0,175,10,0" VerticalAlignment="Top" Width="69"/>
+                    <Button x:Name="btn_TPLT_dir" Click="btn_TPLT_dir_Click"  Content="{DynamicResource txBtn_TPLT}" HorizontalAlignment="Right" Margin="0,227,10,0" VerticalAlignment="Top" Width="69"/>
+
+                    <TextBlock HorizontalAlignment="Left" Margin="10,0,0,140" TextWrapping="Wrap" Text="{DynamicResource txLabel_itemName}" VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="tb_itemText" Margin="80,0,84,139" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,0,0,117" TextWrapping="Wrap" Text="{DynamicResource txLabel_command}" VerticalAlignment="Bottom"/>
+                    <TextBox x:Name="tb_command" Margin="80,0,84,116" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom"/>
+
+                    <Button x:Name="btn_add" Click="btn_add_Click" Content="{DynamicResource txBtn_plus}" HorizontalAlignment="Right" Margin="0,0,58,138" VerticalAlignment="Bottom" Width="21"/>
+                    <Button x:Name="btn_update" Click="btn_update_Click" Content="{DynamicResource txBtn_update}" HorizontalAlignment="Right" Margin="0,0,10,138" VerticalAlignment="Bottom" Width="48"/>
+                    <Button x:Name="btn_cmdCheck" Click="btn_cmdCheck_Click" Content="{DynamicResource txBtn_check}" HorizontalAlignment="Right" Margin="0,0,10,115" VerticalAlignment="Bottom" Width="69"/>
+
+                    <ScrollViewer  VerticalAlignment="Bottom" Margin="10,0,10,10" Height="100">
+                        <TextBox TextWrapping="Wrap" AcceptsReturn="True" Text="{DynamicResource txLabel_manu}">
+                        </TextBox>
+                    </ScrollViewer>
+                    <!--<TextBox VerticalAlignment="Bottom" Margin="10,0,10,10" Height="100" Text="abc&#xD;&#xA;def">
+                    </TextBox>-->
+                    <!--enable when x-selected, cmd-->
+
+
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="{DynamicResource txTabLabel_preview}">
+                <Grid>
+
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{DynamicResource txLabel_simuFiles}" VerticalAlignment="Top"
+                        Margin="10,10,0,0" FontSize="16" FontWeight="Bold" />
+                    <TextBox x:Name="tb_simu_files" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top" Width="178" Height="80"
+                             TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"
+                             Text="a.txt&#xD;&#xA;b.txt&#xD;&#xA;c.txt" >
+                    </TextBox>
+                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{DynamicResource txLabel_simuDirs}" VerticalAlignment="Top"
+                        Margin="10,121,0,0" FontSize="16" FontWeight="Bold" />
+                    <TextBox x:Name="tb_simu_dirs" HorizontalAlignment="Left" Margin="10,146,0,0" VerticalAlignment="Top" Width="178" Height="80"
+                        TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"
+                        Text="dir1&#xD;&#xA;dir2" />
+
+                    <Button x:Name="btn_preview" Content="{DynamicResource txBtn_clickMe}" HorizontalAlignment="Left" Margin="206,10,0,0" VerticalAlignment="Top" 
+                            Height="24" Width="60" Click="btn_preview_Click"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button x:Name="btn_ok" Click="btn_ok_Click" Content="{DynamicResource txBtn_ok}" Margin="0,0,100,10" Height="29" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="85"></Button>
+        <Button x:Name="btn_cancle" Click="btn_cancle_Click" Content="{DynamicResource txBtn_cancel}" Margin="0,0,10,10" Height="29" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="85"/>
+    </Grid>
+</Window>

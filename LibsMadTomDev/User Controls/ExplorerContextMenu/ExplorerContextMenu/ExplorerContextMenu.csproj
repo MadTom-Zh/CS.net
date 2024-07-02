@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>MadTomDev.UI</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Common\IconHelper\IconHelper.csproj" />
+    <ProjectReference Include="..\..\..\Common\IOUtilities\IOUtilities.csproj" />
+    <ProjectReference Include="..\..\..\Common\MadTomDevVariables\MadTomDevVariables.csproj" />
+    <ProjectReference Include="..\..\..\Data\SettingXML\SettingXML.csproj" />
+    <ProjectReference Include="..\..\..\Resource\CSharpUser32\CSharpUser32\CSharpUser32.csproj" />
+    <ProjectReference Include="..\..\ExControls\ExControls.csproj" />
+    <ProjectReference Include="..\..\ExDialogs\ExDialogs.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,21 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppTesting"
+        xmlns:UI="clr-namespace:MadTomDev.UI;assembly=ExControls" x:Class="WpfAppTesting.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Button Click="btn1_click" Content="test1" HorizontalAlignment="Left" Margin="35,34,0,0" VerticalAlignment="Top" Height="34" Width="198"/>
+        <Button Click="btn2_click" Content="test2" HorizontalAlignment="Left" Margin="112,130,0,0" VerticalAlignment="Top" Height="34" Width="95"/>
+        <Border HorizontalAlignment="Left" Height="100" Margin="134,217,0,0" VerticalAlignment="Top" Width="100"
+                BorderThickness="1" BorderBrush="Black">
+            <Image x:Name="img" />
+        </Border>
+        <TextBox x:Name="tb_format" HorizontalAlignment="Left" Margin="212,138,0,0" TextWrapping="Wrap" Text="yyyy-mm-dd HH:mm:ss.fff" VerticalAlignment="Top" Width="148"/>
+        <TextBox x:Name="tb_date" HorizontalAlignment="Left" Margin="212,161,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="151"/>
+        <UI:DateTimeUpDown x:Name="testUI" Margin="400,138,0,0" Height="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="150"/>
+    </Grid>
+</Window>
