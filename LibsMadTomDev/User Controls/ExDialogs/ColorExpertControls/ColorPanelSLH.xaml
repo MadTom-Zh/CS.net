@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="MadTomDev.UI.ColorExpertControls.ColorPanelSLH"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MadTomDev.UI.ColorExpertControls"
+             mc:Ignorable="d" MinWidth="300"
+             Loaded="UserControl_Loaded"
+             >
+    <Grid x:Name="grid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="50"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid x:Name="grid_colorPanel" SizeChanged="grid_colorPanel_SizeChanged">
+            <Border Margin="5" BorderThickness="1" BorderBrush="LightGray">
+                <Image x:Name="img_colorPanel" Stretch="Fill"></Image>
+            </Border>
+            <Image x:Name="img_cross" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Top"></Image>
+            <Border x:Name="bdr_img" Margin="6"
+                    Background="Transparent" Cursor="Cross"
+                    PreviewMouseDown="bdr_img_PreviewMouseDown" PreviewMouseMove="bdr_img_PreviewMouseMove" 
+                    PreviewMouseUp="bdr_img_PreviewMouseUp" MouseLeave="bdr_img_MouseLeave">
+            </Border>
+        </Grid>
+        <local:ColorSlider x:Name="colorSlider" Grid.Column="1" HorizontalAlignment="Center" />
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Top">
+            <Slider x:Name="sld_s" Height="18" VerticalAlignment="Top" Margin="10,13,79,0" 
+                    Minimum="0" Maximum="1" SmallChange="0.01" LargeChange="0.1" ValueChanged="sld_ValueChanged"/>
+            <TextBox x:Name="tb_s" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,7,0" 
+                     Text="S ####" TextAlignment="Center" TextWrapping="NoWrap" 
+                     Width="67" FontSize="16"/>
+            <Slider x:Name="sld_l" Height="18" VerticalAlignment="Top" Margin="10,41,79,0" 
+                    Minimum="0" Maximum="1" SmallChange="0.01" LargeChange="0.1" ValueChanged="sld_ValueChanged"/>
+            <TextBox x:Name="tb_l" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,38,7,0" 
+                     Text="L ####" TextAlignment="Center" TextWrapping="NoWrap" 
+                     Width="67" FontSize="16"/>
+            <Slider x:Name="sld_h" Height="18" VerticalAlignment="Top" Margin="10,69,79,10"
+                    Minimum="0" Maximum="359.9" SmallChange="1" LargeChange="10" ValueChanged="sld_ValueChanged"/>
+            <TextBox x:Name="tb_h" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,66,7,0" 
+                     Text="H ####" TextAlignment="Center" TextWrapping="NoWrap" 
+                     Width="67" FontSize="16"/>
+        </Grid>
+
+
+        <Border Grid.Row="2" Grid.ColumnSpan="2" x:Name="bdr_colorCode"></Border>
+        <TextBox Grid.Row="2" Grid.ColumnSpan="2" x:Name="tb_colorCode" TextWrapping="NoWrap" IsReadOnly="True"
+                 HorizontalAlignment="Stretch" TextAlignment="Center" VerticalAlignment="Center" Background="Transparent" FontSize="16"/>
+    </Grid>
+</UserControl>

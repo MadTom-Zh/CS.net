@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="MadTomDev.UI.ColorExpertControls.ColorPanelAllInOne"
+             xmlns:UI="clr-namespace:MadTomDev.UI;assembly=ExControls"
+             xmlns:ColorExpertControls="clr-namespace:MadTomDev.UI.ColorExpertControls"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MadTomDev.UI.ColorExpertControls"    
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignWidth="500">
+    <UserControl.Resources>
+        <sys:String x:Key="txLabel_common">Common</sys:String>
+        <sys:String x:Key="txLabel_colorCode">ColorCode</sys:String>
+        <sys:String x:Key="txLabel_screenPixPicker">ScreenPixPicker</sys:String>
+        <sys:String x:Key="txLabel_colorCache">ColorCache</sys:String>
+    </UserControl.Resources>
+    <StackPanel>
+        <UI:PinchableGroupBox x:Name="pgb_common" IsChecked="True" HeaderText="{DynamicResource txLabel_common}">
+            <ColorExpertControls:ColorPanelCommon />
+        </UI:PinchableGroupBox>
+
+        <UI:PinchableGroupBox x:Name="pgb_CC" IsChecked="False" HeaderText="{DynamicResource txLabel_colorCode}">
+            <ColorExpertControls:ColorCode />
+        </UI:PinchableGroupBox>
+
+        <UI:PinchableGroupBox x:Name="pgb_SVH" IsChecked="False" HeaderText="SVH">
+            <ColorExpertControls:ColorPanelSVH />
+        </UI:PinchableGroupBox>
+        <UI:PinchableGroupBox x:Name="pgb_SLH" IsChecked="False" HeaderText="SLH">
+            <ColorExpertControls:ColorPanelSLH />
+        </UI:PinchableGroupBox>
+        <UI:PinchableGroupBox x:Name="pgb_CMYK" IsChecked="False" HeaderText="CMYK">
+            <ColorExpertControls:ColorPanelCMYK />
+        </UI:PinchableGroupBox>
+        <UI:PinchableGroupBox x:Name="pgb_screenPP" IsChecked="False" HeaderText="{DynamicResource txLabel_screenPixPicker}">
+            <ColorExpertControls:ColorPanelScreenPixPicker/>
+        </UI:PinchableGroupBox>
+        <UI:PinchableGroupBox x:Name="pgb_ARGB" IsChecked="False" HeaderText="ARGB">
+            <ColorExpertControls:ColorPanelARGB/>
+        </UI:PinchableGroupBox>
+        <UI:PinchableGroupBox x:Name="pgb_colorCache" IsChecked="False" HeaderText="{DynamicResource txLabel_colorCache}">
+            <ColorExpertControls:ColorPanelCache />
+        </UI:PinchableGroupBox>
+    </StackPanel>
+</UserControl>

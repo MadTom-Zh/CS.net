@@ -1,0 +1,45 @@
+﻿<UserControl x:Class="MadTomDev.UI.ColorExpertControls.ColorPanelCache"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MadTomDev.UI.ColorExpertControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="300">
+    <UserControl.Resources>
+        <Style x:Key="rbStyle" TargetType="RadioButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Grid Height="30" Width="60" Background="{Binding chessboardBrush}" >
+                            <Rectangle Fill="{Binding backgroundBrush}"></Rectangle>
+                            <TextBlock Text="{Binding Text}" Foreground="{Binding foregroundBrush}"
+                                       FontWeight="Bold" FontSize="16"
+                                       TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            <Border x:Name="bdr" BorderBrush="Gray" BorderThickness="2" Visibility="Collapsed"></Border>
+                            <Border x:Name="bdr2" BorderBrush="White" BorderThickness="2" Visibility="Collapsed" Margin="2"></Border>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter TargetName="bdr" Property="Visibility" Value="Visible"/>
+                                <Setter TargetName="bdr2" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <ItemsControl x:Name="itemsControl" VerticalAlignment="Stretch">
+        <ItemsControl.ItemsPanel>
+            <ItemsPanelTemplate>
+                <WrapPanel Orientation="Horizontal" />
+            </ItemsPanelTemplate>
+        </ItemsControl.ItemsPanel>
+        <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <RadioButton Style="{StaticResource rbStyle}" IsChecked="{Binding isChecked}" ></RadioButton>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+</UserControl>

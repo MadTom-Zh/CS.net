@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="MadTomDev.UI.ColorExpertControls.ColorCode"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MadTomDev.UI.ColorExpertControls"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <sys:String x:Key="txLabel_3bit8colors" >3 bits, 8 colors</sys:String >
+        <sys:String x:Key="txLabel_6bit64colors" >6 bits, 64 colors</sys:String >
+        <sys:String x:Key="txLabel_9bit512colors" >9 bits, 512 colors</sys:String >
+        <sys:String x:Key="txLabel_12bit4096colors" >12 bits, 4096 colors</sys:String >
+        <sys:String x:Key="txLabel_inputCodeHere" >Input code here</sys:String >
+    </UserControl.Resources>
+    <Grid Background="White" Margin="0,10,0,-10">
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Margin="10,10,0,0" TextWrapping="NoWrap" 
+                   Text="{DynamicResource txLabel_3bit8colors}" />
+        <CheckBox x:Name="cb_3bit" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,55,0,0"></CheckBox>
+        <local:ColorSlider x:Name="colorSlider_3bit" Margin="35,36,10,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Margin="10,87,0,0" TextWrapping="NoWrap" 
+                   Text="{DynamicResource txLabel_6bit64colors}" />
+        <CheckBox x:Name="cb_6bit" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,132,0,0"></CheckBox>
+        <local:ColorSlider x:Name="colorSlider_6bit" Margin="35,113,10,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Margin="10,164,0,0" TextWrapping="NoWrap" 
+                   Text="{DynamicResource txLabel_9bit512colors}" />
+        <CheckBox x:Name="cb_9bit" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,209,0,0"></CheckBox>
+        <local:ColorSlider x:Name="colorSlider_9bit" Margin="35,190,10,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Margin="10,241,0,0" TextWrapping="NoWrap" 
+                   Text="{DynamicResource txLabel_12bit4096colors}" />
+        <CheckBox x:Name="cb_12bit" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,286,0,0"></CheckBox>
+        <local:ColorSlider x:Name="colorSlider_12bit" Margin="35,267,10,0" VerticalAlignment="Top"/>
+
+        <Rectangle Fill="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Height="303" Width="20"></Rectangle>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="20" Margin="10,318,0,0" TextWrapping="NoWrap" 
+                   Text="{DynamicResource txLabel_inputCodeHere}" />
+        <TextBox x:Name="tb_clr" FontSize="20" Margin="155,318,10,10" TextWrapping="NoWrap" Text=""
+                 TextChanged="tb_clr_TextChanged"
+                 VerticalAlignment="Top" TextAlignment="Center"/>
+
+    </Grid>
+</UserControl>

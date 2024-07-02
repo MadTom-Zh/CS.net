@@ -1,0 +1,33 @@
+﻿<UserControl x:Class="MadTomDev.UI.ColorExpertControls.ColorPanelARGB"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MadTomDev.UI.ColorExpertControls"
+             mc:Ignorable="d" d:DesignWidth="300">
+    <Grid>
+        <Slider x:Name="sld_r" Margin="10,10,48,0" VerticalAlignment="Top" Minimum="0" Maximum="255"/>
+        <TextBox Margin="0,10,10,0" TextWrapping="NoWrap" Text="255" TextAlignment="Center" 
+                 VerticalAlignment="Top" HorizontalAlignment="Right" Width="33"
+                 x:Name="tb_r" Background="Red" Foreground="White"/>
+        <Slider x:Name="sld_g" Margin="10,33,48,0" VerticalAlignment="Top" Minimum="0" Maximum="255"/>
+        <TextBox Margin="0,33,10,0" TextWrapping="NoWrap" Text="255" TextAlignment="Center" 
+                 VerticalAlignment="Top" HorizontalAlignment="Right" Width="33"
+                 x:Name="tb_g" Background="Green" Foreground="White"/>
+        <Slider x:Name="sld_b" Margin="10,56,48,0" VerticalAlignment="Top" Minimum="0" Maximum="255"/>
+        <TextBox Margin="0,56,10,0" TextWrapping="NoWrap" Text="255" TextAlignment="Center" 
+                 VerticalAlignment="Top" HorizontalAlignment="Right" Width="33"
+                 x:Name="tb_b" Background="Blue" Foreground="White"/>
+        <Slider x:Name="sld_a" Margin="10,79,48,0" VerticalAlignment="Top" Minimum="0" Maximum="255"/>
+        <TextBox Margin="0,79,10,0" TextWrapping="NoWrap" Text="255" TextAlignment="Center"
+                 VerticalAlignment="Top" HorizontalAlignment="Right" Width="33"
+                 x:Name="tb_a"/>
+        <StackPanel Margin="10,102,10,10" VerticalAlignment="Top">
+            <local:ColorSlider2 x:Name="alphaSlider" />
+            <Grid x:Name="grid_bg">
+                <TextBox x:Name="tb_color" TextAlignment="Center" VerticalAlignment="Center" TextWrapping="NoWrap" FontSize="16"></TextBox>
+            </Grid>
+        </StackPanel>
+
+    </Grid>
+</UserControl>
