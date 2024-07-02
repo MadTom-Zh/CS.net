@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>MadTomDev.UI</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\arrowDown.png" />
+    <None Remove="Images\arrowUp.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Common\IconHelper\IconHelper.csproj" />
+    <ProjectReference Include="..\QuickGraphics\QuickGraphics.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\arrowDown.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\arrowUp.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="BtnDropDown.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="NavigateBar.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="BtnDropDown.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="NavigateBar.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>

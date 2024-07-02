@@ -1,0 +1,90 @@
+﻿<Window xmlns:UI="clr-namespace:MadTomDev.UI;assembly=ExControls"  x:Class="MadTomDev.UI.WindowHelper"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MadTomDev.UI"
+        mc:Ignorable="d"
+        Title="Helper - GadgetsAlone  by MadTom 2023 0725" Height="450" Width="400">
+    <TabControl>
+        <TabItem Header="General">
+            <Grid>
+                <Border BorderThickness="1" BorderBrush="Gray" Margin="10,10,10,10">
+                    <TextBlock><Run Language="zh-cn" Text="Welcome to use Gadgets Alone helper."/><LineBreak/><Run Language="zh-cn"/><LineBreak/><Run Language="zh-cn" Text="To start a Gadget function, use command line in CMD or other process programs, like:"/><LineBreak/><Run Language="zh-cn"/><LineBreak/><Run Language="zh-cn" Text="exeFilePath functionName [arg1] [arg2] ..."/><LineBreak/><Run Language="zh-cn"/><LineBreak/><Run Language="zh-cn" Text="More information, see other tab pages."/></TextBlock>
+                </Border>
+            </Grid>
+        </TabItem>
+        <TabItem Header="MessageBox">
+            <Grid>
+                <Border Height="43" VerticalAlignment="Top" Margin="10,10,10,0" BorderThickness="1" BorderBrush="Gray">
+                    <TextBlock TextWrapping="Wrap" Text="Show a message-box, can be on top."/>
+                </Border>
+
+                <TextBlock HorizontalAlignment="Left" Margin="10,59,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top"/>
+                <TextBox x:Name="tb_msgTitle" TextChanged="tb_msgTitle_TextChanged"
+                         Margin="77,58,10,0" TextWrapping="Wrap" Text="[New Message]" VerticalAlignment="Top"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="10,85,0,0" TextWrapping="Wrap" Text="Content" VerticalAlignment="Top"/>
+                <TextBox x:Name="tb_msgContent" TextChanged="tb_msgContent_TextChanged" AcceptsReturn="True"
+                         VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto"
+                         Margin="77,84,10,0" TextWrapping="Wrap" Text="[Content here.]" VerticalAlignment="Top" Height="66"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="10,155,0,0" TextWrapping="Wrap" Text="Image" VerticalAlignment="Top" />
+                <Border Margin="77,155,10,0" Height="35" VerticalAlignment="Top" BorderThickness="1" BorderBrush="Gray">
+                    <WrapPanel x:Name="panel_msgImages" />
+                </Border>
+
+                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Button" VerticalAlignment="Center" />
+                <Border Margin="77,195,10,0" Height="27" VerticalAlignment="Top" BorderThickness="1" BorderBrush="Gray">
+                    <WrapPanel x:Name="panel_msgButtons" />
+                </Border>
+
+                <CheckBox x:Name="cb_msgTopMost" Checked="cb_msgTopMost_CheckChanged" Unchecked="cb_msgTopMost_CheckChanged"
+                          Content="TopMost" HorizontalAlignment="Left" Margin="10,227,0,0" VerticalAlignment="Top" Width="123"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="10,247,0,0" TextWrapping="Wrap" Text="Cmd Line" VerticalAlignment="Top" />
+                <Button x:Name="btn_msgStart" Click="btn_msgStart_Click" Content="Start..." Margin="0,242,10,0" HorizontalAlignment="Right" Width="60" Height="21" VerticalAlignment="Top"></Button>
+                <Border Margin="10,268,10,10" BorderThickness="1" BorderBrush="Gray">
+                    <TextBox x:Name="tb_msgCmd" TextWrapping="Wrap" IsReadOnly="True"></TextBox>
+                </Border>
+
+            </Grid>
+        </TabItem>
+        <TabItem Header="DelayStart">
+            <Grid>
+                <Border Height="43" VerticalAlignment="Top" Margin="10,10,10,0" BorderThickness="1" BorderBrush="Gray">
+                    <TextBlock TextWrapping="Wrap" Text="Delay start a program using CMD, set a waiting time length, with or without a random delay."/>
+                </Border>
+
+                <TextBlock HorizontalAlignment="Left" Margin="10,58,0,0" TextWrapping="Wrap" Text="Title" VerticalAlignment="Top"/>
+                <TextBox x:Name="tb_delayStartTitle" HorizontalAlignment="Left" Margin="77,58,0,0" TextWrapping="Wrap" Text="[Title]" VerticalAlignment="Top" Width="110"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="10,82,0,0" TextWrapping="Wrap" Text="Delay Fix" VerticalAlignment="Top"/>
+                <UI:TimeSpanUpDown x:Name="tsud_delayStartFix" VerticalAlignment="Top" Margin="77,81,0,0" 
+                                   Value="00:00:10"
+                                   HorizontalAlignment="Left" Width="110" CanValueNegative="False"
+                                   ValueChanged="tsud_delayStartFix_ValueChanged"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" Text="Delay Rand" VerticalAlignment="Top"/>
+                <UI:TimeSpanUpDown x:Name="tsud_delayStartRand" VerticalAlignment="Top" Margin="77,104,0,0" 
+                                   HorizontalAlignment="Left" Width="110" CanValueNegative="False"
+                                   ValueChanged="tsud_delayStartRand_ValueChanged"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="10,128,0,0" TextWrapping="Wrap" Text="Cmds for delay start" VerticalAlignment="Top"/>
+                <CheckBox x:Name="cb_delayStartShowCmdWindow" Content="Show cmd window" IsChecked="True" 
+                          HorizontalAlignment="Left" Margin="143,129,0,0" VerticalAlignment="Top"
+                          Checked="cb_delayStartShowCmdWindow_CheckChangeded" Unchecked="cb_delayStartShowCmdWindow_CheckChangeded"/>
+                <TextBox x:Name="tb_delayStartCmdsToStart" TextChanged="tb_delayStartCmdsToStart_TextChanged" AcceptsReturn="True"
+                         VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto"
+                    Margin="77,150,10,0" TextWrapping="Wrap" Text="[Commands here.]" VerticalAlignment="Top" Height="87"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="10,247,0,0" TextWrapping="Wrap" Text="Cmd Line" VerticalAlignment="Top"/>
+                <Button x:Name="btn_delayStartStart" Click="btn_delayStartStart_Click" Content="Start..." Margin="0,242,10,0" 
+                        HorizontalAlignment="Right" Width="60" Height="21" VerticalAlignment="Top"/>
+                <Border Margin="10,268,10,10" BorderThickness="1" BorderBrush="Gray">
+                    <TextBox x:Name="tb_delayStartCmd" TextWrapping="Wrap" IsReadOnly="True"></TextBox>
+                </Border>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>
