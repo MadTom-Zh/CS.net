@@ -1,0 +1,173 @@
+﻿<Window x:Class="MadTomDev.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MadTomDev.App"
+        mc:Ignorable="d" ShowInTaskbar="False" StateChanged="Window_StateChanged"
+        Title="SimpleTaskScheduler2  by MadTom 2024 0415" Height="450" Width="800">
+    <TabControl x:Name="tabControl" SelectionChanged="TabControl_SelectionChanged">
+        <!--
+        任务清单
+        倒计时  启动时间  所属计划  周期  动作
+        仅当窗口激活且在此页时，才按跟随时钟刷新清单和倒计时
+        -->
+        <TabItem>
+            <TabItem.Header>
+                <TextBlock Text="Task List" FontSize="18" FontWeight="Bold" Padding="6"></TextBlock>
+            </TabItem.Header>
+            <TabItem.Content>
+                <Grid>
+                    <DataGrid x:Name="dg_taskList" IsReadOnly="True" AutoGenerateColumns="False"
+                              CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
+                              SelectionUnit="FullRow" VerticalScrollBarVisibility="Visible"
+                              PreviewKeyDown="dg_task_PreviewKeyDown" Margin="0,0,0,31">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Count Down" Binding="{Binding CountDownTx}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Start Time" Binding="{Binding StartTimeTx}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Title" Binding="{Binding Title}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Cycle" Binding="{Binding CycleDescription}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="Cmd Description" Binding="{Binding CmdDescription}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,0,0,10" TextWrapping="Wrap" Text="* Press &quot;Del&quot; to remove rows;" VerticalAlignment="Bottom"/>
+
+                </Grid>
+            </TabItem.Content>
+        </TabItem>
+        <!--
+        计划
+        序号  名称  最近时间  动作
+        -->
+        <TabItem >
+            <TabItem.Header>
+                <TextBlock Text="Scheduler" FontSize="18" FontWeight="Bold" Padding="6"></TextBlock>
+            </TabItem.Header>
+            <TabItem.Content>
+                <Grid>
+                    <ScrollViewer VerticalScrollBarVisibility="Visible" Margin="0,0,98,0">
+                        <StackPanel CanVerticallyScroll="True">
+                            <TextBlock Text="One Time" FontWeight="Bold" Padding="3"></TextBlock>
+                            <DataGrid x:Name="dg_scheOneTime" IsReadOnly="True" AutoGenerateColumns="False"
+                                      CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
+                                      SelectionUnit="FullRow"
+                                      GotFocus="dg_sche_GotFocus"
+                                      PreviewMouseDoubleClick="dg_sche_PreviewMouseDoubleClick"
+                                      PreviewKeyDown="dg_sche_PreviewKeyDown">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="No." Binding="{Binding NoTx}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Title" Binding="{Binding Title}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Next Start Time" Binding="{Binding NextTimeTx}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Cmd Description" Binding="{Binding CmdDescription}"></DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <TextBlock Text="Every Day" FontWeight="Bold" Padding="3,6,3,3"></TextBlock>
+                            <DataGrid x:Name="dg_scheEveryDay" IsReadOnly="True" AutoGenerateColumns="False"
+                                      CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
+                                      SelectionUnit="FullRow"
+                                      GotFocus="dg_sche_GotFocus"
+                                      PreviewMouseDoubleClick="dg_sche_PreviewMouseDoubleClick"
+                                      PreviewKeyDown="dg_sche_PreviewKeyDown">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="No." Binding="{Binding NoTx}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Title" Binding="{Binding Title}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Next Start Time" Binding="{Binding NextTimeTx}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Cmd Description" Binding="{Binding CmdDescription}"></DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <TextBlock Text="Every Week" FontWeight="Bold" Padding="3,6,3,3"></TextBlock>
+                            <DataGrid x:Name="dg_scheEveryWeek" IsReadOnly="True" AutoGenerateColumns="False"
+                                      CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
+                                      SelectionUnit="FullRow"
+                                      GotFocus="dg_sche_GotFocus"
+                                      PreviewMouseDoubleClick="dg_sche_PreviewMouseDoubleClick"
+                                      PreviewKeyDown="dg_sche_PreviewKeyDown">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="No." Binding="{Binding NoTx}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Title" Binding="{Binding Title}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Next Start Time" Binding="{Binding NextTimeTx}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Cmd Description" Binding="{Binding CmdDescription}"></DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <TextBlock Text="Every Month" FontWeight="Bold" Padding="3,6,3,3"></TextBlock>
+                            <DataGrid x:Name="dg_scheEveryMonth" IsReadOnly="True" AutoGenerateColumns="False"
+                                      CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
+                                      SelectionUnit="FullRow"
+                                      GotFocus="dg_sche_GotFocus"
+                                      PreviewMouseDoubleClick="dg_sche_PreviewMouseDoubleClick"
+                                      PreviewKeyDown="dg_sche_PreviewKeyDown">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="No." Binding="{Binding NoTx}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Title" Binding="{Binding Title}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Next Start Time" Binding="{Binding NextTimeTx}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Cmd Description" Binding="{Binding CmdDescription}"></DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                            <TextBlock Text="Other Interval" FontWeight="Bold" Padding="3,6,3,3"></TextBlock>
+                            <DataGrid x:Name="dg_scheOtherInterval" IsReadOnly="True" AutoGenerateColumns="False"
+                                      CanUserSortColumns="False" CanUserAddRows="False" CanUserDeleteRows="False"
+                                      SelectionUnit="FullRow"
+                                      GotFocus="dg_sche_GotFocus"
+                                      PreviewMouseDoubleClick="dg_sche_PreviewMouseDoubleClick"
+                                      PreviewKeyDown="dg_sche_PreviewKeyDown">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="No." Binding="{Binding NoTx}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Title" Binding="{Binding Title}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Next Start Time" Binding="{Binding NextTimeTx}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Cmd Description" Binding="{Binding CmdDescription}"></DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </StackPanel>
+                    </ScrollViewer>
+                    <Button x:Name="btn_scheNew" Click="btn_scheNew_Click" Content="New..." HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="73" Height="24"/>
+                    <Button x:Name="btn_scheModify" Click="btn_scheModify_Click" Content="Modify..." HorizontalAlignment="Right" Margin="0,39,10,0" VerticalAlignment="Top" Width="73" Height="24"/>
+                    <Button x:Name="btn_scheDelete" Click="btn_scheDelete_Click" Content="Delete..." HorizontalAlignment="Right" Margin="0,68,10,0" VerticalAlignment="Top" Width="73" Height="24"/>
+                    <Button x:Name="btn_scheMoveUp" Click="btn_scheMoveUp_Click" Content="Move Up" HorizontalAlignment="Right" Margin="0,111,10,0" VerticalAlignment="Top" Width="73" Height="24"/>
+                    <Button x:Name="btn_scheMoveDown" Click="btn_scheMoveDown_Click" Content="Move Down" HorizontalAlignment="Right" Margin="0,140,10,0" VerticalAlignment="Top" Width="73" Height="24"/>
+                    
+                    <Button x:Name="btn_scheApply" Click="btn_scheApply_Click"  Content="Apply" HorizontalAlignment="Right" Margin="0,0,10,39" VerticalAlignment="Bottom" Width="73" Height="24"/>
+                    <Button x:Name="btn_scheCancel" Click="btn_scheCancel_Click"  Content="Cancel" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="73" Height="24"/>
+                </Grid>
+            </TabItem.Content>
+        </TabItem>
+        <TabItem >
+            <TabItem.Header>
+                <TextBlock Text="Settings" FontSize="18" FontWeight="Bold" Padding="6"></TextBlock>
+            </TabItem.Header>
+            <TabItem.Content>
+                <Grid>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Timer Interval" VerticalAlignment="Top"/>
+
+                    <TextBox x:Name="tb_settingTimerInterval" HorizontalAlignment="Left" Margin="108,9,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="50"
+                             TextChanged="tb_settingTimerInterval_TextChanged"></TextBox>
+                    <Slider x:Name="sld_settingTimerInterval" HorizontalAlignment="Left" Margin="174,9,0,0" VerticalAlignment="Top" Width="300"
+                            Minimum="1" Maximum="600" SmallChange="1" LargeChange="30"
+                            ValueChanged="sld_settingTimerInterval_ValueChanged"/>
+
+
+                    <TextBlock HorizontalAlignment="Left" Margin="10,40,0,0" TextWrapping="Wrap" Text="TaskList Days" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tb_settingTaskListDays" HorizontalAlignment="Left" Margin="108,39,0,0" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Top" Width="50"
+                        TextChanged="tb_settingTaskListDays_TextChanged"/>
+                    <Slider x:Name="sld_settingTaskListDays" HorizontalAlignment="Left" Margin="174,39,0,0" VerticalAlignment="Top" Width="300"
+                        Minimum="1" Maximum="400" SmallChange="1" LargeChange="30"
+                        ValueChanged="sld_settingTaskListDays_ValueChanged"/>
+                </Grid>
+            </TabItem.Content>
+        </TabItem>
+        <TabItem >
+            <TabItem.Header>
+                <TextBlock Text="Manual" FontSize="18" FontWeight="Bold" Padding="6"></TextBlock>
+            </TabItem.Header>
+            <TabItem.Content>
+                <ScrollViewer VerticalScrollBarVisibility="Visible">
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Padding="3" FontWeight="Bold" Text="How to use"></TextBlock>
+                        <TextBlock Padding="3"><Run Text="Set your periodic task "/><Run Text="in Sceduler, all task will be re-generated after New, Modify or Delete"/><Run Language="zh-cn" Text="."/><LineBreak/><Run Text="In Task List,"/><Run Text=" you can delete a task to pervent it to start. (Remember, edit Schedule will re-gen all Tasks.)"/><LineBreak/><Run Language="zh-cn" Text="* After a task start, new task may generate after the time of the last task."/><LineBreak/><Run Language="zh-cn" Text="In Settings, you can set timer cycle and/or task list length (in days);"/></TextBlock>
+                        <TextBlock Padding="3" FontWeight="Bold" Text="Contect"></TextBlock>
+                        <TextBlock Padding="3"><Run Text="QQ 357716599"/><LineBreak/><Run Text="Email 13_______91@163.com"/><Run Language="zh-cn" Text="  (there're 7 '_'s )"/></TextBlock>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem.Content>
+        </TabItem>
+    </TabControl>
+</Window>

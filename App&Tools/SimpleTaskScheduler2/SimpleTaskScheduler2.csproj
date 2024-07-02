@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>MadTomDev.App</RootNamespace>
+    <UseWindowsForms>True</UseWindowsForms>
+    <ApplicationIcon>simepleTaskScheduler.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="simepleTaskScheduler.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="simepleTaskScheduler.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\LibsMadTomDev\Common\Logger\Logger.csproj" />
+    <ProjectReference Include="..\..\LibsMadTomDev\Common\MadTomDevVariables\MadTomDevVariables.csproj" />
+    <ProjectReference Include="..\..\LibsMadTomDev\User Controls\ExDialogs\ExDialogs.csproj" />
+  </ItemGroup>
+
+</Project>
