@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Dev.net\App&amp;Tools\QuickView\QuickView\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="TitledMedia.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WindowDebug.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WindowHelp.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WindowSetting.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="TitledMedia.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WindowDebug.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WindowHelp.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WindowSetting.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
