@@ -1,0 +1,272 @@
+﻿<UserControl xmlns:UI="clr-namespace:MadTomDev.UI;assembly=ExControls"
+             x:Class="MadTomDev.App.Ctrls.Explorer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:root="clr-namespace:MadTomDev.App"
+             xmlns:TVBase="clr-namespace:MadTomDev.UI.VMBase;assembly=ExControls"
+             xmlns:VM="clr-namespace:MadTomDev.App.VM"
+             mc:Ignorable="d" Padding="2"
+             d:DesignHeight="300" d:DesignWidth="500"
+             Focusable="False"
+             PreviewMouseDown="UserControl_PreviewMouseDown">
+    <UserControl.Resources>
+        <Style x:Key="style_historyBtn" BasedOn="{StaticResource style_btn_transparent}" TargetType="Button">
+            <Style.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" Value="0.3"></Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+
+        <!--左侧 顶端 按钮-->
+        <DockPanel Height="18" VerticalAlignment="Top">
+            <Button x:Name="btn_style" Click="btn_style_Click" Width="20" DockPanel.Dock="Right" 
+                    Style="{StaticResource style_btn_transparent}">
+                <Image Source="{x:Static root:StaticResource.UIIconStyle16}" ></Image>
+            </Button>
+
+            <Button x:Name="btn_back" Click="btn_back_Click" IsEnabled="False" 
+                    Style="{StaticResource style_historyBtn}" Width="22">
+                <Image Source="/Images/navBack.png"></Image>
+            </Button>
+            <Button x:Name="btn_fore" Click="btn_fore_Click" IsEnabled="False" 
+                    Style="{StaticResource style_historyBtn}" Width="22">
+                <Image Source="/Images/navFore.png"></Image>
+            </Button>
+            <Button x:Name="btn_dropDown" Click="btn_dropDown_Click" IsEnabled="False" 
+                    Style="{StaticResource style_historyBtn}" Width="22"
+                    Content="{x:Static root:StaticResource.ShapeTriangleSmallDown}">
+                <Button.ContextMenu>
+                    <ContextMenu x:Name="cMenu_historyDropDown"></ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+            <Button x:Name="btn_up" Click="btn_up_Click" IsEnabled="False"
+                    Style="{StaticResource style_historyBtn}" Width="22">
+                <Image Source="/Images/navUp.png"></Image>
+            </Button>
+            <TextBlock></TextBlock>
+        </DockPanel>
+
+        <TreeView x:Name="treeView" Margin="0,18,0,18"
+                  Background="Transparent"
+                  ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"
+                  SelectedItemChanged="treeView_SelectedItemChanged"
+                  
+                  PreviewMouseDown="treeView_PreviewMouseDown"
+                  PreviewMouseUp="treeView_PreviewMouseUp"
+                  PreviewMouseMove="treeView_PreviewMouseMove"
+                  PreviewMouseWheel="treeView_PreviewMouseWheel"
+                  
+                  AllowDrop="True"
+                  PreviewDragEnter="treeView_PreviewDragEnter"
+                  
+                  PreviewKeyDown="treeView_PreviewKeyDown"
+                  PreviewKeyUp="treeView_PreviewKeyUp"
+                  ScrollBar.Scroll="treeView_Scroll"
+                  
+                  GotFocus="treeView_GotFocus"
+                  >
+            <TreeView.ItemContainerStyle>
+                <Style TargetType="TreeViewItem">
+                    <!--<Setter Property="VM:TreeViewBringSelectedItemIntoViewBehavior.IsBringSelectedIntoView" Value="True"/>-->
+                    <Setter Property="IsExpanded" Value="{Binding Path=IsExpanded, Mode=TwoWay}"/>
+                    <Setter Property="IsSelected" Value="{Binding Path=IsSelected, Mode=TwoWay}"/>
+                </Style>
+            </TreeView.ItemContainerStyle>
+            <TreeView.Resources>
+
+                <!--loading-->
+                <HierarchicalDataTemplate DataType="{x:Type TVBase:TreeViewNodeModelBase}">
+                    <TextBlock Padding="1" Text="{Binding Text, Mode=OneWay}" FontFamily="consolas" FontSize="12"></TextBlock>
+                </HierarchicalDataTemplate>
+
+                <!--no navigate-->
+                <HierarchicalDataTemplate DataType="{x:Type VM:TreeViewModelContainer}" ItemsSource="{Binding Path=Children}">
+                    <StackPanel Margin="1" Orientation="Horizontal">
+                        <Image Source="{Binding Icon, Mode=OneWay}"></Image>
+                        <TextBlock Text="{Binding Text, Mode=OneWay}" FontFamily="consolas" FontSize="12" Padding="4,0,0,0"></TextBlock>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+
+                <!--goto url-->
+                <HierarchicalDataTemplate DataType="{x:Type VM:TreeViewModelLink}" ItemsSource="{Binding Path=Children}">
+                    <StackPanel Margin="1" Orientation="Horizontal">
+                        <Image Source="{Binding Icon, Mode=OneWay}"></Image>
+                        <TextBlock Text="{Binding Text, Mode=OneWay}" FontFamily="consolas" FontSize="12" Padding="4,0,0,0"></TextBlock>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+
+                <!--like container, no navigate-->
+
+                <HierarchicalDataTemplate DataType="{x:Type VM:TreeViewModelDisk}" ItemsSource="{Binding Path=Children}">
+                    <StackPanel Margin="1" Orientation="Horizontal">
+                        <Image Source="{Binding Icon, Mode=OneWay}"></Image>
+                        <TextBlock Text="{Binding TextWithLabel, Mode=OneWay}" FontFamily="consolas" FontSize="12" Padding="4,0,0,0"></TextBlock>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+
+                <HierarchicalDataTemplate DataType="{x:Type VM:TreeViewModelDir}" ItemsSource="{Binding Path=Children}">
+                    <StackPanel Margin="1" Orientation="Horizontal">
+                        <Image Source="{Binding Icon, Mode=OneWay}"></Image>
+                        <TextBlock Text="{Binding Text, Mode=OneWay}" FontFamily="consolas" FontSize="12" Padding="4,0,0,0"></TextBlock>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+
+                <!--<HierarchicalDataTemplate DataType="{x:Type VM:TreeViewModelNetWork}" ItemsSource="{Binding Path=Children}">
+                    <StackPanel Margin="1" Orientation="Horizontal">
+                        <Image Source="{Binding Icon, Mode=OneWay}"></Image>
+                        <TextBlock Text="{Binding Text, Mode=OneWay}" Padding="4,0,0,0"></TextBlock>
+                    </StackPanel>
+                </HierarchicalDataTemplate>-->
+
+                <HierarchicalDataTemplate DataType="{x:Type VM:TreeViewModelHost}" ItemsSource="{Binding Path=Children}">
+                    <StackPanel Margin="1" Orientation="Horizontal">
+                        <Image Source="{Binding Icon, Mode=OneWay}"></Image>
+                        <TextBlock Text="{Binding Text, Mode=OneWay}" FontFamily="consolas" FontSize="12" Padding="4,0,0,0"></TextBlock>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+        <Rectangle x:Name="rect_treeView_dropTarget" HorizontalAlignment="Left" VerticalAlignment="Top"
+                   Fill="#640000FF" Visibility="Collapsed"
+                   ></Rectangle>
+        <Rectangle x:Name="rect_treeView_dropZone" Margin="0,18,17,35" Visibility="Collapsed"
+                   Fill="Transparent"
+                   AllowDrop="True"
+                   PreviewDragEnter="rect_treeView_dropZone_PreviewDragEnter"
+                   PreviewDragOver="rect_treeView_dropZone_PreviewDragOver"
+                   PreviewDragLeave="rect_treeView_dropZone_PreviewDragLeave"
+                   PreviewDrop="rect_treeView_dropZone_PreviewDrop"
+                   PreviewMouseMove="rect_treeView_dropZone_PreviewMouseMove"
+                   >
+        </Rectangle>
+
+
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="5" Margin="0,2,0,20" Background="#80F0F0F0"/>
+
+        <!--右侧 顶部 地址栏-->
+        <UI:NavigateBar x:Name="navigateBar" Grid.Column="1" Margin="5,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+
+        <!--色块动画  复制、剪切文件，文件变动-->
+        <Canvas x:Name="canvas_colorBlocks" Grid.Column="1" HorizontalAlignment="Left" Width="10" Margin="5,18,0,18">
+        </Canvas>
+        
+        <!--列表，因为会显示不同的列，所以不做样板预设，列均为后台生成-->
+        <DataGrid x:Name="dataGrid" Grid.Column="1" Margin="5,18,0,18" Padding="16,0,0,0"
+                  AutoGenerateColumns="False"
+                  Background="Transparent" Focusable="True"
+                  VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"
+                  FontFamily="Consolas" SelectionUnit="FullRow" HeadersVisibility="Column"
+                  VerticalContentAlignment="Center"
+                  CanUserSortColumns="True" IsReadOnly="True"
+                  CanUserAddRows="False" CanUserDeleteRows="False"
+                  GridLinesVisibility="None"
+                                                      
+                  SelectionChanged="dataGrid_SelectionChanged"
+                  ScrollBar.Scroll="dataGrid_Scroll"
+                  PreviewMouseWheel="dataGrid_PreviewMouseWheel"
+                  
+                  PreviewMouseDown="dataGrid_PreviewMouseDown"
+                  PreviewMouseUp="dataGrid_PreviewMouseUp"
+                  PreviewMouseMove="dataGrid_PreviewMouseMove"
+                  MouseLeave="dataGrid_MouseLeave"
+                  
+                  AllowDrop="True"
+                  PreviewDragEnter="dataGrid_PreviewDragEnter"
+                  PreviewDrop="dataGrid_PreviewDrop"
+                  PreviewDragLeave="dataGrid_PreviewDragLeave"
+                  
+                  PreviewTextInput="dataGrid_PreviewTextInput"                  
+                  PreviewKeyDown="dataGrid_PreviewKeyDown"
+                  PreviewKeyUp="dataGrid_PreviewKeyUp"
+                  
+                  GotFocus="dataGrid_GotFocus">
+            <DataGrid.RowBackground>
+                <SolidColorBrush Color="Transparent"></SolidColorBrush>
+            </DataGrid.RowBackground>
+            <DataGrid.Columns>
+
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <TextBlock x:Name="tb_datagrid_loading" Visibility="Visible"
+                   Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="14,27,0,0"
+                   Background="LightGray">Loading...</TextBlock>
+
+        <Rectangle x:Name="rect_dataGrid_selectZone" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"
+                   PreviewMouseMove="rect_dataGrid_selectZone_PreviewMouseMove" PreviewMouseUp="rect_dataGrid_selectZone_PreviewMouseUp"
+                   MouseLeave="rect_dataGrid_selectZone_MouseLeave"
+                   Fill="#6400008B" Visibility="Collapsed"></Rectangle>
+
+        <Rectangle x:Name="rect_dataGrid_dropZone" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top"
+                   Fill="#640000FF" Visibility="Collapsed"
+                   ></Rectangle>
+
+        <Grid x:Name="grid_dataGrid_dropZone" Grid.Column="1" Margin="5,18,0,18" Background="Transparent" Visibility="Collapsed"
+              AllowDrop="True"
+              PreviewDragEnter="grid_dataGrid_dropZone_PreviewDragEnter"
+              PreviewDragOver="grid_dataGrid_dropZone_PreviewDragOver"
+              PreviewDragLeave="grid_dataGrid_dropZone_PreviewDragLeave"
+              PreviewDrop="grid_dataGrid_dropZone_PreviewDrop"
+              PreviewMouseMove="grid_dataGrid_dropZone_PreviewMouseMove"
+              >
+        </Grid>
+        <TextBox x:Name="tb_rename" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,40,0,0" Width="60"
+                 Visibility="Collapsed" FontFamily="consolas" FontSize="12"
+                 PreviewKeyDown="tb_rename_PreviewKeyDown" LostFocus="tb_rename_LostFocus" TextChanged="tb_rename_TextChanged"
+                 >
+        </TextBox>
+        <Popup x:Name="ppu_text" IsOpen="False" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Grid>
+                <TextBlock x:Name="tb_ppu_text"></TextBlock>
+            </Grid>
+        </Popup>
+
+        <Grid Height="18" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Background="#80F0F0F0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition Width="24"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <TextBlock x:Name="tb_state_l1" VerticalAlignment="Center" TextWrapping="NoWrap" Margin="5,0,0,0">## items</TextBlock>
+            <TextBlock x:Name="tb_state_l2" VerticalAlignment="Center" TextWrapping="NoWrap" Margin="5,0,0,0" Grid.Column="1"># dir, # files</TextBlock>
+            <TextBlock x:Name="tb_state_l3" VerticalAlignment="Center" TextWrapping="NoWrap" Margin="5,0,0,0" Grid.Column="2">file name</TextBlock>
+            <Grid Grid.Column="4" Margin="1,1,1,1">
+                <TextBlock x:Name="tb_state_r1" Margin="3,0,3,0">info1</TextBlock>
+                <Border BorderBrush="#809F9F9F" BorderThickness="1,1,0,0"></Border>
+                <Border BorderBrush="#80FFFFFF" BorderThickness="0,0,1,1"></Border>
+            </Grid>
+            <Grid Grid.Column="5" Margin="1,1,1,1">
+                <TextBlock x:Name="tb_state_r2" Margin="3,0,3,0">info2</TextBlock>
+                <Border BorderBrush="#809F9F9F" BorderThickness="1,1,0,0"></Border>
+                <Border BorderBrush="#80FFFFFF" BorderThickness="0,0,1,1"></Border>
+            </Grid>
+            <Grid Grid.Column="6" Margin="1,1,1,1">
+                <TextBlock x:Name="tb_state_r3" Margin="3,0,3,0">info3</TextBlock>
+                <Border BorderBrush="#809F9F9F" BorderThickness="1,1,0,0"></Border>
+                <Border BorderBrush="#80FFFFFF" BorderThickness="0,0,1,1"></Border>
+            </Grid>
+
+            <!--<Border Grid.ColumnSpan="7" BorderBrush=""></Border>-->
+        </Grid>
+
+        <Rectangle x:Name="rect_topGlass" Grid.ColumnSpan="2" Fill="Transparent" Cursor="AppStarting" Visibility="Collapsed"></Rectangle>
+        <Button x:Name="btn_close" 
+                Click="btn_close_Click" MouseDoubleClick="btn_close_MouseDoubleClick" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="18" Width="24" FontSize="9" FontWeight="Bold" Foreground="DarkRed">X</Button>
+    </Grid>
+</UserControl>

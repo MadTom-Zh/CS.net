@@ -1,0 +1,83 @@
+﻿<UserControl x:Class="MadTomDev.App.Ctrls.BtnTransferTask"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MadTomDev.App.Ctrls"
+             xmlns:root="clr-namespace:MadTomDev.App"
+             mc:Ignorable="d" 
+             d:DesignHeight="32" d:DesignWidth="60">
+
+    <Button x:Name="btn" BorderBrush="DarkCyan" Background="Transparent"
+            PreviewMouseDoubleClick="Button_PreviewMouseDoubleClick" ContextMenuOpening="btn_ContextMenuOpening"
+            >
+        <!--
+        双击按钮 强行开始、暂停、继续；
+        右键菜单中，给出开始、暂停，和取消；
+        右键菜单中，给出传输进度信息，全部文件传输数量进度，当前文件传输进度，（按钮表面为总数据量进度）；
+        
+        按钮边框颜色， 复制-绿色，移动-蓝色，删除-红色；
+        按钮填充为进度条，颜色为边框颜色的浅色；
+        
+        左侧为源磁盘图标，右侧为目标磁盘图标，当同磁盘操作，如重命名，同盘移动，删除，则只显示左侧图标；
+        
+        -->
+        <Button.Content>
+            <Grid Width="56" Height="28" Background="LightGray">
+                <Rectangle x:Name="rect_progress" HorizontalAlignment="Left" Width="0" Fill="LightCyan"></Rectangle>
+                <Image x:Name="img_leftIcon" Width="16" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,2,0,0"></Image>
+                <Image x:Name="img_rightIcon" Width="16" Height="16" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,2,2,0"></Image>
+                <Rectangle x:Name="rect_idcLeft" Fill="LightGreen" Width="6" Height="6" RadiusX="3" RadiusY="3"
+                           HorizontalAlignment="Left" VerticalAlignment="Top" Margin="12,12,0,0"></Rectangle>
+                <Rectangle x:Name="rect_idcRight" Fill="LightGreen" Width="6" Height="6" RadiusX="3" RadiusY="3"
+                           HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,12,2,0"></Rectangle>
+                <TextBlock x:Name="tb_left" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                           MaxWidth="20" TextTrimming="CharacterEllipsis" Margin="-36,0,0,0">Wy</TextBlock>
+                <TextBlock x:Name="tb_right" FontSize="9" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                           MaxWidth="20" TextTrimming="CharacterEllipsis" Margin="36,0,0,0">host</TextBlock>
+                <Rectangle x:Name="rect_err" Fill="OrangeRed" Opacity="0"></Rectangle>
+            </Grid>
+        </Button.Content>
+        <Button.ContextMenu >
+            <ContextMenu x:Name="cMenu" Opened="ContextMenu_Opened" Closed="ContextMenu_Closed">
+                <MenuItem x:Name="menuItem_play" Click="menuItem_play_Click" Header="Start/Resume">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Play.png"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="menuItem_pause" Click="menuItem_pause_Click" Header="Pause">
+                    <MenuItem.Icon>
+                        <Image Source="/Images/Pause.png"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator></Separator>
+                <MenuItem x:Name="menuItem_cancel" Click="menuItem_cancel_Click" Header="Cancel" >
+                    <MenuItem.Icon>
+                        <Image Source="{x:Static root:StaticResource.UIIconStop16}"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <Separator></Separator>
+                <Separator></Separator>
+                <StackPanel Focusable="False" IsEnabled="False" Orientation="Vertical" Margin="0,0,-45,0">
+                    <TextBlock Text="{DynamicResource txBtnTask_filesComplete}"></TextBlock>
+                    <Grid Width="200" Margin="0,0,0,2">
+                        <ProgressBar x:Name="pgb_files" Minimum="0" Value="0" Maximum="1"></ProgressBar>
+                        <TextBlock x:Name="tb_files" Text="{DynamicResource txBtnTask_waiting}" TextAlignment="Center"></TextBlock>
+                    </Grid>
+                </StackPanel>
+                <Separator></Separator>
+                <StackPanel Focusable="False" IsEnabled="False" Orientation="Vertical" Margin="0,0,-45,0">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="0,0,5,0" Text="{DynamicResource txBtnTask_curFileNSpeed}"></TextBlock>
+                        <TextBlock x:Name="tb_speed"></TextBlock>
+                    </StackPanel>
+                    <TextBlock x:Name="tb_curFileName" Text="{DynamicResource txBtnTask_waiting}"></TextBlock>
+                    <Grid Width="200" Margin="0,0,0,2" HorizontalAlignment="Left">
+                        <ProgressBar x:Name="pgb_curFileSize" Minimum="0" Value="0" Maximum="1"></ProgressBar>
+                        <TextBlock x:Name="tb_curFileSize" TextAlignment="Center" Text="{DynamicResource txBtnTask_waiting}"></TextBlock>
+                    </Grid>
+                </StackPanel>
+            </ContextMenu>
+        </Button.ContextMenu>
+    </Button>
+</UserControl>

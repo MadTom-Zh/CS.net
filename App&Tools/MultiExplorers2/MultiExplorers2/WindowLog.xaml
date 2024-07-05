@@ -1,0 +1,47 @@
+﻿<Window x:Class="MadTomDev.App.WindowLog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MadTomDev.App"
+        mc:Ignorable="d"
+        Initialized="Window_Initialized" Closed="Window_Closed"
+        Title="{DynamicResource txTitle_viewLog}" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="dataGrid" Margin="0,0,0,45" AutoGenerateColumns="False"
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="{DynamicResource txDGCol_time}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding timeTx}" VerticalAlignment="Center"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="{DynamicResource txDGCol_icon}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Width="16" Height="16" Source="{Binding icon}"></Image>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="{DynamicResource txDGCol_title}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding title}" VerticalAlignment="Center"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="{DynamicResource txDGCol_description}">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding description}" VerticalAlignment="Center"></TextBlock>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="{DynamicResource txBtn_viewFiles}" Click="btn_viewFiles_click" HorizontalAlignment="Right" Margin="0,0,71,10" VerticalAlignment="Bottom" Height="24" Width="85"/>
+        <Button Content="{DynamicResource txBtn_ok}" Click="btn_ok_click" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Height="24" Width="56"/>
+    </Grid>
+</Window>

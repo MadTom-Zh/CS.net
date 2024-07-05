@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Dev\Dev.net\App&amp;Tools\MultiExplorers2\MultiExplorers2\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Ctrls\BtnDirAccess.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Ctrls\BtnLayout.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Ctrls\BtnTransferTask.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Ctrls\CellControlPanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Ctrls\Explorer.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WindowExplorerBG.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WindowHandleRest.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WindowLayoutBtnStyle.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WindowLog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WindowSetting.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Ctrls\BtnDirAccess.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Ctrls\BtnLayout.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Ctrls\BtnTransferTask.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Ctrls\CellControlPanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Ctrls\Explorer.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ResourceDictionarys\Labels.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WindowExplorerBG.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WindowHandleRest.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WindowLayoutBtnStyle.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WindowLog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WindowSetting.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,84 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows7.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>MadTomDev.App</RootNamespace>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2022.8.30</FileVersion>
+    <ApplicationIcon>Images\Monitor4_48.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Docs\Help.mht" />
+    <None Remove="Images\AddCol.png" />
+    <None Remove="Images\AddLayout.png" />
+    <None Remove="Images\AddRow.png" />
+    <None Remove="Images\ArrowRight32.png" />
+    <None Remove="Images\navBack.png" />
+    <None Remove="Images\navFore.png" />
+    <None Remove="Images\navUp.png" />
+    <None Remove="Images\Pause.png" />
+    <None Remove="Images\Play.png" />
+    <None Remove="Images\Plus32.png" />
+    <None Remove="Images\SmbMinus.png" />
+    <None Remove="Images\SmbPlus.png" />
+    <None Remove="Languages\en-US.txt" />
+    <None Remove="Languages\Help.mht" />
+    <None Remove="Languages\zh-CN.txt" />
+    <None Remove="Languages\zh-Hans-CN.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Docs\Help.mht">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Monitor4_48.ico" />
+    <Content Include="Languages\en-US.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Languages\zh-CN.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Languages\zh-Hans-CN.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\AddLayout.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Common\IconHelper\IconHelper.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Common\IOUtilities\IOUtilities.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Common\Logger\Logger.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Common\MadTomDevVariables\MadTomDevVariables.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Common\MouseNKeyboardHelper\MouseNKeyboardHelper.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Common\SimpleStringHelper\SimpleStringHelper.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Common\ViewHistory\ViewHistory.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Data\SettingsLanguage\SettingsLanguage.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Data\SettingXML\SettingXML.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Resource\DriveDetector\DriveDetector\DriveDetector.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\User Controls\ExControls\ExControls.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\User Controls\ExDialogs\ExDialogs.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\User Controls\ExplorerContextMenu\ExplorerContextMenu\ExplorerContextMenu.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\User Controls\QuickGraphics\QuickGraphics.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\AddCol.png" />
+    <Resource Include="Images\AddRow.png" />
+    <Resource Include="Images\ArrowRight32.png" />
+    <Resource Include="Images\navBack.png" />
+    <Resource Include="Images\navFore.png" />
+    <Resource Include="Images\navUp.png" />
+    <Resource Include="Images\Pause.png" />
+    <Resource Include="Images\Play.png" />
+    <Resource Include="Images\Plus32.png" />
+    <Resource Include="Images\SmbMinus.png" />
+    <Resource Include="Images\SmbPlus.png" />
+  </ItemGroup>
+
+</Project>

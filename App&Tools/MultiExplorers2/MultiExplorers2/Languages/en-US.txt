@@ -1,0 +1,218 @@
+
+txMenu_explorer	Explorer...
+txMenu_clearRecycleBin	Clear Bin
+txMenu_setting	Setting...
+txMenu_help	Help...
+txMenu_info	Info...
+txMenu_addRow	Add Row
+txMenu_addCol	Add Col
+txStatus_task	Tasks:
+
+txBtnAccess_loading	Loading...
+txBtnTask_filesComplete	Files complete
+txBtnTask_waiting	Waiting...
+txBtnTask_curFileNSpeed	Current file(MB), speed
+txCellPanel_doubleClickToActive	Double click to active
+
+txBtnLayout_layout	Layout {0}
+
+txMsg_cantFindPath	Can't find path
+txMsg_cantFindInPathContent	No target{NewLine}{0}{NewLine}in path{NewLine}{1}
+txMsg_stop	Stop
+txMsg_pathNotExist	Path not exists({0}).
+txMsg_transferError	Transfer error!
+
+txViewCol_name	Name
+txViewCol_linkAddress	Link Address
+txViewCol_diskType	DiskType
+txViewCol_diskFormat	DiskFormat
+txViewCol_totalSize	TotalSize
+txViewCol_FreeSpace	FreeSize
+txViewCol_usedPersent	Usage
+
+txViewCol_type	Type
+txViewCol_size	Size
+txViewCol_attributes	Attributes
+txViewCol_modifyTime	ModifyTime
+
+txViewCol_ipv4	IPv4
+txViewCol_ipv6	IPv6
+
+txStatus_releaseTo	Release to [{0}]
+txStatus_holdCtrlToDup	Hold "Ctrl" to duplicate.
+txStatus_inSameDir	In same dir.
+txStatus_notSupport	Not support.
+txStatus_cantDragToFile	Can't drag to file.
+txStatus_someFiles	{0} files
+txStatus_someDirs	{0} dirs
+txStatus_filePref	[F]{0}
+txStatus_dirPref	[D]{0}
+txStatus_capNUsed	Cap {0} {1}, used {2}
+txStatus_free	Free {0}
+txStatus_available	Available {0}
+txStatus_someDisks	{0} discs
+txStatus_someHosts	{0} hosts
+txStatus_someLinks	{0} links
+txRename_illegalChars	Can't use in a name with: {0}
+
+txLog_drivePlugedIn	Drive pluged in {0}.
+txLog_drivePlugedOut	Drive pluged out {0}.
+txLog_removeUnwantedFS	Filesystem watchers, remove unwanted({0}).
+txLog_FSStopAll	Filesystem watchers, stop all.
+txLog_FSStartPath	Filesystem watchers, start "{0}".
+txLog_FSFileCreated	File created
+txLog_FSFileDeleted	File deleted
+txLog_FSFileChanged	File changed
+txLog_FSFileRenamed	File renamed
+txLog_FSFileError	File error
+txLog_cantChangeDriveLabel	Can't change drive label
+txLog_general	General
+txLog_loadDir	LoadDir
+txLog_plugIn	PlugIn
+txLog_plugOut	PlugOut
+
+txLog_idNType	ID: {0}, {1}
+txLog_sources	, sources:
+txLog_targets	, targets:
+txLog_transferAdded	TransferAdded
+txLog_transferDetails	TransferDetails
+txLog_taskIdNType	TaskID:{0}, {1}
+
+txLog_scanningFiles	Scanning files
+txLog_transStart	Transfer start
+txLog_transPaused	Transfer paused
+txLog_transResumed	Transfer resumed
+txLog_transComplete	Transfer complete
+txLog_transCanceled	Transfer canceled
+
+txLog_needUserAttention	Need user attention
+txLog_handleSource	{0} source {1}
+txLog_handleDeleteSource	, deleteSource {0}
+txLog_handleSur	, sur {0}
+txLog_handleTar	, tar {0}
+txLog_handleTargetFullName	, targetFullName {0}
+txLog_handleNewName	, newName {0}
+txLog_handleError	, Error {0}
+
+txLog_appSaveSettingBeforeExiting	App save setting before exiting.
+
+txMsg_warning	Warning
+txMsg_questionDeleteRemote	Files not on local will be delete permanently!{NewLine}{NewLine}Are you sure to continue?
+txMsg_questionShiftDelete	With *Shift*, all files will be delete permanently!{NewLine}{NewLine}Are you sure to continue?
+txMsg_questionRecycleBinItemsDelete	Files in RecycleBin will be delete permanently!{NewLine}{NewLine}Are you sure to continue?
+
+txLog_ME2Started	MultiExplorers2 started.
+txLog_ME2WindowMinimized	MultiExplorers2 window minimized.
+txLog_ME2WindowRestored_	MultiExplorers2 window restored({0}).
+txLog_ME2Closing	MultiExplorers2 closing.
+txLog_ME2RunExplorer	MultiExplorers2 run (external) explorer.
+txLog_ME2ClearRecycleBin	MultiExplorers2 clear recycle bin.
+txLog_ME2StartSetting	MultiExplorers2 start setting.
+txLog_ME2CheckInfo	MultiExplorers2 check info.
+txLog_ME2EventLevelup	MultiExplorers2 event level-up.
+
+txTitle_changeExpBGColor	Change Explorer BG Color
+txLabel_background	Background
+
+txTitle_handleRest	Handle Rest
+txDGCol_taskType	TaskType
+txDGCol_sourceNTarget	Source&amp;Target
+txDGCol_size	Size
+txDGCol_modifyTime	ModifyTime
+txDGCol_problem	Problem
+txDGCol_newName	NewName
+txDGCol_combineOver	CombineOver
+txDGCol_deleteSource	DeleteSource
+txDGCol_skip	Skip
+txLabel_handleRestTip	Click source or target button to open a new explorer;
+txBtn_ok	_Ok
+txBtn_cancelSkipAll	_Cancel(skip all)
+
+txTitle_setLayoutBtnStyle	Set Layout Button Style
+txLabel_chooseCharacter	Character
+txLabel_character	Character
+txLabel_custom	Custom
+txLabel_tooltip	ToolTip
+
+txLabel_size	Size
+txBtn_cancel	_Cancel
+
+txTitle_viewLog	View Log
+txDGCol_time	Time
+txDGCol_icon	Icon
+txDGCol_title	Title
+txDGCol_description	Description
+txBtn_viewFiles	_View files...
+
+txLog_checkLogFiles	log check files.
+txLog_closeWindowNClearCache	log window close N' clear cache.
+
+txTitle_settings	Settings
+txLabel_fileSystemWatcher	File System Watcher
+txLabel_fileSystemWatcherInfo	One watcher for each path, explorers with same path using one watcher; When app minimized, watchers will be disabled; No matter using wtchers or not, press "F5" to refresh;
+txLabel_sameNameDirsHandleMethods	Same name dirs handle methods
+txLabel_sameNameFilesHandleMethods	Same name files handle methods
+txRb_newName	NewName
+txRb_combine	Combine
+txRb_overWrite	Overwrite
+txRb_ask	Ask
+txRb_skip	Skip
+
+txLabel_log	Log
+txCb_general	Gemeral
+txCb_appError	AppError
+txCb_storageAccess	StorageAccess
+txCb_drivePlug	DrivePlug
+
+txCb_transTask	TransTask
+txCb_transDetails	TransDetails
+txCb_transError	TransError
+txCb_fileSystemWatcher	FileSystemWatcher
+
+txLabel_languages	Languages
+
+txLog_settingApply	Setting apply.
+txLog_settingCancel	Setting cancel.
+
+txLabel_common	Common
+txLabel_screenPixPicker	ScreenPixPicker
+txLabel_colorCache	ColorCache        
+txLabel_rectangle	Rectangle
+txLabel_cricular	Circular
+txLabel_tubeToTip	Tube... *Tip
+txLabel_3bit8colors	3 bits, 8 colors
+txLabel_6bit64colors	6 bits, 64 colors
+txLabel_9bit512colors	9 bits, 512 colors
+txLabel_12bit4096colors	12 bits, 4096 colors
+txLabel_inputCodeHere	Input code here
+
+txWindowTitle	Explorer Context Menu Setting
+txTabLabel_config	Config
+txTabLabel_preview	Preview
+
+txLabel_itemStateWhenDisabled	Item state when disabled
+txLabel_disabled	Disabled
+txLabel_hidden	Hidden
+txDGCol_enable	Enable
+txDGCol_whenS	WhenS
+txDGCol_whenF	WhenF
+txDGCol_name	Name
+txDGCol_command	Command
+
+txBtn_up	_Up
+txBtn_down	_Down
+txBtn_delete	Delete
+txBtn_TPLT	TPLT...
+
+txLabel_itemName	Item Name
+txLabel_command	Command
+
+txBtn_plus	+
+txBtn_update	Update
+txBtn_check	Check
+
+txLabel_manu	Enable or disable a item in list view, and control availability using WhenS and WhenS;{NewLine}Using [new(filename)] to add a "NewFile" command, and you can place a templete file in TPLT (find in your Document folder);{NewLine}* File name of TPLT must be same as within script.{NewLine}{NewLine}Using [newDir(dirname)] to add a "NewDir" command;{NewLine}Using "separator" to create a separator;{NewLine}Other parameters,{NewLine}[date(formate)] to generate a date time string, such as "yyyyMMdd" to get "20221115";{NewLine}[pc], name of computer; [user], name of user;{NewLine}[parent] means current path, [files] means the files and dirs you selected;{NewLine}{NewLine}[parentName] get current dir name;{NewLine}[file(index)] get full name of file within selection by index;{NewLine}[nameOfFile(index)] get name of file within selection by index;{NewLine}[nameOfFilePrefix(index)] get prefix name of file within selection by index;{NewLine}[nameOfFileSuffix(index)] get suffix name of file within selection by index;{NewLine}{NewLine}Examples{NewLine}Use BandyZip to pack single item, WhenF-FileOrDir, script{NewLine}"C:\Program Files\Bandizip\Bandizip.exe" c "[parent]\[nameOfFile(0)].[date(yyyy MMdd HHmmss)].zip" [files]{NewLine}{NewLine}Use BandyZip to pack multiple items, WhenF-More1, script{NewLine}"C:\Program Files\Bandizip\Bandizip.exe" c "[parent]\[parentName] [date(yyyy MMdd HHmmss)].zip" [files]{NewLine}{NewLine}Use BandyZip to un-pack a zip to current dir, WhenF-File, script{NewLine}"C:\Program Files\Bandizip\Bandizip.exe" x -o:"[parent]" "[file(0)]"{NewLine}
+
+txLabel_simuFiles	Simu files
+txLabel_simuDirs	Simu dirs
+txBtn_clickMe	Click me

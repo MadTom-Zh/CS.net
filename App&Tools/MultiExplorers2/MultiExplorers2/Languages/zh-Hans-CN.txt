@@ -1,0 +1,219 @@
+
+txMenu_explorer	浏览器...
+txMenu_clearRecycleBin	清空桶
+txMenu_setting	设定...
+txMenu_help	帮助...
+txMenu_info	信息...
+txMenu_addRow	增加行
+txMenu_addCol	增加列
+txStatus_task	任务:
+
+txBtnAccess_loading	加载中...
+txBtnTask_filesComplete	完成文件
+txBtnTask_waiting	等待中...
+txBtnTask_curFileNSpeed	当前文件(MB), 速度
+txCellPanel_doubleClickToActive	双击激活
+
+txBtnLayout_layout	布局 {0}
+
+txMsg_cantFindPath	无法找到路径
+txMsg_cantFindInPathContent	项目{NewLine}{0}{NewLine}在路径中找不到{NewLine}{1}
+txMsg_stop	停止
+txMsg_pathNotExist	路径不存在({0}).
+txMsg_transferError	传输错误!
+
+txViewCol_name	名称
+txViewCol_linkAddress	链接地址
+txViewCol_diskType	磁盘类型
+txViewCol_diskFormat	磁盘格式
+txViewCol_totalSize	总容量
+txViewCol_FreeSpace	可用空间
+txViewCol_usedPersent	已使用
+
+txViewCol_type	类型
+txViewCol_size	大小
+txViewCol_attributes	属性
+txViewCol_modifyTime	修改时间
+
+txViewCol_ipv4	IPv4
+txViewCol_ipv6	IPv6
+
+txStatus_releaseTo	释放来 [{0}]
+txStatus_holdCtrlToDup	按住 "Ctrl" 来复制.
+txStatus_inSameDir	在相同文件夹中.
+txStatus_notSupport	不支持.
+txStatus_cantDragToFile	无法拖动到文件.
+txStatus_someFiles	{0} 个文件
+txStatus_someDirs	{0} 个文件夹
+txStatus_filePref	[F]{0}
+txStatus_dirPref	[D]{0}
+txStatus_capNUsed	容量 {0} {1}, 已用 {2}
+txStatus_free	空闲 {0}
+txStatus_available	可用 {0}
+txStatus_someDisks	{0} 个磁盘
+txStatus_someHosts	{0} 个主机
+txStatus_someLinks	{0} 个链接
+txRename_illegalChars	名称中不能出现: {0}
+
+txLog_drivePlugedIn	已插入磁盘 {0}.
+txLog_drivePlugedOut	已拔出磁盘 {0}.
+txLog_removeUnwantedFS	文件系统监视器, 移除不用的({0}).
+txLog_FSStopAll	文件系统监视器, 全部停止.
+txLog_FSStartPath	文件系统监视器, 启动 "{0}".
+txLog_FSFileCreated	文件已创建
+txLog_FSFileDeleted	文件已删除
+txLog_FSFileChanged	文件已变更
+txLog_FSFileRenamed	文件已重命名
+txLog_FSFileError	文件读取出错
+txLog_cantChangeDriveLabel	无法变更磁盘标签
+txLog_general	常规
+txLog_loadDir	读取目录
+txLog_plugIn	插入
+txLog_plugOut	拔出
+
+txLog_idNType	ID: {0}, {1}
+txLog_sources	, 源项目:
+txLog_targets	, 目标项目:
+txLog_transferAdded	增加传输任务
+txLog_transferDetails	传输任务细节
+txLog_taskIdNType	任务ID:{0}, {1}
+
+txLog_scanningFiles	扫描文件
+txLog_transStart	传输开始
+txLog_transPaused	传输暂停
+txLog_transResumed	传输回复
+txLog_transComplete	传输完成
+txLog_transCanceled	传输取消
+
+txLog_needUserAttention	需要用户注意
+txLog_handleSource	{0} 源 {1}
+txLog_handleDeleteSource	, 删除源 {0}
+txLog_handleSur	, i源 {0}
+txLog_handleTar	, i目标 {0}
+txLog_handleTargetFullName	, 目标完整名称 {0}
+txLog_handleNewName	, 新名称 {0}
+txLog_handleError	, 错误 {0}
+
+txLog_appSaveSettingBeforeExiting	退出应用前保存设置.
+
+txMsg_warning	警告
+txMsg_questionDeleteRemote	非本地文件将会永久性删除!{NewLine}{NewLine}确定要继续吗?
+txMsg_questionShiftDelete	按住*Shift*时, 选中项目将被永久性删除!{NewLine}{NewLine}确定要继续吗?
+txMsg_questionRecycleBinItemsDelete	回收桶中的文件将被永久删除!{NewLine}{NewLine}确定要继续吗?
+
+txLog_ME2Started	MultiExplorers2 已启动.
+txLog_ME2WindowMinimized	MultiExplorers2 窗口最小化.
+txLog_ME2WindowRestored_	MultiExplorers2 窗口恢复({0}).
+txLog_ME2Closing	MultiExplorers2 关闭.
+txLog_ME2RunExplorer	MultiExplorers2 运行(外部)浏览器.
+txLog_ME2ClearRecycleBin	MultiExplorers2 清空回收桶
+txLog_ME2StartSetting	MultiExplorers2 开始设定.
+txLog_ME2CheckInfo	MultiExplorers2 查看信息.
+txLog_ME2EventLevelup	MultiExplorers2 事件升级.
+
+txTitle_changeExpBGColor	修改浏览器背景颜色
+txLabel_background	背景
+
+txTitle_handleRest	处理剩余项
+txDGCol_taskType	任务类型
+txDGCol_sourceNTarget	源和目标
+txDGCol_size	大小
+txDGCol_modifyTime	修改时间
+txDGCol_problem	问题
+txDGCol_newName	新名称
+txDGCol_combineOver	合并覆盖
+txDGCol_deleteSource	删除源
+txDGCol_skip	跳过
+txLabel_handleRestTip	点击源或目标按钮来打开浏览器;
+txBtn_ok	(_O)确定
+txBtn_cancelSkipAll	(_C)取消(全部跳过)
+
+txTitle_setLayoutBtnStyle	设置布局按钮样式
+txLabel_chooseCharacter	文字
+txLabel_character	文字
+txLabel_custom	自定义
+txLabel_tooltip	提示
+
+txLabel_size	大小
+txBtn_cancel	(_C)取消
+
+txTitle_viewLog	查看日志
+txDGCol_time	时间
+txDGCol_icon	图标
+txDGCol_title	标题
+txDGCol_description	描述
+txBtn_viewFiles	(_V)查看文件...
+
+txLog_checkLogFiles	查看日志文件.
+txLog_closeWindowNClearCache	关闭日志窗口并清空缓存.
+
+txTitle_settings	设定
+txLabel_fileSystemWatcher	文件系统监视器
+txLabel_fileSystemWatcherInfo	每路径使用一个监视器, 多个显示相同路径的窗口公用一个监视器; 当窗口最小化时，所有监视器将停用; 无论是否使用监视器，按"F5"强行刷新;
+txLabel_sameNameDirsHandleMethods	同名 文件夹 处理方法
+txLabel_sameNameFilesHandleMethods	同名 文件 处理方法
+txRb_newName	新编名称
+txRb_combine	合并
+txRb_overWrite	覆盖
+txRb_ask	询问
+txRb_skip	跳过
+
+txLabel_log	日志
+txCb_general	常规
+txCb_appError	程序报错
+txCb_storageAccess	存储访问
+txCb_drivePlug	磁盘插拔
+
+txCb_transTask	传输任务
+txCb_transDetails	传输细节
+txCb_transError	传输错误
+txCb_fileSystemWatcher	文件系统监视器
+
+txLabel_languages	语言
+
+txLog_settingApply	应用设定.
+txLog_settingCancel	取消设定.
+
+txLabel_common	常规
+txLabel_screenPixPicker	屏幕取点
+txLabel_colorCache	颜色缓存        
+txLabel_rectangle	矩形
+txLabel_cricular	圆形
+txLabel_tubeToTip	吸管... *点取
+txLabel_3bit8colors	3位, 8种颜色
+txLabel_6bit64colors	6位, 64种颜色
+txLabel_9bit512colors	9位, 512种颜色
+txLabel_12bit4096colors	12位, 4096种颜色
+txLabel_inputCodeHere	在这输入代码
+
+txWindowTitle	浏览器右键菜单配置
+txTabLabel_config	配置
+txTabLabel_preview	浏览
+
+txLabel_itemStateWhenDisabled	禁用时的项目状态
+txLabel_disabled	禁用
+txLabel_hidden	隐藏
+txDGCol_enable	启用
+txDGCol_whenS	选择条件
+txDGCol_whenF	文件条件
+txDGCol_name	名称
+txDGCol_command	命令
+
+txBtn_up	(_U)上移
+txBtn_down	(_D)下移
+txBtn_delete	删除
+txBtn_TPLT	TPLT...
+
+txLabel_itemName	项目名
+txLabel_command	命令
+
+txBtn_plus	+
+txBtn_update	更新
+txBtn_check	检查
+
+txLabel_manu	生效条件，项目选择，file代表1文件，files代表多文件，一次类推，如果不满足，则不启用；文件类型，any代表任意文件，sameExt代表相同后缀文件；{NewLine}{NewLine}命令中[new(filename)]代表从指定模板文件新建文件，其中模板文件在设置文件夹的TPLT文件夹中（需要手动添加），[newDir(dirname)]创建文件夹；名称用separator代表分割线；{NewLine}{NewLine}[parent]代表当前目录，不带双引号，[files]代表选中的文件和文件夹，带双引号，[date(format)]代表当前时间的格式字符串，format为格式，如yyyyMMdd输出20220720；{NewLine}{NewLine}[pc]代表当前电脑名称，[user]代表当前用户名称；{NewLine}{NewLine}例子：{NewLine}单个文件或文件夹，单个文件或单个文件夹FileOrDir{NewLine}"C:\Program Files\Bandizip\Bandizip.exe" c "[parent]\[nameOfFile(0)].[date(yyyy MMdd HHmmss)].zip" [files]{NewLine}{NewLine}多文件和文件夹，多于1个文件或文件夹More1{NewLine}"C:\Program Files\Bandizip\Bandizip.exe" c "[parent]\[parentName] [date(yyyy MMdd HHmmss)].zip" [files]{NewLine}{NewLine}解压zip到制定目录，单个文件File{NewLine}"C:\Program Files\Bandizip\Bandizip.exe" x -o:"[parent]" "[file(0)]"{NewLine}
+
+txLabel_simuFiles	模拟文件
+txLabel_simuDirs	模拟目录
+txBtn_clickMe	点我
+

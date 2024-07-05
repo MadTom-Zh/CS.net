@@ -1,0 +1,123 @@
+﻿<Window x:Class="MadTomDev.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MadTomDev.App"
+        xmlns:Ctrls="clr-namespace:MadTomDev.App.Ctrls"
+        mc:Ignorable="d"
+        Title="MultiExplorers2  by MadTom 2024 0329"
+        WindowState="Maximized"
+        Height="600" Width="1280"        
+        StateChanged="Window_StateChanged"
+        Deactivated="Window_Deactivated"
+        Closing="Window_Closing"
+        >
+    <Window.Resources>
+        <ContextMenu x:Key="cMenu_layoutBtns">
+            <MenuItem Header="_Update" Click="MenuItem_layoutBtns_update_Click"></MenuItem>
+            <Separator></Separator>
+            <MenuItem Header="_Appearance..." Click="MenuItem_layoutBtns_appearance_Click"></MenuItem>
+            <Separator></Separator>
+            <MenuItem Header="_Delete" Click="MenuItem_layoutBtns_delete_Click"></MenuItem>
+        </ContextMenu>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="174*"/>
+            <RowDefinition Height="34"/>
+        </Grid.RowDefinitions>
+
+
+        <!--顶部 左侧 按钮-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" >
+            <Button x:Name="btn_explorer" Click="btn_explorer_Click"
+                    Margin="2,0,2,0" Style="{StaticResource style_btn_transparent}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{x:Static local:StaticResource.UIIconExplorer32}" MinWidth="32" Stretch="None"></Image>
+                    <TextBlock VerticalAlignment="Center" Margin="1,0,3,0" Text="{DynamicResource txMenu_explorer}"></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btn_clearRecycleBin" Click="btn_clearRecycleBin_Click" IsEnabled="False"
+                    Margin="2,0,2,0" Style="{StaticResource style_btn_transparent}">
+                <StackPanel Orientation="Horizontal">
+                    <Image x:Name="img_clearRecycleBin" Source="{x:Static local:StaticResource.UIIconRecycleBinEmpty32}" MinWidth="32" Stretch="None"></Image>
+                    <TextBlock VerticalAlignment="Center" Margin="1,0,3,0" Text="{DynamicResource txMenu_clearRecycleBin}"></TextBlock>
+                </StackPanel>
+            </Button>
+            <!--<Button x:Name="btn_dtStates" Click="btn_dtStates_Click" Style="{DynamicResource style_btn_transparent}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{x:Static local:StaticResource.UIIconDiskTaskStates32}" MinWidth="32" Stretch="None"></Image>
+                    <TextBlock VerticalAlignment="Center" Margin="1,0,3,0">Disk/Task States...</TextBlock>
+                </StackPanel>
+            </Button>-->
+            <Button x:Name="btn_setting" Click="btn_setting_Click" 
+                    Margin="2,0,2,0" Style="{StaticResource style_btn_transparent}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{x:Static local:StaticResource.UIIconSetting32}" MinWidth="32" Stretch="None"></Image>
+                    <TextBlock Text="{DynamicResource txMenu_setting}" VerticalAlignment="Center" Margin="1,0,3,0"></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btn_help" Click="btn_help_Click"
+                    Margin="2,0,2,0" Style="{StaticResource style_btn_transparent}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{x:Static local:StaticResource.UIIconHelp32}" MinWidth="32" Stretch="None"></Image>
+                    <TextBlock Text="{DynamicResource txMenu_help}" VerticalAlignment="Center" Margin="1,0,3,0"></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btn_info" Click="btn_info_Click"
+                    Margin="2,0,2,0" Style="{StaticResource style_btn_transparent}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="{x:Static local:StaticResource.UIIconInfo32}" MinWidth="32" Stretch="None"></Image>
+                    <TextBlock Text="{DynamicResource txMenu_info}" VerticalAlignment="Center" Margin="1,0,3,0"></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btn_debug" Visibility="Hidden" Click="btn_debug_Click">
+                debug...
+            </Button>
+        </StackPanel>
+        <!--顶部 右侧 按钮-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <!--布局 按钮-->
+            <StackPanel x:Name="sPanel_layoutBtns" x:FieldModifier="public" Orientation="Horizontal"
+                        PreviewMouseDown="sPanel_layoutBtns_PreviewMouseDown"
+                        PreviewMouseMove="sPanel_layoutBtns_PreviewMouseMove"
+                        PreviewMouseUp="sPanel_layoutBtns_PreviewMouseUp"
+                        MouseLeave="sPanel_layoutBtns_MouseLeave"
+                        ></StackPanel>
+            <Button x:Name="btn_addLayout" Click="btn_addLayout_Click" ToolTip="Save(new) Layout" Style="{StaticResource style_btn_transparent}">
+                <Image Source="/Images/AddLayout.png"></Image>
+            </Button>
+
+            <Border BorderBrush="LightGray" BorderThickness="1,0,0,0" Margin="2"></Border>
+
+            <!--增加 行，列 按钮-->
+            <Button x:Name="btn_addRow" Click="btn_addRow_Click" Style="{StaticResource style_btn_transparent}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/AddRow.png" MinWidth="32" Stretch="None"></Image>
+                    <TextBlock Text="{DynamicResource txMenu_addRow}" VerticalAlignment="Center" Margin="1,0,3,0"></TextBlock>
+                </StackPanel>
+            </Button>
+            <Button x:Name="btn_addCol" Click="btn_addCol_Click" Style="{StaticResource style_btn_transparent}">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Images/AddCol.png" MinWidth="32" Stretch="None"></Image>
+                    <TextBlock Text="{DynamicResource txMenu_addCol}" VerticalAlignment="Center" Margin="1,0,3,0"></TextBlock>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+
+        <!--中部 浏览器-->
+        <UniformGrid x:Name="uGrid" x:FieldModifier="public" Grid.Row="1" Rows="1" Columns="1">
+        </UniformGrid>
+
+
+        <!--底部 任务队列-->
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <TextBlock Text="{DynamicResource txStatus_task}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="4,0,4,0"></TextBlock>
+            <StackPanel x:Name="sPanel_taskBtns" Orientation="Horizontal"></StackPanel>
+        </StackPanel>
+
+    </Grid>
+</Window>

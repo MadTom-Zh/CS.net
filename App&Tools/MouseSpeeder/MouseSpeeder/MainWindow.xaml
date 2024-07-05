@@ -1,0 +1,35 @@
+﻿<Window x:Class="MouseSpeeder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MouseSpeeder"
+        mc:Ignorable="d"
+        Title="MouseSpeeder  by MadTom 2021 1225" Height="180" Width="400" ResizeMode="NoResize" Initialized="Window_Initialized"        
+        x:Name="mainWindow" DataContext="{Binding ElementName=mainWindow}"
+        Closing="mainWindow_Closing" MouseDown="mainWindow_MouseDown"
+        >
+    <Grid>
+        <Label Content="Mouse(cursor) speed:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="{Binding ElementName=sld_mSpeed, Path=Value}"  HorizontalAlignment="Left" Margin="136,10,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cb_tts" Content="TTS report?" HorizontalAlignment="Left" Margin="232,15,0,0" VerticalAlignment="Top"
+                  IsChecked="True"/>
+        <Slider x:Name="sld_mSpeed" Margin="10,36,10,0" VerticalAlignment="Top" 
+                Maximum="20" SmallChange="1" Value="1" Minimum="1" LargeChange="5" TickPlacement="TopLeft" Height="32"
+                TickFrequency="1" IsSnapToTickEnabled="True"
+                IsSelectionRangeEnabled="True" SelectionStart="10" SelectionEnd="10" ValueChanged="sld_mSpeed_ValueChanged"/>
+        <Label Content="Hot keys  * click text-box to set hot key" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top"/>
+        <Label Content="Slow down" HorizontalAlignment="Left" Margin="14,104,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_down" HorizontalAlignment="Left" Margin="87,108,0,0" 
+                 Text="{Binding keySDTx}" TextWrapping="NoWrap" VerticalAlignment="Top" Width="54"
+                 IsReadOnly="True" PreviewKeyDown="tb_down_PreviewKeyDown"
+                 GotFocus="tb_down_GotFocus" LostFocus="tb_down_LostFocus"/>
+        <Label Content="Speed up" HorizontalAlignment="Left" Margin="167,104,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_up" HorizontalAlignment="Left" Margin="232,108,0,0" 
+                 Text="{Binding keySUTx}" TextWrapping="NoWrap" VerticalAlignment="Top" Width="54"
+                 IsReadOnly="True" PreviewKeyDown="tb_up_PreviewKeyDown"
+                 GotFocus="tb_up_GotFocus" LostFocus="tb_up_LostFocus"/>
+        <TextBox x:Name="tb_focus" Opacity="0" Cursor="Arrow" HorizontalAlignment="Left" Margin="299,108,0,0" Text="" TextWrapping="Wrap" VerticalAlignment="Top" Width="21"/>
+
+    </Grid>
+</Window>
