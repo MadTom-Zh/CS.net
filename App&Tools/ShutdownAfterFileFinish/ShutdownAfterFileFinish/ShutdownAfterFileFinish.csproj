@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>MadTomDev.App</RootNamespace>
+    <ApplicationIcon>icon2.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="icon.ico" />
+    <None Remove="Scripts\script.shutdown.bat" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="icon2.ico" />
+    <Content Include="Scripts\script.shutdown.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ookii.Dialogs.Wpf" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Dev.fx\LibsMadTomDev\Common Classes\MadTomDevVariables\MadTomDevVariables.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Common\Logger\Logger.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Common\SimpleStringHelper\SimpleStringHelper.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Data\SettingXML\SettingXML.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="icon.ico" />
+  </ItemGroup>
+
+</Project>

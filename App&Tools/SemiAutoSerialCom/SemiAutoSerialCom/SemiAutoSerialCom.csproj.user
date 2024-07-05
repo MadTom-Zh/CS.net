@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Dev.net\App&amp;Tools\SemiAutoSerialCom\SemiAutoSerialCom\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Ctrls\ButtonCom.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Ctrls\CheckBoxTranslator.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Ctrls\PanelConsole.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Ctrls\PanelQuickInput.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Ctrls\TabItemHeader.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Ctrls\ButtonCom.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Ctrls\CheckBoxTranslator.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Ctrls\PanelConsole.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Ctrls\PanelQuickInput.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Ctrls\TabItemHeader.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

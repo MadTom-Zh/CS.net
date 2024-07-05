@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShutdownAfterFileFinish", "ShutdownAfterFileFinish\ShutdownAfterFileFinish.csproj", "{C3058FED-4CA9-49B7-966F-C7DAE4B5D48F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependence", "Dependence", "{6F7B64CC-3454-4672-8591-9301B1C9C36A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SettingXML", "..\..\LibsMadTomDev\Data\SettingXML\SettingXML.csproj", "{FD8BCA5B-D9D0-406A-A9A9-5500C5F2324A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logger", "..\..\LibsMadTomDev\Common\Logger\Logger.csproj", "{C563E1AC-8879-4656-A2AA-6E652F52BBEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadTomDevVariables", "..\..\..\Dev.fx\LibsMadTomDev\Common Classes\MadTomDevVariables\MadTomDevVariables.csproj", "{8167EC25-1DFA-4210-9636-FE7E310F3A86}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleStringHelper", "..\..\LibsMadTomDev\Common\SimpleStringHelper\SimpleStringHelper.csproj", "{217CC1B0-7479-4E1D-A4FC-AC47C3D87C7E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextFileDecodeHelper", "..\..\LibsMadTomDev\Common\TextFileDecodeHelper\TextFileDecodeHelper.csproj", "{7730EA5A-EAFA-4DC3-B345-1CAE7655AC1F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C3058FED-4CA9-49B7-966F-C7DAE4B5D48F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C3058FED-4CA9-49B7-966F-C7DAE4B5D48F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C3058FED-4CA9-49B7-966F-C7DAE4B5D48F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C3058FED-4CA9-49B7-966F-C7DAE4B5D48F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD8BCA5B-D9D0-406A-A9A9-5500C5F2324A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD8BCA5B-D9D0-406A-A9A9-5500C5F2324A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD8BCA5B-D9D0-406A-A9A9-5500C5F2324A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD8BCA5B-D9D0-406A-A9A9-5500C5F2324A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C563E1AC-8879-4656-A2AA-6E652F52BBEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C563E1AC-8879-4656-A2AA-6E652F52BBEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C563E1AC-8879-4656-A2AA-6E652F52BBEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C563E1AC-8879-4656-A2AA-6E652F52BBEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8167EC25-1DFA-4210-9636-FE7E310F3A86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8167EC25-1DFA-4210-9636-FE7E310F3A86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8167EC25-1DFA-4210-9636-FE7E310F3A86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8167EC25-1DFA-4210-9636-FE7E310F3A86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{217CC1B0-7479-4E1D-A4FC-AC47C3D87C7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{217CC1B0-7479-4E1D-A4FC-AC47C3D87C7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{217CC1B0-7479-4E1D-A4FC-AC47C3D87C7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{217CC1B0-7479-4E1D-A4FC-AC47C3D87C7E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7730EA5A-EAFA-4DC3-B345-1CAE7655AC1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7730EA5A-EAFA-4DC3-B345-1CAE7655AC1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7730EA5A-EAFA-4DC3-B345-1CAE7655AC1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7730EA5A-EAFA-4DC3-B345-1CAE7655AC1F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FD8BCA5B-D9D0-406A-A9A9-5500C5F2324A} = {6F7B64CC-3454-4672-8591-9301B1C9C36A}
+		{C563E1AC-8879-4656-A2AA-6E652F52BBEA} = {6F7B64CC-3454-4672-8591-9301B1C9C36A}
+		{8167EC25-1DFA-4210-9636-FE7E310F3A86} = {6F7B64CC-3454-4672-8591-9301B1C9C36A}
+		{217CC1B0-7479-4E1D-A4FC-AC47C3D87C7E} = {6F7B64CC-3454-4672-8591-9301B1C9C36A}
+		{7730EA5A-EAFA-4DC3-B345-1CAE7655AC1F} = {6F7B64CC-3454-4672-8591-9301B1C9C36A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E5AE5971-B1E7-46B6-A156-89D12E6A4035}
+	EndGlobalSection
+EndGlobal

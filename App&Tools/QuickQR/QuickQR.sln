@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickQR", "QuickQR\QuickQR.csproj", "{7D3C71CC-CB62-49D2-8634-3CCA24EC3D45}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependence", "Dependence", "{922792A6-5E7A-48DA-9113-73138354E370}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickGraphics", "..\..\LibsMadTomDev\User Controls\QuickGraphics\QuickGraphics.csproj", "{190FBFDF-D09C-44E4-B0DA-47882F755D42}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExDialogs", "..\..\LibsMadTomDev\User Controls\ExDialogs\ExDialogs.csproj", "{C9C51E56-B1EE-4E35-8C49-4D1A8A341DBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7D3C71CC-CB62-49D2-8634-3CCA24EC3D45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D3C71CC-CB62-49D2-8634-3CCA24EC3D45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D3C71CC-CB62-49D2-8634-3CCA24EC3D45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D3C71CC-CB62-49D2-8634-3CCA24EC3D45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{190FBFDF-D09C-44E4-B0DA-47882F755D42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{190FBFDF-D09C-44E4-B0DA-47882F755D42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{190FBFDF-D09C-44E4-B0DA-47882F755D42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{190FBFDF-D09C-44E4-B0DA-47882F755D42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C51E56-B1EE-4E35-8C49-4D1A8A341DBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C51E56-B1EE-4E35-8C49-4D1A8A341DBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C51E56-B1EE-4E35-8C49-4D1A8A341DBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C51E56-B1EE-4E35-8C49-4D1A8A341DBB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{190FBFDF-D09C-44E4-B0DA-47882F755D42} = {922792A6-5E7A-48DA-9113-73138354E370}
+		{C9C51E56-B1EE-4E35-8C49-4D1A8A341DBB} = {922792A6-5E7A-48DA-9113-73138354E370}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {733F98CA-E507-4C1B-8A6E-E01E8B7EBE18}
+	EndGlobalSection
+EndGlobal
