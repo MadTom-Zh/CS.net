@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>MadTomDev.App</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\QMark_48.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Common\IOUtilities\IOUtilities.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Common\MouseNKeyboardHelper\MouseNKeyboardHelper.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Common\SimpleStringHelper\SimpleStringHelper.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\User Controls\ExControls\ExControls.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\QMark_48.png" />
+  </ItemGroup>
+
+</Project>
