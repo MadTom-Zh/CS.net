@@ -1,0 +1,155 @@
+﻿<Window x:Class="MadTomDev.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MadTomDev.App"
+        xmlns:TVBase="clr-namespace:MadTomDev.UI.VMBase;assembly=ExControls"
+        xmlns:VMs="clr-namespace:MadTomDev.App.VMs"
+        mc:Ignorable="d"
+        Title="CraftingCalculator  by MadTom 2024 0808" 
+        Height="450" Width="700" ShowInTaskbar="True" 
+        WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"/>
+            <ColumnDefinition Width="433*"/>
+        </Grid.ColumnDefinitions>
+        <!--left, btn-refresh, treeView-scenes-->
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" 
+                   Text="{DynamicResource lb_winLauncher_allScenes}"  VerticalAlignment="Top" Style="{StaticResource Title1}"/>
+        <Button x:Name="btn_refresh" Content="{DynamicResource lb_winLauncher_refresh}" HorizontalAlignment="Right" Margin="0,7,5,0" VerticalAlignment="Top" 
+            Style="{StaticResource ResourceKey=StandardButton1}" Click="btn_refresh_Click"/>
+
+        <TreeView Margin="10,37,5,10"
+                  x:Name="treeView"      
+                  Background="Transparent"
+                  ScrollViewer.HorizontalScrollBarVisibility="Visible"
+                  ScrollViewer.VerticalScrollBarVisibility="Visible"                  
+                  SelectedItemChanged="treeView_SelectedItemChanged">
+
+            <TreeView.ItemContainerStyle >
+                <Style TargetType="TreeViewItem">
+                    <Setter Property="IsExpanded" Value="{Binding Path=IsExpanded, Mode=TwoWay}"/>
+                    <Setter Property="IsSelected" Value="{Binding Path=IsSelected, Mode=TwoWay}"/>
+                </Style>
+            </TreeView.ItemContainerStyle>
+            <TreeView.Resources>
+
+                <!--loading-->
+                <HierarchicalDataTemplate DataType="{x:Type TVBase:TreeViewNodeModelBase}">
+                    <TextBlock Padding="1" Text="{Binding Text, Mode=OneWay}" FontFamily="consolas" FontSize="12"></TextBlock>
+                </HierarchicalDataTemplate>
+
+                <!--scene-->
+                <HierarchicalDataTemplate DataType="{x:Type VMs:TreeViewNodeModelScene}" ItemsSource="{Binding Path=Children}">
+                    <StackPanel Margin="1" Orientation="Horizontal">
+                        <Border Margin="0.5" BorderThickness="1" BorderBrush="Gray" Width="46" Height="46">
+                            <Image Source="{Binding Icon, Mode=OneWay}"  Stretch="UniformToFill"
+                                   RenderOptions.BitmapScalingMode="NearestNeighbor"></Image>
+                        </Border>
+                        <StackPanel Orientation="Vertical" Margin="4,0,0,0">
+                            <TextBlock Text="{Binding Text, Mode=OneWay}" FontFamily="consolas" FontSize="12" FontWeight="Bold"></TextBlock>
+                            <TextBlock Text="{Binding Description, Mode=OneWay}" FontFamily="consolas" FontSize="12" MaxHeight="40" TextTrimming="WordEllipsis"></TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Stretch" Width="5"/>
+
+        <!--middle, image-sceneImg, tb-sceneDescription,-->
+        <StackPanel Margin="11,37,200,10" Orientation="Vertical" Grid.Column="1">
+            <Border BorderThickness="1" BorderBrush="Gray">
+                <Grid>
+                    <Image x:Name="img" MinHeight="100" VerticalAlignment="Top" Source="/Images/QMark_48.png" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
+                    <Rectangle x:Name="rect_img" Fill="Transparent" AllowDrop="True" 
+                               PreviewDragEnter="rect_img_PreviewDragEnter"  PreviewDragOver="rect_img_PreviewDragOver"
+                               PreviewDrop="rect_img_PreviewDrop"
+                               Focusable="True"
+                               PreviewMouseDown="rect_img_PreviewMouseDown"
+                               PreviewKeyDown="rect_img_PreviewKeyDown"
+                               ></Rectangle>
+                </Grid>
+            </Border>
+            <Border Margin="0,12,0,0">
+                <StackPanel Orientation="Vertical">
+                    <Border BorderThickness="1,1,1,0" BorderBrush="Gray">
+                        <Grid>
+                            <TextBlock x:Name="tbv_name"
+                                       PreviewMouseUp="tbv_name_PreviewMouseUp" TextWrapping="Wrap" FontWeight="Bold" Text="[Name]"/>
+                            <TextBox x:Name="tb_name" Text="edit name" 
+                                     Background="{DynamicResource {x:Static SystemColors.InfoBrushKey}}"
+                                     FontWeight="Bold" Visibility="Hidden" TextWrapping="Wrap"></TextBox>
+                        </Grid>
+                    </Border>
+                    <Border BorderThickness="1" BorderBrush="Gray">
+                        <Grid>
+                            <TextBlock x:Name="tbv_description"
+                                       PreviewMouseUp="tbv_description_PreviewMouseUp" TextWrapping="Wrap" Text="[Description]"/>
+                            <TextBox x:Name="tb_description" Text="edit description"
+                                     Background="{DynamicResource {x:Static SystemColors.InfoBrushKey}}"
+                                     Visibility="Hidden" TextWrapping="Wrap" AcceptsReturn="True"></TextBox>
+                        </Grid>
+                    </Border>
+                </StackPanel>
+            </Border>
+            <TextBlock Margin="0,4,0,0" TextWrapping="Wrap"
+                       Text="{DynamicResource lb_winLauncher_infoChangeImg}"></TextBlock>
+        </StackPanel>
+
+
+
+
+        <!--right, tb-name, tb-searchCount, btn-search, btn-createPeer, btn-createLeaf-->
+        <TextBlock HorizontalAlignment="Right" Margin="0,10,150,0" TextWrapping="Wrap" 
+            Text="{DynamicResource lb_winLauncher_name}" VerticalAlignment="Top" Style="{StaticResource Title1}" Grid.Column="1"/>
+        <TextBox x:Name="tb_quickSearch" PreviewKeyDown="tb_quickSearch_PreviewKeyDown" Margin="0,14,10,0" TextWrapping="Wrap"
+                 Text="" VerticalAlignment="Top" HorizontalAlignment="Right" Width="124" Grid.Column="1"/>
+
+        <TextBlock x:Name="tbv_quickSearchCount" Margin="0,43,105,0" TextWrapping="Wrap" Text="# / #" 
+                   VerticalAlignment="Top" HorizontalAlignment="Right" Width="58"
+                   TextAlignment="Right" Grid.Column="1"/>
+        <Button x:Name="btn_quickSearch" Content="{DynamicResource lb_winLauncher_search}" HorizontalAlignment="Right" Margin="0,36,10,0" VerticalAlignment="Top" 
+                Style="{StaticResource StandardButton1}" Click="btn_quickSearch_Click" Grid.Column="1"/>
+        <TextBlock Margin="0,66,10,0" TextWrapping="Wrap" 
+            VerticalAlignment="Top" HorizontalAlignment="Right" Width="185" Text="{DynamicResource lb_winLauncher_infoSearch}" Grid.Column="1" />
+
+        <Button x:Name="btn_createPeer" Content="{DynamicResource lb_winLauncher_createPeer}" HorizontalAlignment="Right" Margin="0,91,105,0" VerticalAlignment="Top" 
+            Style="{StaticResource ResourceKey=StandardButton1}" Click="btn_createPeer_Click" Grid.Column="1"/>
+        <Button x:Name="btn_createLeaf" Content="{DynamicResource lb_winLauncher_createLeaf}" HorizontalAlignment="Right" Margin="0,91,10,0" VerticalAlignment="Top" 
+            Style="{StaticResource ResourceKey=StandardButton1}" Click="btn_createLeaf_Click" Grid.Column="1"/>
+        <TextBlock Margin="0,121,10,0" TextWrapping="Wrap" 
+                   Text="{DynamicResource lb_winLauncher_infoCreate}"
+            VerticalAlignment="Top" HorizontalAlignment="Right" Width="185" Grid.Column="1" ></TextBlock>
+
+
+        <Button x:Name="btn_language" Click="btn_language_Click"
+                HorizontalAlignment="Right" Margin="0,0,10,127" VerticalAlignment="Bottom" 
+              Grid.Column="1" Width="32" Height="32">
+            <Button.ContextMenu>
+                <ContextMenu x:Name="cm_languages"
+                             Opened="cm_languages_Opened"/>
+            </Button.ContextMenu>
+            <Button.Content>
+                <Image Source="/Images/language.png"></Image>
+            </Button.Content>
+        </Button>
+
+        <Button Content="{DynamicResource lb_winLauncher_delete}" x:Name="btn_delete" HorizontalAlignment="Right" Margin="0,0,10,92" VerticalAlignment="Bottom" 
+            Style="{StaticResource ResourceKey=StandardButton1}" Click="btn_delete_Click" Grid.Column="1"/>
+        <Button Content="{DynamicResource lb_winLauncher_maintain}" x:Name="btn_maintain" HorizontalAlignment="Right" Margin="0,0,10,45" VerticalAlignment="Bottom" 
+            Style="{StaticResource ResourceKey=StandardButton1}" Click="btn_maintain_Click" Grid.Column="1"/>
+        <Button Content="{DynamicResource lb_winLauncher_calculate}" x:Name="btn_calculate" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" 
+            Style="{StaticResource ResourceKey=StandardButton1}" Click="btn_calculate_Click" Grid.Column="1"/>
+
+        <Button Content="Save" x:Name="btn_save" HorizontalAlignment="Right" Margin="0,0,135,92" Width="60" VerticalAlignment="Bottom" 
+            Style="{StaticResource ResourceKey=StandardButton1}" Click="btn_save_Click" Visibility="Hidden" Grid.Column="1"/>
+
+
+
+
+    </Grid>
+</Window>
