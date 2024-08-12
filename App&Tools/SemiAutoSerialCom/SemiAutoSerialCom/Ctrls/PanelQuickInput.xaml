@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="MadTomDev.App.Ctrls.PanelQuickInput"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MadTomDev.App.Ctrls"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="150">
+    <Grid x:FieldModifier="public" x:Name="grid" Background="Transparent">
+        <Button Margin="10,2,0,15" Content="&lt;&lt;&lt;" Width="30" HorizontalAlignment="Left"
+                x:Name="btnSend" Click="btnSendClick"/>
+        <TextBox Margin="42,2,2,2" TextWrapping="Wrap" Text="" HorizontalAlignment="Stretch"
+                 x:Name="tb"/>
+        <Button x:Name="btnRemove" Click="btnRemove_Click" HorizontalAlignment="Left" Margin="21,0,0,2" VerticalAlignment="Bottom" Height="12" Width="19">
+            <Button.Content>
+                <Path Stroke="DarkRed" StrokeThickness="1">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigureCollection>
+                                    <PathFigure IsClosed="False" StartPoint="0,0">
+                                        <PathFigure.Segments>
+                                            <PathSegmentCollection>
+                                                <LineSegment Point="6,6" />
+                                            </PathSegmentCollection>
+                                        </PathFigure.Segments>
+                                    </PathFigure>
+                                    <PathFigure IsClosed="False" StartPoint="6,0">
+                                        <PathFigure.Segments>
+                                            <PathSegmentCollection>
+                                                <LineSegment Point="0,6" />
+                                            </PathSegmentCollection>
+                                        </PathFigure.Segments>
+                                    </PathFigure>
+                                </PathFigureCollection>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+            </Button.Content>
+        </Button>
+        <Rectangle x:Name="rectTopCover" Fill="Transparent" Visibility="Collapsed"></Rectangle>
+    </Grid>
+</UserControl>

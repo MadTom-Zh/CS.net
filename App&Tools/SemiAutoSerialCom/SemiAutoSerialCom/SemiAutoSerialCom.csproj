@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>MadTomDev.App</RootNamespace>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Composition" Version="8.0.0" />
+    <PackageReference Include="System.IO.Ports" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Common\Logger\Logger.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Data\SettingXML\SettingXML.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\User Controls\ExDialogs\ExDialogs.csproj" />
+    <ProjectReference Include="..\Translators\ITranslator\ITranslator.csproj" />
+  </ItemGroup>
+
+</Project>

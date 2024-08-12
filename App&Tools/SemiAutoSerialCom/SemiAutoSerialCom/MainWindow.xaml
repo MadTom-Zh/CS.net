@@ -1,0 +1,153 @@
+﻿<Window x:Class="MadTomDev.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MadTomDev.App"
+        mc:Ignorable="d"
+        Title="SemiAutoSerialCom  by MadTom 2024 0809" Height="450" Width="800"
+        Initialized="Window_Initialized"
+        PreviewKeyDown="Window_PreviewKeyDown">
+    <Window.Resources>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="367*"/>
+            <RowDefinition Height="24"/>
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="sPanel_comList" Orientation="Horizontal">
+            <Button x:Name="btn_refresh" Click="btn_refresh_Click" Margin="0,0,4,0" Background="{DynamicResource {x:Static SystemColors.GradientActiveCaptionBrushKey}}">
+                <TextBlock FontWeight="Bold" Margin="3">Refersh</TextBlock>
+            </Button>
+        </StackPanel>
+
+        <TabControl x:Name="tc" SelectionChanged="tc_SelectionChanged" Grid.Row="1" Margin="0,4,0,0">
+            <TabItem>
+                <TabItem.Header>
+                    <TextBlock >Config</TextBlock>
+                </TabItem.Header>
+                <TabControl>
+                    <TabItem Header="Com">
+                        <Grid >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="250"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock TextWrapping="Wrap" Text="Com congif list" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="95" Margin="10,10,0,0"/>
+                            <Button x:Name="btn_cfgListRefresh" Click="btn_cfgListRefresh_Click" 
+                                    VerticalAlignment="Top" HorizontalAlignment="Left" Width="60" Margin="110,10,0,0">Refresh</Button>
+                            <TextBlock TextWrapping="Wrap" Text="* press 'Del' to delete(no warning)" Height="19" VerticalAlignment="Top" Margin="193,10,10,0"/>
+                            <DataGrid x:Name="dataGrid_cfgList" Margin="5,34,5,10" 
+                                      AutoGenerateColumns="False"
+                                      VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"
+                                      SelectionUnit="FullRow" 
+                                      SelectionMode="Single"
+                                      HeadersVisibility="Column"
+                                      CanUserSortColumns="True" IsReadOnly="True"
+                                      CanUserAddRows="False"
+                                      SelectionChanged="dataGrid_cfgList_SelectionChanged"
+                                      PreviewKeyDown="dataGrid_cfgList_PreviewKeyDown"
+                                      PreviewMouseDoubleClick="dataGrid_cfgList_PreviewMouseDoubleClick"                                      
+                                      >
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Speed" Binding="{Binding SpeedTx}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="DB" Binding="{Binding DataBitsTx}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="SB" Binding="{Binding StopBitsTx}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="Parity" Binding="{Binding ParityTx}"></DataGridTextColumn>
+                                    <DataGridTextColumn Header="FC" Binding="{Binding FlowControlTx}"></DataGridTextColumn>
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                            <TextBlock TextWrapping="NoWrap" Text="Congif name" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="101" Margin="12,10,0,0" Grid.Column="1"/>
+                            <TextBlock TextWrapping="NoWrap" Text="Speed" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="101" Margin="13,34,0,0" Grid.Column="1"/>
+                            <TextBlock TextWrapping="NoWrap" Text="Data bits" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="101" Margin="13,58,0,0" Grid.Column="1"/>
+                            <TextBlock TextWrapping="NoWrap" Text="Stop bits" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="101" Margin="13,82,0,0" Grid.Column="1"/>
+                            <TextBlock TextWrapping="NoWrap" Text="Parity" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="101" Margin="13,109,0,0" Grid.Column="1"/>
+                            <TextBlock TextWrapping="NoWrap" Text="Flow control" Height="19" VerticalAlignment="Top" HorizontalAlignment="Left" Width="101" Margin="13,136,0,0" Grid.Column="1"/>
+
+                            <TextBox x:Name="tb_cfgName" Grid.Column="1" HorizontalAlignment="Left" Margin="118,11,0,0" TextWrapping="Wrap" Text="CusComCfg" VerticalAlignment="Top" Width="120"/>
+                            <TextBox x:Name="tb_cfgSpeed" Grid.Column="1" HorizontalAlignment="Left" Margin="118,35,0,0" TextWrapping="Wrap" Text="115200" VerticalAlignment="Top" Width="120"/>
+                            <TextBox x:Name="tb_dataBits" Grid.Column="1" HorizontalAlignment="Left" Margin="118,59,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Width="120"/>
+                            <ComboBox x:Name="combo_stopBits" Grid.Column="1" HorizontalAlignment="Left" Margin="118,83,0,0" VerticalAlignment="Top" Width="120"/>
+                            <ComboBox x:Name="combo_cfgParity" Grid.Column="1" HorizontalAlignment="Left" Margin="118,106,0,0" VerticalAlignment="Top" Width="120"/>
+                            <ComboBox x:Name="combo_cfgFlowControl" Grid.Column="1" HorizontalAlignment="Left" Margin="118,133,0,0" VerticalAlignment="Top" Width="120"/>
+
+                            <Button x:Name="btn_cfgCreateUpdate" Click="btn_cfgCreateUpdate_Click" Grid.Column="1" Content="Create/Update" HorizontalAlignment="Right" Margin="0,170,10,0" VerticalAlignment="Top" Height="24" Width="94"/>
+
+
+
+
+
+
+
+                        </Grid>
+                    </TabItem>
+                    <TabItem Header="Global">
+                        <Grid>
+                            <GroupBox Header="Appearance" Height="103" VerticalAlignment="Top">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100*"/>
+                                        <ColumnDefinition Width="100*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="NoWrap" Text="Output background" VerticalAlignment="Top" Width="125"/>
+                                    <Border x:Name="bdr_oBG" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="32" Height="16" Margin="140,10,0,0"/>
+                                    <Button x:Name="btn_oBG" Click="btn_oBG_Click" Content="~" HorizontalAlignment="Left" Margin="172,10,0,0" VerticalAlignment="Top" Width="19" Height="16"/>
+
+                                    <TextBlock HorizontalAlignment="Left" Margin="10,31,0,0" TextWrapping="NoWrap" Text="Output foreground" VerticalAlignment="Top" Width="125"/>
+                                    <Border x:Name="bdr_oFG" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="32" Height="16" Margin="140,31,0,0"/>
+                                    <Button x:Name="btn_oFG" Click="btn_oFG_Click" Content="~" HorizontalAlignment="Left" Margin="172,31,0,0" VerticalAlignment="Top" Width="19" Height="16"/>
+
+                                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="NoWrap" Text="Input background" VerticalAlignment="Top" Width="124" Grid.Column="1"/>
+                                    <Border x:Name="bdr_iBG" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="32" Height="16" Margin="139,10,0,0" Grid.Column="1"/>
+                                    <Button x:Name="btn_iBG" Click="btn_iBG_Click"  Content="~" HorizontalAlignment="Left" Margin="171,10,0,0" VerticalAlignment="Top" Width="19" Height="16" Grid.Column="1"/>
+
+                                    <TextBlock HorizontalAlignment="Left" Margin="10,31,0,0" TextWrapping="NoWrap" Text="Input foreground" VerticalAlignment="Top" Width="124" Grid.Column="1"/>
+                                    <Border x:Name="bdr_iFG" BorderBrush="Black" BorderThickness="1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="32" Height="16" Margin="139,31,0,0" Grid.Column="1"/>
+                                    <Button x:Name="btn_iFG" Click="btn_iFG_Click" Content="~" HorizontalAlignment="Left" Margin="171,31,0,0" VerticalAlignment="Top" Width="19" Height="16" Grid.Column="1"/>
+
+                                    <TextBlock HorizontalAlignment="Left" Margin="10,56,0,0" TextWrapping="NoWrap" Text="Font" VerticalAlignment="Top" Width="125"/>
+                                    <Button x:Name="btn_font" Click="btn_font_Click" Height="18" VerticalAlignment="Top" HorizontalAlignment="Left" Width="54" Margin="140,55,0,0">
+                                        ~
+                                    </Button>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox Header="Behaviour" Margin="0,103,0,0" Height="95" VerticalAlignment="Top">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="300*"/>
+                                        <ColumnDefinition Width="388*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="NoWrap" Text="Output time prefix" VerticalAlignment="Top" Width="125"/>
+                                    <CheckBox x:Name="cb_isOutputTimePrefix" Checked="cb_isOutputTimePrefix_CheckChanged" Unchecked="cb_isOutputTimePrefix_CheckChanged" Content="Enable" HorizontalAlignment="Left" Margin="140,11,0,0" VerticalAlignment="Top"/>
+                                    <TextBlock HorizontalAlignment="Left" Margin="27,31,0,0" TextWrapping="NoWrap" Text="Time Format" VerticalAlignment="Top" Width="108"/>
+                                    <TextBox x:Name="tb_outputTimePrefixFormat" TextChanged="tb_outputTimePrefixFormat_TextChanged" 
+                                             Text="HH:mm:ss.fff" HorizontalAlignment="Left" Margin="140,30,0,0" TextWrapping="Wrap" 
+                                             VerticalAlignment="Top" Width="120"
+                                             PreviewKeyDown="tb_outputTimePrefixFormat_PreviewKeyDown"
+                                             LostFocus="tb_outputTimePrefixFormat_LostFocus" Grid.ColumnSpan="2"/>
+                                    <TextBlock x:Name="tb_timeExample" Height="16" VerticalAlignment="Top" HorizontalAlignment="Left" Width="113" Margin="144,48,0,0">##:##:##.###</TextBlock>
+                                    <CheckBox x:Name="cb_isLog" Checked="cb_isLog_CheckChanged" Unchecked="cb_isLog_CheckChanged" Content="Write Log" HorizontalAlignment="Left" Margin="60,11,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+
+
+                                </Grid>
+                            </GroupBox>
+                        </Grid>
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+        </TabControl>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Grid>
+                <Border x:Name="bdr_statues" VerticalAlignment="Stretch">
+                </Border>
+                <TextBlock x:Name="tb_statues" Margin="4,0,4,0" VerticalAlignment="Center"
+                           TextWrapping="Wrap" Text="Loading..." TextTrimming="WordEllipsis"/>
+            </Grid>
+        </StackPanel>
+
+    </Grid>
+</Window>
