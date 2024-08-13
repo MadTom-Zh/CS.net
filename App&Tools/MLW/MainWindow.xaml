@@ -1,0 +1,42 @@
+﻿<Window x:Class="MLW_Succubus_Storys.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MLW_Succubus_Storys"
+        mc:Ignorable="d"
+        Title="My lovely wife - All succubus stories - by MadTom 2023 ####" Height="800" Width="1600"
+        WindowStartupLocation="CenterScreen"
+        Activated="Window_Activated" Closing="Window_Closing">
+    <Grid x:Name="mainGrid">
+        <TabControl x:Name="tcMain">
+            <TabItem x:Name="tabItemHouse" Header="House">
+                <Grid x:Name="gridSuccuList" Margin="12">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        
+        <!--BGM panel-->
+        <StackPanel x:Name="spBGM" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <ToggleButton x:Name="tbtnBGM1" Click="tbtnBGM_Click">BGM1</ToggleButton>
+            <ToggleButton x:Name="tbtnBGM2" Click="tbtnBGM_Click">BGM2</ToggleButton>
+            <ToggleButton x:Name="tbtnBGMEA" Click="tbtnBGM_Click">BGMEA</ToggleButton>
+            <ToggleButton x:Name="tbtnBGMEB" Click="tbtnBGM_Click">BGMEB</ToggleButton>
+            <Slider x:Name="sldBGMVolume" ValueChanged="sldBGMVolume_ValueChanged" Width="100" Minimum="0" Maximum="100" Value="50" />
+        </StackPanel>
+    </Grid>
+</Window>

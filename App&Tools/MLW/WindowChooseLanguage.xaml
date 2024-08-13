@@ -1,0 +1,13 @@
+﻿<Window x:Class="MLW_Succubus_Storys.WindowChooseLanguage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MLW_Succubus_Storys"
+        mc:Ignorable="d"
+        Title="ChooseLanguage, 选择语言" Height="450" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" SizeToContent="WidthAndHeight"
+        Initialized="Window_Initialized">
+    <StackPanel x:Name="spLangBtns" Orientation="Vertical">
+        
+    </StackPanel>
+</Window>

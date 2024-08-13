@@ -1,0 +1,24 @@
+﻿<Window x:Class="MLW_Succubus_Storys.WindowStartWarning"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MLW_Succubus_Storys"
+        mc:Ignorable="d"
+        Title="WindowStartWarning" Height="450" Width="800" WindowStartupLocation="CenterScreen" 
+        Topmost="True" ResizeMode="NoResize" ShowInTaskbar="False" WindowStyle="None">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="tbText" TextAlignment="Center" VerticalAlignment="Center" Margin="30"
+                   TextWrapping="Wrap" FontSize="20" FontWeight="Bold"/>
+
+        <StackPanel IsEnabled="False" x:FieldModifier="public" x:Name="spBtns" Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center" Height="36">
+            <Button x:Name="btnOk" Content="OK" Click="btnOK_Click" Width="100" />
+            <Button x:Name="btnCancel" Content="Cancel" Click="btnCancel_Click" Width="100" Margin="4,0,0,0" />
+        </StackPanel>
+    </Grid>
+</Window>

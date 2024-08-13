@@ -1,0 +1,351 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <RootNamespace>MLW_Succubus_Storys</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="BGMs\bgm1.mp3" />
+    <None Remove="BGMs\bgm2.mp3" />
+    <None Remove="BGMs\bgmEA.mp3" />
+    <None Remove="BGMs\bgmEB.mp3" />
+    <None Remove="BGMs\bgmSucEA.mp3" />
+    <None Remove="BGMs\bgmSucEB.mp3" />
+    <None Remove="Images\Choice.png" />
+    <None Remove="Images\EA_Achlys.jpg" />
+    <None Remove="Images\EA_Agash.jpg" />
+    <None Remove="Images\EA_Bastet.jpg" />
+    <None Remove="Images\EA_Berith.jpg" />
+    <None Remove="Images\EA_Cobzi.jpg" />
+    <None Remove="Images\EA_Dialen.jpg" />
+    <None Remove="Images\EA_Enyo.jpg" />
+    <None Remove="Images\EA_Hala.jpg" />
+    <None Remove="Images\EA_Kalys.jpg" />
+    <None Remove="Images\EA_Kasu.jpg" />
+    <None Remove="Images\EA_Lamia.jpg" />
+    <None Remove="Images\EA_Luzbel.jpg" />
+    <None Remove="Images\EA_Lyst.jpg" />
+    <None Remove="Images\EA_Mare.jpg" />
+    <None Remove="Images\EA_Nimue.jpg" />
+    <None Remove="Images\EA_Nocti.jpg" />
+    <None Remove="Images\EA_Ornia.jpg" />
+    <None Remove="Images\EA_Shyasta.jpg" />
+    <None Remove="Images\EA_Taura.jpg" />
+    <None Remove="Images\EA_Vered.jpg" />
+    <None Remove="Images\EB_Achlys.jpg" />
+    <None Remove="Images\EB_Agash.jpg" />
+    <None Remove="Images\EB_Bastet.jpg" />
+    <None Remove="Images\EB_Berith.jpg" />
+    <None Remove="Images\EB_Cobzi.jpg" />
+    <None Remove="Images\EB_Dialen.jpg" />
+    <None Remove="Images\EB_Enyo.jpg" />
+    <None Remove="Images\EB_Hala.jpg" />
+    <None Remove="Images\EB_Kalys.jpg" />
+    <None Remove="Images\EB_Kasu.jpg" />
+    <None Remove="Images\EB_Lamia.jpg" />
+    <None Remove="Images\EB_Luzbel.jpg" />
+    <None Remove="Images\EB_Lyst.jpg" />
+    <None Remove="Images\EB_Mare.jpg" />
+    <None Remove="Images\EB_Nimue.jpg" />
+    <None Remove="Images\EB_Nocti.jpg" />
+    <None Remove="Images\EB_Ornia.jpg" />
+    <None Remove="Images\EB_Shyasta.jpg" />
+    <None Remove="Images\EB_Taura.jpg" />
+    <None Remove="Images\EB_Vered.jpg" />
+    <None Remove="Images\HeartEmpty.png" />
+    <None Remove="Images\HeartEnding.png" />
+    <None Remove="Images\HeartFull.png" />
+    <None Remove="Images\HeartHalf.png" />
+    <None Remove="Images\IconAchlys.png" />
+    <None Remove="Images\IconAgash.png" />
+    <None Remove="Images\IconBastet.png" />
+    <None Remove="Images\IconBerith.png" />
+    <None Remove="Images\IconCozbi.png" />
+    <None Remove="Images\IconDialen.png" />
+    <None Remove="Images\IconEnyo.png" />
+    <None Remove="Images\IconExWife.png" />
+    <None Remove="Images\IconHala.png" />
+    <None Remove="Images\IconJake.png" />
+    <None Remove="Images\IconKalys.png" />
+    <None Remove="Images\IconKasu.png" />
+    <None Remove="Images\IconLamia.png" />
+    <None Remove="Images\IconLuzbel.png" />
+    <None Remove="Images\IconLyst.png" />
+    <None Remove="Images\IconMare.png" />
+    <None Remove="Images\IconNimue.png" />
+    <None Remove="Images\IconNocti.png" />
+    <None Remove="Images\IconNumie.png" />
+    <None Remove="Images\IconOrnia.png" />
+    <None Remove="Images\IconShyasta.png" />
+    <None Remove="Images\IconTaura.png" />
+    <None Remove="Images\IconVered.png" />
+    <None Remove="Images\ImgCamera.png" />
+    <None Remove="Images\MtAnimal.png" />
+    <None Remove="Images\MtIchor.png" />
+    <None Remove="Images\MtMetal.png" />
+    <None Remove="Images\MtUnknow.png" />
+    <None Remove="Images\MtWood.png" />
+    <None Remove="StoryPkg\English_v1.0.csv" />
+    <None Remove="StoryPkg\简体中文_v0.2_只有两章节.csv" />
+    <None Remove="StoryPkg\简体中文_v1.0.csv" />
+    <None Remove="succubiRecipe.csv" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="BGMs\bgm1.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BGMs\bgm2.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BGMs\bgmEA.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BGMs\bgmEB.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BGMs\bgmSucEA.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BGMs\bgmSucEB.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Choice.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Achlys.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Agash.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Bastet.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Berith.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Cobzi.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Dialen.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Enyo.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Hala.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Kalys.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Kasu.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Lamia.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Luzbel.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Lyst.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Mare.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Nimue.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Nocti.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Ornia.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Shyasta.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Taura.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EA_Vered.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Achlys.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Agash.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Bastet.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Berith.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Cobzi.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Dialen.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Enyo.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Hala.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Kalys.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Kasu.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Lamia.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Luzbel.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Lyst.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Mare.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Nimue.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Nocti.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Ornia.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Shyasta.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Taura.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\EB_Vered.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\HeartEmpty.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\HeartEnding.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\HeartFull.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\HeartHalf.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconAchlys.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconAgash.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconBastet.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconBerith.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconCozbi.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconDialen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconEnyo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconExWife.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconHala.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconJake.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconKalys.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconKasu.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconLamia.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconLuzbel.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconLyst.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconMare.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconNimue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconNocti.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconOrnia.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconShyasta.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconTaura.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\IconVered.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\ImgCamera.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\MtAnimal.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\MtIchor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\MtMetal.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\MtUnknow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\MtWood.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="StoryPkg\English_v1.0.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="StoryPkg\简体中文_v0.2_只有两章节.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="succubiRecipe.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="7.0.0" />
+  </ItemGroup>
+
+</Project>
