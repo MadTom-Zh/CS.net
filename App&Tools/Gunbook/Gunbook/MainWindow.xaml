@@ -1,0 +1,22 @@
+﻿<Window x:Class="Gunbook.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gunbook"
+        mc:Ignorable="d"
+        Title="GunBook by longtombbj 2017 0428" Height="493.099" Width="765.625" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="299*"/>
+        </Grid.ColumnDefinitions>
+        <GridSplitter x:Name="gridSplitter" HorizontalAlignment="Left" Margin="0,0,0,23" Width="10" Grid.Column="1"/>
+        <StatusBar Height="23" VerticalAlignment="Bottom" Grid.ColumnSpan="2"/>
+        <StackPanel x:Name="stackPanel_catalog" Margin="0,0,0,23"/>
+        <ScrollViewer x:Name="scrollViewer_main" Grid.Column="1" Margin="10,0,0,23" SizeChanged="scrollViewer_main_SizeChanged">
+            <WrapPanel x:Name="wrapPanel_main" Height="100" Width="100"/>
+        </ScrollViewer>
+
+    </Grid>
+</Window>
