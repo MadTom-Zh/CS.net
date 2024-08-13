@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="MLW_Succubus_Storys.Ctrls.BtnNode"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MLW_Succubus_Storys.Ctrls"
+             mc:Ignorable="d">
+    <Button x:Name="btn" BorderThickness="0" BorderBrush="AliceBlue"
+            HorizontalAlignment="Center" VerticalAlignment="Center"
+            PreviewMouseUp="btn_PreviewMouseUp">
+        <Button.ContextMenu>
+            <ContextMenu x:Name="cmBtnNode" Opened="cmBtnNode_Opened">
+                <MenuItem x:Name="cmBtnNode_isBordered" Header="IsChecked" Click="cmBtnNode_isBordered_Click"></MenuItem>
+            </ContextMenu>
+        </Button.ContextMenu>
+        <Button.Content>
+            <Grid>
+                <Image x:Name="img" Width="42" Height="42"></Image>
+                <TextBlock x:Name="tb" HorizontalAlignment="Center" VerticalAlignment="Center"
+                           Foreground="White"></TextBlock>
+            </Grid>
+        </Button.Content>
+    </Button>
+</UserControl>
