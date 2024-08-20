@@ -1,0 +1,66 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MadTomDev.App"
+        xmlns:Ctrls="clr-namespace:MadTomDev.App.Ctrls" x:Class="MadTomDev.App.MainWindow"
+        mc:Ignorable="d"
+        Title="MineClearanceHelper 2  by MadTom 2024 0820"
+        
+        Height="400" Width="600"
+        KeyDown="Window_KeyDown" KeyUp="Window_KeyUp" 
+        PreviewKeyDown="Window_PreviewKeyDown" PreviewKeyUp="Window_PreviewKeyUp"
+        
+        Loaded="Window_Loaded"
+    >
+
+    <Grid x:Name="gridMain">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="22"/>
+            <RowDefinition Height="337*"/>
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+
+
+        <Grid x:Name="gridContainer" SizeChanged="GridParent_SizeChanged" Grid.Row="1">
+            <Grid x:Name="gridLines" HorizontalAlignment="Left" Height="80" 
+                Margin="0" VerticalAlignment="Top" Width="80"/>
+            <Grid x:Name="gridView" 
+               HorizontalAlignment="Left" Width="50"  
+               VerticalAlignment="Top" Height="50" 
+               Margin="0"
+               MouseLeftButtonDown="gridView_MouseLeftButtonDown"
+               MouseLeftButtonUp="gridView_MouseLeftButtonUp"
+               MouseMove="gridView_MouseMove" MouseLeave="gridView_MouseLeave"
+               MouseWheel="gridView_MouseWheel" MouseRightButtonDown="gridView_MouseRightButtonDown"
+               MouseRightButtonUp="gridView_MouseRightButtonUp" Loaded="gridView_Loaded"
+                >
+                <Grid.Background>
+                    <SolidColorBrush Color="Black" Opacity="0.01"/>
+                </Grid.Background>
+
+            </Grid>
+        </Grid>
+
+        <DockPanel Grid.Row="2" Background="#88FFFFFF"  Grid.RowSpan="1">
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Right" Margin="0,0,3,0"
+                    DockPanel.Dock="Right">
+                <TextBlock x:Name="tbv_posi" Text="Posi(x, y)" Margin="2" VerticalAlignment="Center"/>
+            </Border>
+            <TextBlock x:Name="tbv_msg" Text="Ready" VerticalAlignment="Center" Margin="4,2,2,2"/>
+        </DockPanel>
+
+
+        <StackPanel x:Name="sp_presets" Margin="0,0,68,0" Orientation="Horizontal" Background="#88FFFFFF" />
+        <Button x:Name="btn_presetsRemove" Content="-" HorizontalAlignment="Right" Margin="0,0,41,0" 
+                VerticalAlignment="Center" Width="22" Focusable="False"
+                Click="btn_presetsRemove_Click"/>
+        <Button x:Name="btn_presetAdd" Content="+..." HorizontalAlignment="Right" 
+                VerticalAlignment="Center" Width="36" Focusable="False"
+                Click="btn_presetAdd_Click"/>
+
+
+    </Grid>
+</Window>
