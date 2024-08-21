@@ -1,0 +1,20 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:MouseClickAnalysis" x:Class="MouseClickAnalysis.MainWindow"
+        Title="MainWindow" Height="578" Width="525" Loaded="Window_Loaded" WindowStartupLocation="CenterOwner" WindowState="Maximized">
+    <Grid>
+        <TextBlock Margin="10,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="116" FontSize="11"><Run Language="zh-cn" Text="鼠标按键测试，版本 2020 0707"/><LineBreak/><Run Language="zh-cn"/><LineBreak/><Run Language="zh-cn" Text="用途：测试你的鼠标按键是否工作稳定，检测是否存在单击变双击的情况；"/><LineBreak/><Run Language="zh-cn" Text="使用：1请在下面区框中连续点击鼠标的某个/某些键，直到你想停止为止；"/><LineBreak/><Run Language="zh-cn" Text="      2当某个键的按键等待超过1秒后，则视为停止这个按键操作的取样；"/><LineBreak/><Run Language="zh-cn" Text="分析：1当某个/所有按键停止采样后，系统自动统计点击数据并生成图表；"/><LineBreak/><Run Language="zh-cn" Text="      2图标中，注意是否出现间隔值非常小的峰谷，如果存在，则说明确实按键有单击变多击的问题；"/><LineBreak/><Run Language="zh-cn" Text="重新开始：开始下一轮测试，请点击右边的 '重新开始' 按钮。"/></TextBlock>
+        <Rectangle x:Name="rectClickArea" Fill="#FFFF7400" HorizontalAlignment="Left" Height="50" Margin="10,131,0,0" Stroke="Black" VerticalAlignment="Top" Width="100" MouseDown="rectClickArea_MouseDown"/>
+        <Button x:Name="buttonReset" Content="重新开始" HorizontalAlignment="Right" Margin="0,131,10,0" VerticalAlignment="Top" Width="100" Height="50" Click="buttonReset_Click"/>
+        <local:UserControl_ChartScrollView x:Name="UC_chartScrollView" Margin="10,205,10,10"/>
+        <Button x:Name="buttonChartTip" Content="?" HorizontalAlignment="Right" Margin="0,131,115,0" VerticalAlignment="Top" Width="50" Height="50" Click="buttonChartTip_Click"/>
+        <CheckBox Content="左键点击" x:Name="checkBox_Left" HorizontalAlignment="Left" Margin="10,186,0,0" VerticalAlignment="Top" IsThreeState="True" />
+        <CheckBox Content="中键点击" x:Name="checkBox_Middle" HorizontalAlignment="Left" Margin="78,186,0,0" VerticalAlignment="Top" IsThreeState="True"/>
+        <CheckBox Content="右键点击" x:Name="checkBox_Right" HorizontalAlignment="Left" Margin="146,186,0,0" VerticalAlignment="Top" IsThreeState="True"/>
+        <CheckBox Content="X1点击" x:Name="checkBox_X1" HorizontalAlignment="Left" Margin="214,186,0,0" VerticalAlignment="Top" IsThreeState="True"/>
+        <CheckBox Content="X2点击" x:Name="checkBox_X2" HorizontalAlignment="Left" Margin="270,186,0,0" VerticalAlignment="Top" IsThreeState="True"/>
+        <Label Content="计数：" HorizontalAlignment="Left" Margin="115,144,0,0" VerticalAlignment="Top"/>
+        <Label Content="0" x:Name="label_ClickCount" HorizontalAlignment="Left" Margin="161,144,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

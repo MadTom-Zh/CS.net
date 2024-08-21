@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "批量更新字幕编码为UTF8", "批量更新字幕编码为UTF8\批量更新字幕编码为UTF8.csproj", "{7ED228CE-62B1-4AE8-844C-C936F708ACCB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependence", "Dependence", "{A7F957DD-1D31-44C5-94AD-B839EF06424E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExControls", "..\..\LibsMadTomDev\User Controls\ExControls\ExControls.csproj", "{20FE657C-9C3D-41A5-A9B3-2166FD21D65C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IOUtilities", "..\..\LibsMadTomDev\Common\IOUtilities\IOUtilities.csproj", "{0C60FDD8-A314-41EC-BFA2-03BFC10B017C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleStringHelper", "..\..\LibsMadTomDev\Common\SimpleStringHelper\SimpleStringHelper.csproj", "{E7D67808-ED40-4FC9-9054-FEDE3EC7948B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TextFileDecodeHelper", "..\..\LibsMadTomDev\Common\TextFileDecodeHelper\TextFileDecodeHelper.csproj", "{8418936C-3285-4488-BD7A-C8CAD5892F97}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DriveDetector", "..\..\LibsMadTomDev\Resource\DriveDetector\DriveDetector\DriveDetector.csproj", "{787BBE46-E4D2-45AA-B01F-D38C366C86AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7ED228CE-62B1-4AE8-844C-C936F708ACCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7ED228CE-62B1-4AE8-844C-C936F708ACCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7ED228CE-62B1-4AE8-844C-C936F708ACCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7ED228CE-62B1-4AE8-844C-C936F708ACCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20FE657C-9C3D-41A5-A9B3-2166FD21D65C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20FE657C-9C3D-41A5-A9B3-2166FD21D65C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20FE657C-9C3D-41A5-A9B3-2166FD21D65C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20FE657C-9C3D-41A5-A9B3-2166FD21D65C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C60FDD8-A314-41EC-BFA2-03BFC10B017C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C60FDD8-A314-41EC-BFA2-03BFC10B017C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C60FDD8-A314-41EC-BFA2-03BFC10B017C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C60FDD8-A314-41EC-BFA2-03BFC10B017C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7D67808-ED40-4FC9-9054-FEDE3EC7948B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7D67808-ED40-4FC9-9054-FEDE3EC7948B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7D67808-ED40-4FC9-9054-FEDE3EC7948B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7D67808-ED40-4FC9-9054-FEDE3EC7948B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8418936C-3285-4488-BD7A-C8CAD5892F97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8418936C-3285-4488-BD7A-C8CAD5892F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8418936C-3285-4488-BD7A-C8CAD5892F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8418936C-3285-4488-BD7A-C8CAD5892F97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{787BBE46-E4D2-45AA-B01F-D38C366C86AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{787BBE46-E4D2-45AA-B01F-D38C366C86AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{787BBE46-E4D2-45AA-B01F-D38C366C86AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{787BBE46-E4D2-45AA-B01F-D38C366C86AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{20FE657C-9C3D-41A5-A9B3-2166FD21D65C} = {A7F957DD-1D31-44C5-94AD-B839EF06424E}
+		{0C60FDD8-A314-41EC-BFA2-03BFC10B017C} = {A7F957DD-1D31-44C5-94AD-B839EF06424E}
+		{E7D67808-ED40-4FC9-9054-FEDE3EC7948B} = {A7F957DD-1D31-44C5-94AD-B839EF06424E}
+		{8418936C-3285-4488-BD7A-C8CAD5892F97} = {A7F957DD-1D31-44C5-94AD-B839EF06424E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {92300F6C-91B6-42FF-BA8C-FF67F2B80574}
+	EndGlobalSection
+EndGlobal

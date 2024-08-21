@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>MadTomDev.App</RootNamespace>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NotifyIcon.Windows" Version="1.23.10209.11223" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Common\IconHelper\IconHelper.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Common\IOUtilities\IOUtilities.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Common\Logger\Logger.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Common\MadTomDevVariables\MadTomDevVariables.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Data\SettingsTxt\SettingsTxt.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Resource\DriveDetector\DriveDetector\DriveDetector.csproj" />
+  </ItemGroup>
+
+</Project>

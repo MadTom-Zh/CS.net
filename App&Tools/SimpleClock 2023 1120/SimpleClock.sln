@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleClock", "SimpleClock.csproj", "{2518DF7D-3CA2-420E-8008-48B8421033AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dependence", "dependence", "{D84ED4F0-D573-4F74-8F68-96A80B31C299}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MillisecondTimer", "..\..\LibsMadTomDev\Common\MillisecondTimer\MillisecondTimer.csproj", "{700DAF25-CD9E-4B9C-8343-928A0236A26C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2518DF7D-3CA2-420E-8008-48B8421033AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2518DF7D-3CA2-420E-8008-48B8421033AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2518DF7D-3CA2-420E-8008-48B8421033AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2518DF7D-3CA2-420E-8008-48B8421033AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{700DAF25-CD9E-4B9C-8343-928A0236A26C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{700DAF25-CD9E-4B9C-8343-928A0236A26C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{700DAF25-CD9E-4B9C-8343-928A0236A26C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{700DAF25-CD9E-4B9C-8343-928A0236A26C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{700DAF25-CD9E-4B9C-8343-928A0236A26C} = {D84ED4F0-D573-4F74-8F68-96A80B31C299}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F5C6946F-94C1-4F1D-9CC6-046672853DBB}
+	EndGlobalSection
+EndGlobal

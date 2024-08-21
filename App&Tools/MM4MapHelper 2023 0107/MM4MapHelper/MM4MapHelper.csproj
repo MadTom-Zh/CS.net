@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>MadTomDev.App</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="images\cross1.png" />
+    <None Remove="images\cross2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\LibsMadTomDev\User Controls\QuickGraphics\QuickGraphics.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="images\cross1.png" />
+    <Resource Include="images\cross2.png" />
+  </ItemGroup>
+
+</Project>

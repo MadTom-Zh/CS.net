@@ -1,0 +1,94 @@
+﻿<Window x:Class="MadTomDev.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MadTomDev.App"
+        mc:Ignorable="d"
+        Initialized="Window_Initialized"
+        Closing="Window_Closing"
+        Title="MM4 Map Helper  by MadTom 2023 0117" Height="450" Width="800">
+    <TabControl SelectionChanged="TabControl_SelectionChanged">
+        <TabItem Header="定位">
+            <Grid>
+                <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="快速查询窗口 * //用于注释" VerticalAlignment="Top"/>
+                <TextBox x:Name="tb_user" HorizontalAlignment="Left" Margin="10,31,0,10" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"
+                         Text="// 输入经纬度坐标，将在地图上显示定位标记；当光标在坐标所在行时，对应标记会被加亮；" Width="165"
+                         TextChanged="tb_user_TextChanged" SelectionChanged="tb_user_SelectionChanged"
+                         />
+                <Border Margin="180,10,10,10" BorderBrush="Black" BorderThickness="1">
+                    <Viewbox>
+                        <Grid>
+                            <Rectangle Fill="Black"></Rectangle>
+                            <Image x:Name="img_map"  HorizontalAlignment="Left" VerticalAlignment="Top"
+                                   Opacity="0.6"></Image>
+                            <Grid x:Name="grid_pins"  HorizontalAlignment="Left" VerticalAlignment="Top">
+                            </Grid>
+                        </Grid>
+                    </Viewbox>
+                </Border>
+            </Grid>
+        </TabItem>
+        <TabItem Header="地图导入">
+            <Grid>
+                <!--地图实际显示区域范围-->
+                <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="地图左上角坐标" VerticalAlignment="Top"/>
+                <TextBox x:Name="tb_topLeft" HorizontalAlignment="Left" Margin="99,9,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="81"
+                         TextChanged="tb_topLeft_TextChanged"/>
+                <TextBlock HorizontalAlignment="Left" Margin="10,33,0,0" TextWrapping="Wrap" Text="地图右下角坐标" VerticalAlignment="Top"/>
+                <TextBox x:Name="tb_bottomRight" HorizontalAlignment="Left" Margin="99,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="81"
+                         TextChanged="tb_bottomRight_TextChanged"/>
+
+
+                <!--地图坐标转换-->
+                <TextBlock HorizontalAlignment="Left" Margin="197,10,0,0" TextWrapping="Wrap" Text="定位点1" VerticalAlignment="Top"/>
+                <TextBox x:Name="tb_pt1" HorizontalAlignment="Left" Margin="244,9,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60"
+                    TextChanged="tb_pt1_TextChanged"/>
+                <TextBlock HorizontalAlignment="Left" Margin="197,33,0,0" TextWrapping="Wrap" Text="定位点2" VerticalAlignment="Top"/>
+                <TextBox x:Name="tb_pt2" HorizontalAlignment="Left" Margin="244,32,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60"
+                    TextChanged="tb_pt2_TextChanged"/>
+                <TextBlock HorizontalAlignment="Left" Margin="197,56,0,0" TextWrapping="Wrap" Text="定位点2" VerticalAlignment="Top"/>
+                <TextBox x:Name="tb_pt3" HorizontalAlignment="Left" Margin="244,55,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60"
+                    TextChanged="tb_pt3_TextChanged"/>
+
+
+                <TextBlock HorizontalAlignment="Left" Margin="309,9,0,0" TextWrapping="Wrap" Text="经纬" VerticalAlignment="Top"/>
+                <TextBox x:Name="tb_posi1" HorizontalAlignment="Left" Margin="338,8,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145"
+                    TextChanged="tb_posi1_TextChanged"/>
+                <TextBlock HorizontalAlignment="Left" Margin="309,32,0,0" TextWrapping="Wrap" Text="经纬" VerticalAlignment="Top"/>
+                <TextBox x:Name="tb_posi2" HorizontalAlignment="Left" Margin="338,31,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145"
+                    TextChanged="tb_posi2_TextChanged"/>
+                <TextBlock HorizontalAlignment="Left" Margin="309,55,0,0" TextWrapping="Wrap" Text="经纬" VerticalAlignment="Top"/>
+                <TextBox x:Name="tb_posi3" HorizontalAlignment="Left" Margin="338,54,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="145"
+                    TextChanged="tb_posi3_TextChanged"/>
+
+
+                <!--地图输入-->
+                <TextBlock x:Name="tb_dropZone" HorizontalAlignment="Right" Margin="0,10,10,0" TextWrapping="Wrap" VerticalAlignment="Top" 
+                           TextAlignment="Center" Background="GreenYellow"
+                           AllowDrop="True"
+                           PreviewDragEnter="tb_dropZone_PreviewDragEnter" PreviewDragOver="tb_dropZone_PreviewDragOver"
+                           PreviewDrop="tb_dropZone_PreviewDrop"
+                           Height="40" Width="108"><Run Text="请将地图图片"/><LineBreak/><Run Text="拖入这里"/></TextBlock>
+
+
+                <!--地图输入显示-->
+                <Border BorderBrush="Black" BorderThickness="1" Margin="10,78,10,10">
+                    <Viewbox HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Grid>
+                            <Image x:Name="img_mapOrigin" Stretch="None"
+                               HorizontalAlignment="Left" VerticalAlignment="Top"></Image>
+                            <Border x:Name="bdr_mapOrigin" BorderBrush="Red" BorderThickness="1"
+                                HorizontalAlignment="Left" VerticalAlignment="Top"
+                                Visibility="Collapsed"></Border>
+                        </Grid>
+                    </Viewbox>
+                </Border>
+
+            </Grid>
+        </TabItem>
+        <TabItem Header="说明">
+            <TextBlock><LineBreak/><Run Text="用于快速定位坐标在地图上的位置；"/><LineBreak/><Run/><LineBreak/><Run Text="使用方法："/><LineBreak/><Run Text="在 地图导入 页中，上传地图图片，设置地图边界坐标（左上角和右下角）；"/><LineBreak/><Run Text="在 定位 页，输入坐标，用光标点击即可快速定位；"/><LineBreak/><Run/><LineBreak/><Run Text="2022-10-12 修正了载入新截图后，地图不更新的问题；"/><LineBreak/><Run Language="zh-cn" Text="2023-01-17 修正了非调试模式下图片锁定无法更新且不报错的问题；"/></TextBlock>
+        </TabItem>
+    </TabControl>
+</Window>
