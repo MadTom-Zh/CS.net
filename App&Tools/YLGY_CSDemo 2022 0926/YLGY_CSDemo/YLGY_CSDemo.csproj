@@ -1,0 +1,211 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows10.0.17763.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>MadTomDev.Demo</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="images\tileBase.png" />
+    <None Remove="images\tilePatterns\apple.png" />
+    <None Remove="images\tilePatterns\ashtray.png" />
+    <None Remove="images\tilePatterns\bambooSlip.png" />
+    <None Remove="images\tilePatterns\baseballBat.png" />
+    <None Remove="images\tilePatterns\bee.png" />
+    <None Remove="images\tilePatterns\bell.png" />
+    <None Remove="images\tilePatterns\bible.png" />
+    <None Remove="images\tilePatterns\blueBook.png" />
+    <None Remove="images\tilePatterns\bonfire.png" />
+    <None Remove="images\tilePatterns\bonfireBlue.png" />
+    <None Remove="images\tilePatterns\bonfireGreen.png" />
+    <None Remove="images\tilePatterns\bouquetRoses.png" />
+    <None Remove="images\tilePatterns\bra.png" />
+    <None Remove="images\tilePatterns\brush.png" />
+    <None Remove="images\tilePatterns\cabbage.png" />
+    <None Remove="images\tilePatterns\candle.png" />
+    <None Remove="images\tilePatterns\candleLamp.png" />
+    <None Remove="images\tilePatterns\carrot.png" />
+    <None Remove="images\tilePatterns\censer.png" />
+    <None Remove="images\tilePatterns\chestnut.png" />
+    <None Remove="images\tilePatterns\chineseBrush.png" />
+    <None Remove="images\tilePatterns\chineseHat.png" />
+    <None Remove="images\tilePatterns\claw.png" />
+    <None Remove="images\tilePatterns\clayMug.png" />
+    <None Remove="images\tilePatterns\copperCoin.png" />
+    <None Remove="images\tilePatterns\corn.png" />
+    <None Remove="images\tilePatterns\coveredBowl.png" />
+    <None Remove="images\tilePatterns\crab.png" />
+    <None Remove="images\tilePatterns\crossbow.png" />
+    <None Remove="images\tilePatterns\diamondRing.png" />
+    <None Remove="images\tilePatterns\female.png" />
+    <None Remove="images\tilePatterns\fuchsinMooncake.png" />
+    <None Remove="images\tilePatterns\fuchsinYam.png" />
+    <None Remove="images\tilePatterns\garlic.png" />
+    <None Remove="images\tilePatterns\gift.png" />
+    <None Remove="images\tilePatterns\glove.png" />
+    <None Remove="images\tilePatterns\grass.png" />
+    <None Remove="images\tilePatterns\grassBlue.png" />
+    <None Remove="images\tilePatterns\grassBrown.png" />
+    <None Remove="images\tilePatterns\greenCandle.png" />
+    <None Remove="images\tilePatterns\greenMooncake.png" />
+    <None Remove="images\tilePatterns\ham.png" />
+    <None Remove="images\tilePatterns\handBell.png" />
+    <None Remove="images\tilePatterns\hay.png" />
+    <None Remove="images\tilePatterns\heart.png" />
+    <None Remove="images\tilePatterns\highHeel.png" />
+    <None Remove="images\tilePatterns\holyCross.png" />
+    <None Remove="images\tilePatterns\male.png" />
+    <None Remove="images\tilePatterns\mask.png" />
+    <None Remove="images\tilePatterns\milk.png" />
+    <None Remove="images\tilePatterns\mooncake.png" />
+    <None Remove="images\tilePatterns\mooncakeBrown.png" />
+    <None Remove="images\tilePatterns\mooncakeGolden.png" />
+    <None Remove="images\tilePatterns\mooncakeWhite.png" />
+    <None Remove="images\tilePatterns\oilLamp.png" />
+    <None Remove="images\tilePatterns\pear.png" />
+    <None Remove="images\tilePatterns\pinkFlower.png" />
+    <None Remove="images\tilePatterns\potion.png" />
+    <None Remove="images\tilePatterns\prayerBeads.png" />
+    <None Remove="images\tilePatterns\pumpkin.png" />
+    <None Remove="images\tilePatterns\pumpkinHead.png" />
+    <None Remove="images\tilePatterns\rabbit.png" />
+    <None Remove="images\tilePatterns\rake.png" />
+    <None Remove="images\tilePatterns\redDrop.png" />
+    <None Remove="images\tilePatterns\redInkPaste.png" />
+    <None Remove="images\tilePatterns\redLips.png" />
+    <None Remove="images\tilePatterns\riceBall.png" />
+    <None Remove="images\tilePatterns\riceBowl.png" />
+    <None Remove="images\tilePatterns\scissors.png" />
+    <None Remove="images\tilePatterns\shears.png" />
+    <None Remove="images\tilePatterns\shorts.png" />
+    <None Remove="images\tilePatterns\shortSword.png" />
+    <None Remove="images\tilePatterns\skyLantern.png" />
+    <None Remove="images\tilePatterns\stump.png" />
+    <None Remove="images\tilePatterns\stumpGray.png" />
+    <None Remove="images\tilePatterns\sunCloud.png" />
+    <None Remove="images\tilePatterns\thousandIslandDressing.png" />
+    <None Remove="images\tilePatterns\tobaccoPipe.png" />
+    <None Remove="images\tilePatterns\topHat.png" />
+    <None Remove="images\tilePatterns\tree.png" />
+    <None Remove="images\tilePatterns\waterBucket.png" />
+    <None Remove="images\tilePatterns\whiteHat.png" />
+    <None Remove="images\tilePatterns\wineGlass.png" />
+    <None Remove="images\tilePatterns\wineJug.png" />
+    <None Remove="images\tilePatterns\yinYang.png" />
+    <None Remove="images\tools\moveOut.png" />
+    <None Remove="images\tools\shuffling.png" />
+    <None Remove="images\tools\shuffling_die.png" />
+    <None Remove="images\tools\shuffling_live.png" />
+    <None Remove="images\tools\undo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="images\tileBase.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\tilePatterns\apple.png" />
+    <Content Include="images\tilePatterns\ashtray.png" />
+    <Content Include="images\tilePatterns\bambooSlip.png" />
+    <Content Include="images\tilePatterns\baseballBat.png" />
+    <Content Include="images\tilePatterns\bee.png" />
+    <Content Include="images\tilePatterns\bell.png" />
+    <Content Include="images\tilePatterns\bible.png" />
+    <Content Include="images\tilePatterns\blueBook.png" />
+    <Content Include="images\tilePatterns\bonfire.png" />
+    <Content Include="images\tilePatterns\bonfireBlue.png" />
+    <Content Include="images\tilePatterns\bonfireGreen.png" />
+    <Content Include="images\tilePatterns\bouquetRoses.png" />
+    <Content Include="images\tilePatterns\bra.png" />
+    <Content Include="images\tilePatterns\brush.png" />
+    <Content Include="images\tilePatterns\cabbage.png" />
+    <Content Include="images\tilePatterns\candle.png" />
+    <Content Include="images\tilePatterns\candleLamp.png" />
+    <Content Include="images\tilePatterns\carrot.png" />
+    <Content Include="images\tilePatterns\censer.png" />
+    <Content Include="images\tilePatterns\chestnut.png" />
+    <Content Include="images\tilePatterns\chineseBrush.png" />
+    <Content Include="images\tilePatterns\chineseHat.png" />
+    <Content Include="images\tilePatterns\claw.png" />
+    <Content Include="images\tilePatterns\clayMug.png" />
+    <Content Include="images\tilePatterns\copperCoin.png" />
+    <Content Include="images\tilePatterns\corn.png" />
+    <Content Include="images\tilePatterns\coveredBowl.png" />
+    <Content Include="images\tilePatterns\crab.png" />
+    <Content Include="images\tilePatterns\crossbow.png" />
+    <Content Include="images\tilePatterns\diamondRing.png" />
+    <Content Include="images\tilePatterns\female.png" />
+    <Content Include="images\tilePatterns\fuchsinMooncake.png" />
+    <Content Include="images\tilePatterns\fuchsinYam.png" />
+    <Content Include="images\tilePatterns\garlic.png" />
+    <Content Include="images\tilePatterns\gift.png" />
+    <Content Include="images\tilePatterns\glove.png" />
+    <Content Include="images\tilePatterns\grass.png" />
+    <Content Include="images\tilePatterns\grassBlue.png" />
+    <Content Include="images\tilePatterns\grassBrown.png" />
+    <Content Include="images\tilePatterns\greenCandle.png" />
+    <Content Include="images\tilePatterns\greenMooncake.png" />
+    <Content Include="images\tilePatterns\ham.png" />
+    <Content Include="images\tilePatterns\handBell.png" />
+    <Content Include="images\tilePatterns\hay.png" />
+    <Content Include="images\tilePatterns\heart.png" />
+    <Content Include="images\tilePatterns\highHeel.png" />
+    <Content Include="images\tilePatterns\holyCross.png" />
+    <Content Include="images\tilePatterns\male.png" />
+    <Content Include="images\tilePatterns\mask.png" />
+    <Content Include="images\tilePatterns\milk.png" />
+    <Content Include="images\tilePatterns\mooncake.png" />
+    <Content Include="images\tilePatterns\mooncakeBrown.png" />
+    <Content Include="images\tilePatterns\mooncakeGolden.png" />
+    <Content Include="images\tilePatterns\mooncakeWhite.png" />
+    <Content Include="images\tilePatterns\oilLamp.png" />
+    <Content Include="images\tilePatterns\pear.png" />
+    <Content Include="images\tilePatterns\pinkFlower.png" />
+    <Content Include="images\tilePatterns\potion.png" />
+    <Content Include="images\tilePatterns\prayerBeads.png" />
+    <Content Include="images\tilePatterns\pumpkin.png" />
+    <Content Include="images\tilePatterns\pumpkinHead.png" />
+    <Content Include="images\tilePatterns\rabbit.png" />
+    <Content Include="images\tilePatterns\rake.png" />
+    <Content Include="images\tilePatterns\redDrop.png" />
+    <Content Include="images\tilePatterns\redInkPaste.png" />
+    <Content Include="images\tilePatterns\redLips.png" />
+    <Content Include="images\tilePatterns\riceBall.png" />
+    <Content Include="images\tilePatterns\riceBowl.png" />
+    <Content Include="images\tilePatterns\scissors.png" />
+    <Content Include="images\tilePatterns\shears.png" />
+    <Content Include="images\tilePatterns\shorts.png" />
+    <Content Include="images\tilePatterns\shortSword.png" />
+    <Content Include="images\tilePatterns\skyLantern.png" />
+    <Content Include="images\tilePatterns\stump.png" />
+    <Content Include="images\tilePatterns\stumpGray.png" />
+    <Content Include="images\tilePatterns\sunCloud.png" />
+    <Content Include="images\tilePatterns\thousandIslandDressing.png" />
+    <Content Include="images\tilePatterns\tobaccoPipe.png" />
+    <Content Include="images\tilePatterns\topHat.png" />
+    <Content Include="images\tilePatterns\tree.png" />
+    <Content Include="images\tilePatterns\waterBucket.png" />
+    <Content Include="images\tilePatterns\whiteHat.png" />
+    <Content Include="images\tilePatterns\wineGlass.png" />
+    <Content Include="images\tilePatterns\wineJug.png" />
+    <Content Include="images\tilePatterns\yinYang.png" />
+    <Content Include="images\tools\moveOut.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\tools\shuffling.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\tools\shuffling_die.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\tools\shuffling_live.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\tools\undo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

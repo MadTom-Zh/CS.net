@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YLGY_CSDemo", "YLGY_CSDemo\YLGY_CSDemo.csproj", "{CE8FEF31-E5A2-4FE9-9B04-E5E7463B564F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CE8FEF31-E5A2-4FE9-9B04-E5E7463B564F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE8FEF31-E5A2-4FE9-9B04-E5E7463B564F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE8FEF31-E5A2-4FE9-9B04-E5E7463B564F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE8FEF31-E5A2-4FE9-9B04-E5E7463B564F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32FDAFCF-A02A-4FB8-82E6-CA5E99C698D3}
+	EndGlobalSection
+EndGlobal

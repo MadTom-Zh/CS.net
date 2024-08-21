@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="MadTomDev.Demo.Ctrls.Tile"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MadTomDev.Demo.Ctrls"
+             mc:Ignorable="d" 
+             d:DesignHeight="120" d:DesignWidth="100">
+    <Grid Background="Fuchsia" PreviewMouseDown="Grid_PreviewMouseDown">
+        <Image x:Name="img_bg" Stretch="Fill"></Image>
+        <Image x:Name="img_pattern" Stretch="Fill"></Image>
+        <Rectangle x:Name="rect_gray" Fill="#66000000"></Rectangle>
+
+        <!--<Image x:Name="img_bg" Source="{Binding ImgBG}" Stretch="Fill"></Image>
+        <Image x:Name="img_pattern" Source="{Binding ImgPattern}" Stretch="Fill"></Image>
+        <Rectangle x:Name="rect_gray" Fill="#66000000" Visibility="{Binding MaskGrayVisibility}"></Rectangle>-->
+    </Grid>
+</UserControl>
