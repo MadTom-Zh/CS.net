@@ -1,0 +1,49 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Ctrls="clr-namespace:FlowerzHelper.Ctrls" xmlns:SubBlock="clr-namespace:FlowerzHelper.Ctrls.SubBlock" x:Class="FlowerzHelper.SetConveyorWindow"
+        Title="SetConveyorWindow" Height="341.379" Width="389.655">
+    <Grid Margin="0">
+
+        <Ctrls:ConveyorPanel x:Name="conveyorPanel" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button_deleteFirst" Content="删前" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Margin="10,10,0,0" Height="40" Click="button_coneyorItemDelete_Click"/>
+        <Button x:Name="button_deleteLast" Content="删后" HorizontalAlignment="Left" VerticalAlignment="Top" Width="35" Margin="255,10,0,0" Height="40" Click="button_coneyorItemDelete_Click"/>
+        <Button x:Name="button_clear" Content="清空" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="295,10,0,0" Height="40" Click="button_coneyorItemClear_Click"/>
+
+        <SubBlock:FlowerBlock x:Name="fb_red" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top" MouseDown="fb_MouseDown"/>
+        <SubBlock:FlowerBlock x:Name="fb_pink" HorizontalAlignment="Left" Margin="45,67,0,0" VerticalAlignment="Top" MouseDown="fb_MouseDown"/>
+        <SubBlock:FlowerBlock x:Name="fb_yellow" HorizontalAlignment="Left" Margin="80,67,0,0" VerticalAlignment="Top" MouseDown="fb_MouseDown"/>
+        <SubBlock:FlowerBlock x:Name="fb_white" HorizontalAlignment="Left" Margin="115,67,0,0" VerticalAlignment="Top" MouseDown="fb_MouseDown"/>
+        <SubBlock:FlowerBlock x:Name="fb_lightBlue" HorizontalAlignment="Left" Margin="150,67,0,0" VerticalAlignment="Top" MouseDown="fb_MouseDown"/>
+        <SubBlock:FlowerBlock x:Name="fb_blue" HorizontalAlignment="Left" Margin="185,67,0,0" VerticalAlignment="Top" MouseDown="fb_MouseDown"/>
+        <Border x:Name="border_fb" BorderBrush="Red" BorderThickness="2" HorizontalAlignment="Left" Height="30" Margin="220,67,0,0" VerticalAlignment="Top" Width="30">
+            <Border BorderBrush="White" BorderThickness="1" Height="27" Width="27"/>
+        </Border>
+
+        <SubBlock:FlowerBlock x:Name="fcb_red" HorizontalAlignment="Left" Margin="10,122,0,0" VerticalAlignment="Top" MouseDown="fcb_MouseDown"/>
+        <SubBlock:FlowerBlock x:Name="fcb_pink" HorizontalAlignment="Left" Margin="45,122,0,0" VerticalAlignment="Top" MouseDown="fcb_MouseDown"/>
+        <SubBlock:FlowerBlock x:Name="fcb_yellow" HorizontalAlignment="Left" Margin="80,122,0,0" VerticalAlignment="Top" MouseDown="fcb_MouseDown"/>
+        <SubBlock:FlowerBlock x:Name="fcb_white" HorizontalAlignment="Left" Margin="115,122,0,0" VerticalAlignment="Top" MouseDown="fcb_MouseDown"/>
+        <SubBlock:FlowerBlock x:Name="fcb_lightBlue" HorizontalAlignment="Left" Margin="150,122,0,0" VerticalAlignment="Top" MouseDown="fcb_MouseDown"/>
+        <SubBlock:FlowerBlock x:Name="fcb_blue" HorizontalAlignment="Left" Margin="185,122,0,0" VerticalAlignment="Top" MouseDown="fcb_MouseDown"/>
+        <Border x:Name="border_fcb" BorderBrush="#FF9700FF" BorderThickness="2" HorizontalAlignment="Left" Height="30" Margin="220,122,0,0" VerticalAlignment="Top" Width="30">
+            <Border BorderBrush="White" BorderThickness="1" Height="27" Width="27"/>
+        </Border>
+        <Button x:Name="button_addFlowerSingle" Content="添加单色花" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="295,62,0,0" Height="40" Click="button_coneyorAddFlowerSingle_Click"/>
+        <Button x:Name="button_addFlowerDouble" Content="添加双色花" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="295,116,0,0" Height="40" Click="button_coneyorAddFlowerDouble_Click"/>
+        <Button x:Name="button_addTool" Content="添加工具" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="295,173,0,0" Height="40" Click="button_coneyorAddTool_Click"/>
+        <SubBlock:ToolBlock x:Name="tb_butterfly_red" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top" MouseDown="tb_MouseDown"/>
+        <SubBlock:ToolBlock x:Name="tb_butterfly_pink" HorizontalAlignment="Left" Margin="45,178,0,0" VerticalAlignment="Top" MouseDown="tb_MouseDown"/>
+        <SubBlock:ToolBlock x:Name="tb_butterfly_yellow" HorizontalAlignment="Left" Margin="80,178,0,0" VerticalAlignment="Top" MouseDown="tb_MouseDown"/>
+        <SubBlock:ToolBlock x:Name="tb_butterfly_white" HorizontalAlignment="Left" Margin="115,178,0,0" VerticalAlignment="Top" MouseDown="tb_MouseDown"/>
+        <SubBlock:ToolBlock x:Name="tb_butterfly_lightBlue" HorizontalAlignment="Left" Margin="150,178,0,0" VerticalAlignment="Top" MouseDown="tb_MouseDown"/>
+        <SubBlock:ToolBlock x:Name="tb_butterfly_blue" HorizontalAlignment="Left" Margin="185,178,0,0" VerticalAlignment="Top" MouseDown="tb_MouseDown"/>
+        <SubBlock:ToolBlock x:Name="tb_shovel" HorizontalAlignment="Left" Margin="220,178,0,0" VerticalAlignment="Top" MouseDown="tb_MouseDown"/>
+        <Border x:Name="border_tb" BorderBrush="#FF0CFF00" BorderThickness="2" HorizontalAlignment="Left" Height="30" Margin="255,178,0,0" VerticalAlignment="Top" Width="30">
+            <Border BorderBrush="White" BorderThickness="1" Height="27" Width="27"/>
+        </Border>
+        <Button x:Name="button_ok" Content="确定" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="210,264,0,0" Height="40" Click="button_ok_Click" />
+        <Button x:Name="button_cancel" Content="取消" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="295,264,0,0" Height="40" Click="button_cancel_Click" />
+
+    </Grid>
+</Window>

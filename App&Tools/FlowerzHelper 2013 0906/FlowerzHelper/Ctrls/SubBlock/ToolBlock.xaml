@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="FlowerzHelper.Ctrls.SubBlock.ToolBlock"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="30" Width="30">
+    <Grid>
+        <Image x:Name="imageShovel" Source="shovel.png" OpacityMask="#FFED1C24" Stretch="Fill" />
+        <Polygon x:Name="polygonButterfly" Points="
+                 14,26, 12,28, 10,29, 8,29, 6,28, 5,26, 4,24, 3,16, 2,14, 1,12, 
+                 0,7, 2,3, 4,2, 6,3, 8,5, 10,8, 12,10, 14,12,
+                 14,7, 10,2, 8,2, 8,0, 10,0, 10,1, 14.5,7,
+                 15.5,7, 20,1, 20,0, 22,0, 22,2, 20,2, 16,7,
+                 16,12, 18,10, 20,8, 22,5, 24,3, 26,2, 28,3, 30,7,
+                 29,12, 28,14, 27,16, 26,24, 25,26, 24,28, 22,29, 20,29, 18,28, 16,26"
+                 HorizontalAlignment="Center" VerticalAlignment="Center" Stroke="Black"></Polygon>
+    </Grid>
+</UserControl>

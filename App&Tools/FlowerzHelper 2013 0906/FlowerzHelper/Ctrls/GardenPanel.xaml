@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="FlowerzHelper.Ctrls.GardenPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="300" Width="300">
+    <Grid x:Name="gridWindow"
+          KeyDown="gridWindow_KeyDown"
+          MouseEnter="gridWindow_MouseEnter" MouseLeave="gridWindow_MouseLeave"
+          MouseMove="gridWindow_MouseMove"
+          Focusable="True"
+          Background="#02000000" MouseDown="gridWindow_MouseDown">
+            
+    </Grid>
+</UserControl>

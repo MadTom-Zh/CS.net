@@ -1,0 +1,14 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Ctrls="clr-namespace:FlowerzHelper.Ctrls" x:Class="FlowerzHelper.MainWindow"
+        Title="Flowerz 计步助手" Height="700" Width="764" WindowState="Maximized">
+    <Grid>
+        <Border x:Name="borderMain" BorderBrush="Red" BorderThickness="1">
+            <Viewbox>
+                <Ctrls:CentralPanel x:Name="centralPanel" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" />
+            </Viewbox>
+        </Border>
+            
+    </Grid>
+</Window>

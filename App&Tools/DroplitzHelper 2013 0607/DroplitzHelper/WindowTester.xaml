@@ -1,0 +1,10 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:UCs="clr-namespace:DroplitzHelper.UCs" x:Class="DroplitzHelper.WindowTester"
+        Title="WindowTester" Height="300" Width="300">
+    <Grid x:Name="gridMain">
+        <Button Content="Button" HorizontalAlignment="Left" Margin="15,112,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+
+    </Grid>
+</Window>

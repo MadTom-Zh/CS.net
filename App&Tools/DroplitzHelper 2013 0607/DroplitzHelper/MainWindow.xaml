@@ -1,0 +1,24 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:UCs="clr-namespace:DroplitzHelper.UCs" x:Class="DroplitzHelper.MainWindow"
+        Title="MainWindow" Height="671.881" Width="690"
+        KeyDown="Window_KeyDown_1" MouseRightButtonDown="Window_MouseRightButtonDown_1" PreviewMouseLeftButtonDown="Window_PreviewMouseLeftButtonDown_1">
+    <Grid>
+        <Grid Height="25" VerticalAlignment="Top" Margin="0,2,0,0">
+            <Button x:Name="button_tapReduc" Content="-" HorizontalAlignment="Left" Margin="87,2,0,0" VerticalAlignment="Top" Width="30" Click="button_tapReduc_Click"/>
+            <Button x:Name="button_tapIncre" Content="+" HorizontalAlignment="Left" Margin="147,2,0,0" VerticalAlignment="Top" Width="30" Click="button_tapIncre_Click"/>
+            <Label Content="出水口数量：" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <Label Content="纵深高度：" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="202,0,0,0"/>
+            <TextBlock x:Name="textBlock_taps" HorizontalAlignment="Left" Margin="122,5,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Width="20" TextAlignment="Center" RenderTransformOrigin="0.7,1.9"/>
+            <Button x:Name="button_rowReduc" Content="-" HorizontalAlignment="Left" Margin="272,2,0,0" VerticalAlignment="Top" Width="30" Click="button_rowReduc_Click"/>
+            <TextBlock x:Name="textBlock_rowsMain" HorizontalAlignment="Left" Margin="307,5,0,0" TextWrapping="Wrap" Text="5" VerticalAlignment="Top" Width="20" TextAlignment="Center"/>
+            <Button x:Name="button_rowIncre" Content="+" HorizontalAlignment="Left" Margin="332,2,0,0" VerticalAlignment="Top" Width="30" Click="button_rowIncre_Click"/>
+            <Button x:Name="button_about" Content="?" HorizontalAlignment="Right" Margin="0,2" Width="30" Click="button_about_Click"/>
+        </Grid>
+        <Border x:Name="border" Margin="0,27,0,0" BorderBrush="#FF2EFF00" BorderThickness="3" />
+        <ScrollViewer Margin="3,30,3,3">
+            <UCs:UC_MainPanel x:Name="mainPanel"/>
+        </ScrollViewer>
+    </Grid>
+</Window>
