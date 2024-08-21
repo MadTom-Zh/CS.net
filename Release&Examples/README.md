@@ -53,3 +53,35 @@ CC用的参考数据，之前玩FortressCraft做的，解压后放在Depot文件
 #### MineClearanceHelper2 2024 0820
 
 扫雷辅助工具，当遇到无法确定的区域时，用这个工具来模拟预测吧；当然，如果没有唯一解，那么未知区域还会是未知，你只能赌了；
+
+#### DroplitzHelper -app
+
+游戏辅助工具，游戏名Droplitz；
+
+#### FlowerzHelper -app
+
+游戏辅助工具，游戏名Flowerz；
+
+#### MM4MapHelper -app 2023 0117
+
+地图工具，用于快速在地图图片上标记位置；
+
+#### MouseClickAnalysis -app
+
+鼠标点击分析工具，检查按键是否存在双击故障；
+
+#### ShowMeYourUSB -app
+
+U口监控工具，自动记录插入U盘内的文件列表，或全盘复制；
+
+#### SimpleClock -app
+
+一个简单的时钟小软件；
+
+#### YLGY_CSDemo -app
+
+羊了个羊，游戏演示；
+
+#### 批量更新字幕编码为UTF8 -app
+
+如题，主要用于将电影字幕转换为UTF8编码（如果你电脑支持GB编码，则不需要转换）；
