@@ -1,0 +1,206 @@
+﻿<Window x:Class="MadTomDev.Test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MadTomDev.Test"
+        xmlns:ColorExpertControls="clr-namespace:MadTomDev.UI.ColorExpertControls;assembly=ExDialogs"        
+        mc:Ignorable="d"
+        Title="SystemResource  by MadTom 2024 0828" Height="700" Width="1100">
+    <Grid>
+        <TabControl x:Name="tabControl_root" SelectionChanged="TabControl_SelectionChanged">
+            <TabItem Header="Color" >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="350"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ScrollViewer>
+                        <ColorExpertControls:ColorPanelAllInOne x:Name="exColorPanel"/>
+                    </ScrollViewer>
+                    <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Stretch" Width="5"/>
+                    <TabControl Margin="10,0,0,0" Grid.Column="1">
+                        <TabItem Header="SystemColors">
+                            <ScrollViewer>
+                                <WrapPanel x:Name="wPanel_systemColors"/>
+                            </ScrollViewer>
+                        </TabItem>
+                        <TabItem Header="Colors">
+                            <ScrollViewer>
+                                <WrapPanel x:Name="wPanel_colors"/>
+                            </ScrollViewer>
+                        </TabItem>
+                    </TabControl>
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Margin="0,1,148,0"
+                               TextAlignment="Right">filter</TextBlock>
+                    <TextBox x:Name="tb_colorFilter" TextChanged="tb_colorFilter_TextChanged" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Height="20" Margin="0,0,43,0"></TextBox>
+                    <Button x:Name="btn_colorFilterClear" Click="btn_colorFilterClear_Click" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Top" Width="20" Margin="0,0,21,0">X</Button>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Icon">
+                <TabControl>
+                    <TabItem Header="System">
+                        <ScrollViewer>
+                            <WrapPanel x:Name="wPanel_iconSystem"/>
+                        </ScrollViewer>
+                    </TabItem>
+                    <TabItem Header="Shell32">
+                        <ScrollViewer>
+                            <WrapPanel x:Name="wPanel_iconShell32"/>
+                        </ScrollViewer>
+                    </TabItem>
+                </TabControl>
+            </TabItem>
+            <TabItem Header="SystemSound">
+                <ScrollViewer>
+                    <WrapPanel x:Name="wPanel_systemSounds"/>
+                </ScrollViewer>
+            </TabItem>
+            <TabItem Header="CharCode">
+                <ScrollViewer>
+                    <StackPanel>
+                        <TextBlock Margin="8">KeyCode</TextBlock>
+                        <WrapPanel x:Name="wPanel_keyCodes" Margin="8,0,8,0"></WrapPanel>
+                        <Border Margin="4" BorderBrush="CadetBlue" BorderThickness="2">
+                            <StackPanel Margin="2">
+                                <TextBlock>Input Area</TextBlock>
+                                <TextBox x:Name="tb_input" Height="80" TextWrapping="Wrap"
+                                         TextChanged="tb_input_TextChanged" PreviewKeyDown="tb_input_PreviewKeyDown" PreviewKeyUp="tb_input_PreviewKeyUp"
+                                         ></TextBox>
+                            </StackPanel>
+                        </Border>
+                        <TextBlock Margin="8">CharCode</TextBlock>
+                        <WrapPanel x:Name="wPanel_charCodes" Margin="8,0,8,0"></WrapPanel>
+                    </StackPanel>
+                </ScrollViewer>
+            </TabItem >
+            <TabItem Header="PinYin">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="163*"/>
+                        <ColumnDefinition Width="384*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Source" VerticalAlignment="Top"/>
+                    <TextBox x:Name="tbPinyinSource" TextChanged="tbPinyinSource_TextChanged" VerticalScrollBarVisibility="Visible"
+                             AcceptsReturn="True" Margin="10,31,10,10"></TextBox>
+
+                    <GridSplitter Grid.Column="1" HorizontalAlignment="Left"  VerticalAlignment="Stretch"  Width="8"/>
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="13,10,0,0" TextWrapping="Wrap" Text="PinYin" VerticalAlignment="Top"/>
+
+                    <Border BorderBrush="DarkOliveGreen" BorderThickness="1"
+                            Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="89,10,0,0">
+                        <StackPanel Orientation="Horizontal">
+                            <RadioButton x:Name="rbAllLower" Checked="rbPyChecked" Margin="0,0,10,0">All Lower</RadioButton>
+                            <RadioButton x:Name="rbFirstUpper" Checked="rbPyChecked" Margin="0,0,10,0" IsChecked="True">First Uper</RadioButton>
+                            <RadioButton x:Name="rbAllUpper" Checked="rbPyChecked" Margin="0,0,10,0">All Upper</RadioButton>
+                        </StackPanel>
+                    </Border>
+                    <Border BorderBrush="DarkOliveGreen" BorderThickness="1"
+                            Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="359,10,0,0">
+
+                        <StackPanel Orientation="Horizontal" >
+                            <RadioButton x:Name="rbFull" Checked="rbPyChecked" Margin="0,0,10,0">Full</RadioButton>
+                            <RadioButton x:Name="rbFirst" Checked="rbPyChecked" Margin="0,0,10,0" IsChecked="True">Only First</RadioButton>
+                        </StackPanel>
+                    </Border>
+                    <Border BorderBrush="DarkOliveGreen" BorderThickness="1"
+                            Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="520,8,0,0">
+
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock Margin="2,0,10,0">Separator</TextBlock>
+                            <TextBox x:Name="tbPinYinSeparator" TextChanged="tbPinYinSeparator_textChanged" Width="100"></TextBox>
+                        </StackPanel>
+                    </Border>
+                    <TextBox x:Name="tbPinYinTarget" IsReadOnly="True" Grid.Column="1" VerticalScrollBarVisibility="Visible" AcceptsReturn="True" Margin="10,31,10,10"></TextBox>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Languages">
+                <DataGrid x:Name="dataGrid_languages" AutoGenerateColumns="False"
+                          FrozenColumnCount="3"
+                          CanUserAddRows="False" CanUserDeleteRows="False"
+                          HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="LCID" Binding="{Binding LCID}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="DisplayName" Binding="{Binding DisplayName}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="NativeNameName" Binding="{Binding NativeNameName}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="EnglishName" Binding="{Binding EnglishName}"></DataGridTextColumn>
+                        <DataGridCheckBoxColumn Header="IsNeutral" Binding="{Binding IsNeutral}"></DataGridCheckBoxColumn>
+                        <DataGridCheckBoxColumn Header="IsReadOnly" Binding="{Binding IsReadOnly}"></DataGridCheckBoxColumn>
+                        <DataGridTextColumn Header="Parent" Binding="{Binding Parent}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Types" Binding="{Binding Types}"></DataGridTextColumn>
+                        <!--<DataGridTextColumn Header="DataTimeFormat" Binding="{Binding DataTimeFormat}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="NumberFormat" Binding="{Binding NumberFormat}"></DataGridTextColumn>-->
+                        <DataGridTextColumn Header="KeyboardLayoutId" Binding="{Binding KeyboardLayoutId}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="leftLanguageTag" Binding="{Binding leftLanguageTag}"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="CRC">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+                    <Border BorderBrush="Black" BorderThickness="1" Height="59" VerticalAlignment="Top" Margin="10,10,19,0">
+                        <WrapPanel x:Name="wp_crcModels" Orientation="Horizontal" >
+                            <TextBlock Margin="4,0,4,0" FontWeight="Bold" VerticalAlignment="Center">Models</TextBlock>
+                            <RadioButton x:Name="rb_crcModels_custom" Margin="4,1,4,0" FontWeight="Bold" IsChecked="True"
+                                         Checked="rb_crcModels_Checked">Custom</RadioButton>
+                        </WrapPanel>
+                    </Border>
+
+                    <Border BorderBrush="Black" BorderThickness="1" Height="48" VerticalAlignment="Top" Margin="10,74,19,0">
+                        <Grid x:Name="grid_crcCustomChars">
+                            <TextBlock FontWeight="Bold" HorizontalAlignment="Left" Width="150" Height="19" Margin="4,0,0,0" VerticalAlignment="Top">Custom characteristics</TextBlock>
+                            <TextBlock HorizontalAlignment="Left" Margin="155,0,0,0" TextWrapping="Wrap" Text="Width(8-64)" VerticalAlignment="Top"/>
+                            <TextBox x:Name="tb_crcParWidth" HorizontalAlignment="Left" TextAlignment="Center" Margin="227,0,0,0" TextWrapping="NoWrap" Text="16" VerticalAlignment="Top" Width="53"/>
+                            <CheckBox x:Name="cb_crcParRefIn" Content="RefIn" HorizontalAlignment="Left" Margin="314,2,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                            <CheckBox x:Name="cb_crcParRefOut" Content="RefOut" HorizontalAlignment="Left" Margin="390,2,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="4,24,0,0" Text="Poly" VerticalAlignment="Top"/>
+                            <TextBox x:Name="tb_crcParPoly" HorizontalAlignment="Left" TextAlignment="Center" Margin="31,24,0,0" TextWrapping="NoWrap" Text="8005" VerticalAlignment="Top" Width="64"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="107,24,0,0" Text="Init" VerticalAlignment="Top"/>
+                            <TextBox x:Name="tb_crcParInit" HorizontalAlignment="Left" TextAlignment="Center" Margin="129,24,0,0" TextWrapping="NoWrap" Text="FFFF" VerticalAlignment="Top" Width="64"/>
+                            <TextBlock HorizontalAlignment="Left" Margin="210,24,0,0" Text="XorOut" VerticalAlignment="Top"/>
+                            <TextBox x:Name="tb_crcParXorOut" HorizontalAlignment="Left" TextAlignment="Center" Margin="253,24,0,0" TextWrapping="NoWrap" Text="0" VerticalAlignment="Top" Width="64"/>
+
+                        </Grid>
+                    </Border>
+
+                    <Border BorderBrush="Black" BorderThickness="1" Height="22" VerticalAlignment="Top" Margin="10,127,19,0">
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock Margin="4,0,4,0" FontWeight="Bold">Data format</TextBlock>
+                            <RadioButton x:Name="rbCRCHex" Margin="4,2,4,0"  IsChecked="True">Hex</RadioButton>
+                            <RadioButton x:Name="rbCRCOct" Margin="4,2,4,0" >Oct</RadioButton>
+                            <RadioButton x:Name="rbCRCBin" Margin="4,2,4,0" >Bin</RadioButton>
+                            <RadioButton x:Name="rbCRCDec" Margin="4,2,4,0" >Dec</RadioButton>
+                            <RadioButton x:Name="rbCRCStr" Margin="4,2,4,0" >String(UTF8)</RadioButton>
+                        </StackPanel>
+                    </Border>
+
+                    <GridSplitter Margin="0,154,6,0" Width="8"/>
+                    <TextBox x:Name="tb_crcInput" Margin="10,154,19,10" TextWrapping="NoWrap" AcceptsReturn="True"
+                             HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Visible"
+                             TextChanged="tb_crcInput_TextChanged" PreviewKeyDown="tb_crcInput_PreviewKeyDown"
+                             PreviewKeyUp="tb_crcInput_PreviewKeyUp"
+                             PreviewMouseWheel="tb_crcInput_PreviewMouseWheel"
+                             PreviewMouseDown="tb_crcInput_PreviewMouseDown" PreviewMouseUp="tb_crcInput_PreviewMouseUp"
+                             PreviewMouseMove="tb_crcInput_PreviewMouseMove"
+                             GotFocus="tb_crcInput_GotFocus" FontSize="22"/>
+                    <Grid Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20*"/>
+                            <ColumnDefinition Width="80*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="tbv_crc" Margin="0,154,0,10" TextWrapping="NoWrap" AcceptsReturn="True"
+                             IsReadOnly="True" Text="" FontSize="22" Grid.Column="0"/>
+                        <TextBox x:Name="tbv_crcBin" Margin="0,154,0,10" TextWrapping="NoWrap"  AcceptsReturn="True"
+                             IsReadOnly="True" Text="" FontSize="22" Grid.Column="1"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>

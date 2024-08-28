@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows7.0</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>MadTomDev.Test</RootNamespace>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+    <PackageReference Include="TinyPinyin.Net" Version="1.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Common\IconHelper\IconHelper.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Common\SimpleStringHelper\SimpleStringHelper.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\Data\CRC\CRC.csproj" />
+    <ProjectReference Include="..\..\..\LibsMadTomDev\User Controls\ExDialogs\ExDialogs.csproj" />
+  </ItemGroup>
+
+</Project>
