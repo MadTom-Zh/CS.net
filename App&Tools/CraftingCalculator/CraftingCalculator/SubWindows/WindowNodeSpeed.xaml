@@ -1,0 +1,94 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MadTomDev.App.SubWindows"
+        xmlns:Ctrls="clr-namespace:MadTomDev.App.Ctrls" xmlns:UI="clr-namespace:MadTomDev.UI;assembly=ExControls" x:Class="MadTomDev.App.SubWindows.WindowNodeSpeed"
+        mc:Ignorable="d"
+        
+        WindowStartupLocation="CenterScreen"
+    Loaded="Window_Loaded"
+    ResizeMode="NoResize"
+    SizeToContent="WidthAndHeight"
+        
+        Title="{DynamicResource lb_winNodeSpeed_title}" MinHeight="300" MinWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel x:Name="sp_inputs" VerticalAlignment="Center">
+            <Ctrls:PortSpeed OnInputOrOutput="True" />
+        </StackPanel>
+
+        <StackPanel x:Name="sp_outputs" VerticalAlignment="Center" Grid.Column="2">
+            <Ctrls:PortSpeed />
+        </StackPanel>
+
+        <Border BorderBrush="Black" BorderThickness="1" Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="72"/>
+                </Grid.RowDefinitions>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="33*"/>
+                        <ColumnDefinition Width="33*"/>
+                        <ColumnDefinition Width="33*"/>
+                    </Grid.ColumnDefinitions>
+                    <RadioButton x:Name="rb_UPSec" Checked="rb_UPSec_Checked" Style="{StaticResource {x:Type ToggleButton}}" Content="{DynamicResource lb_winNodeSpeed_speedUnitPS}"></RadioButton>
+                    <RadioButton x:Name="rb_UPMin" Checked="rb_UPMin_Checked" Style="{StaticResource {x:Type ToggleButton}}" Content="{DynamicResource lb_winNodeSpeed_speedUnitPM}" Grid.Column="1"></RadioButton>
+                    <RadioButton x:Name="rb_UPHour" Checked="rb_UPHour_Checked" Style="{StaticResource {x:Type ToggleButton}}" Content="{DynamicResource lb_winNodeSpeed_speedUnitPH}" Grid.Column="2"></RadioButton>
+
+                </Grid>
+
+                <StackPanel Margin="0,5,0,0" Grid.Row="1">
+                    <TextBlock x:Name="tbv_recipe" TextAlignment="Center" Style="{DynamicResource ResourceKey=Title1}" Margin="0,5,0,0"><Run Text="[Recipe]"/></TextBlock>
+                    <TextBlock TextAlignment="Center" Margin="0,5,0,5"><Run Text="{DynamicResource lb_winNodeSpeed_using}"/></TextBlock>
+
+                    <Ctrls:ThingWithLabel x:Name="twl_processor" IsNumberLabelsVisible="False" />
+
+                    <TextBlock TextAlignment="Center" Style="{DynamicResource Title1}" Margin="0,5,0,0"
+                               Text="{DynamicResource lb_winNodeSpeed_quantity}"></TextBlock>
+                    <Grid Height="50">
+
+                        <TextBlock Width="30" VerticalAlignment="Top" Text="{DynamicResource lb_winNodeSpeed_cur}" Margin="10,5,0,0" Height="17" HorizontalAlignment="Left"/>
+                        <TextBox x:Name="tbv_oriQuantity" VerticalAlignment="Top" Text="[oriQuantity]" TextWrapping="Wrap" Margin="45,4,29,0" IsReadOnly="True" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                        <TextBlock Width="30" VerticalAlignment="Top" Text="{DynamicResource lb_winNodeSpeed_new}" Margin="10,28,0,0" Height="17" HorizontalAlignment="Left"/>
+                        <UI:NumericUpDown x:Name="nud_newQuantity" ValueChanged="nud_newQuantity_ValueChanged" 
+                                          Margin="45,27,10,0" VerticalAlignment="Top" Background="White"
+                            Maximum="999999999" Minimum="0" DecimalPlaces="2" IncrementToInteger="False"/>
+
+
+                    </Grid>
+
+                    <TextBlock x:Name="tbv_titleAccessories" TextAlignment="Center" Style="{DynamicResource Title1}" Margin="0,5,0,5"
+                               Text="{DynamicResource lb_winNodeSpeed_accessories}"></TextBlock>
+                    <StackPanel x:Name="sp_accessories" Orientation="Vertical">
+
+
+                    </StackPanel>
+
+                </StackPanel>
+
+                <Button x:Name="btn_ok" Click="btn_ok_Click" Content="{DynamicResource lb_winNodeSpeed_ok}"  Margin="9,4,99,0" Grid.Row="2" Style="{DynamicResource StandardButton1}"
+                        VerticalAlignment="Top" Width="NaN" />
+                <Button x:Name="btn_cancel" Click="btn_cancel_Click" Content="{DynamicResource lb_winNodeSpeed_cancel}"  Margin="0,4,6,0" Grid.Row="2" Style="{DynamicResource StandardButton1}"
+                    VerticalAlignment="Top" HorizontalAlignment="Right" Width="90" />
+                <Button x:Name="btn_applyAll" Click="btn_applyAll_Click"  Content="{DynamicResource lb_winNodeSpeed_applyToAll}"  Margin="9,38,6,0" Grid.Row="2" 
+                    VerticalAlignment="Top" Height="30" />
+
+
+            </Grid>
+        </Border>
+
+
+
+    </Grid>
+</Window>

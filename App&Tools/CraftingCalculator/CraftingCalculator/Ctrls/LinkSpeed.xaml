@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="MadTomDev.App.Ctrls.LinkSpeed"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MadTomDev.App.Ctrls"             
+             xmlns:UI="clr-namespace:MadTomDev.UI;assembly=ExControls"
+             mc:Ignorable="d" 
+             >
+
+    <Border x:Name="bdr_main" MinWidth="140" BorderThickness="1,1,1,1" BorderBrush="Black" Background="Aqua">
+        <Grid x:Name="grid_main">
+            <Grid x:Name="grid_link" Height="58" VerticalAlignment="Center">
+                <TextBlock Text="{DynamicResource lb_linkSpeed_cur}" Margin="10,11,0,0" Height="17" VerticalAlignment="Top" HorizontalAlignment="Left" Width="30"/>
+                <TextBox x:Name="tbv_speedOri" Margin="45,10,10,0" TextWrapping="Wrap" Text="[oriSpeed]" IsReadOnly="True" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                <TextBlock Text="{DynamicResource lb_linkSpeed_new}" Margin="10,34,0,0" Height="17" VerticalAlignment="Top" HorizontalAlignment="Left" Width="30"/>
+                <UI:NumericUpDown x:Name="nud_speedNew" Margin="45,33,10,0" VerticalAlignment="Top" Background="White"
+                                  ValueChanged="nud_speedNew_ValueChanged"
+                                  Maximum="999999999" Minimum="0" DecimalPlaces="2"  IncrementToInteger="False"/>
+            </Grid>
+        </Grid>
+    </Border>
+</UserControl>

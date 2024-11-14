@@ -1,0 +1,446 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MadTomDev.App"
+        xmlns:Ctrls="clr-namespace:MadTomDev.App.Ctrls" 
+        xmlns:UI="clr-namespace:MadTomDev.UI;assembly=ExControls" 
+        x:Class="MadTomDev.App.WindowCalculatorAuto"
+        mc:Ignorable="d"
+        Loaded="Window_Loaded"
+        PreviewMouseMove="Window_PreviewMouseMove"
+        PreviewMouseUp="Window_PreviewMouseUp"
+        MouseLeave="Window_MouseLeave"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        Width="1200" Height="900"
+        Title="{DynamicResource lb_winCalculator_title}"
+        >
+    <Grid>
+        <TabControl x:Name="tabMain" SelectionChanged="tabMain_SelectionChanged">
+
+            <TabItem Padding="16" >
+                <TabItem.Header>
+                    <TextBlock Style="{StaticResource Title1}" Text="{DynamicResource lb_winCalculator_preFilters}"/>
+                </TabItem.Header>
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="60*"/>
+                        <ColumnDefinition Width="20*"/>
+                        <ColumnDefinition Width="20*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" Grid.Column="1"
+                        Text="{DynamicResource lb_winCalculator_inputs}" VerticalAlignment="Top"
+                        Style="{StaticResource Title1}"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap" Grid.Column="2"
+                        Text="{DynamicResource lb_winCalculator_outputs}" VerticalAlignment="Top"
+                        Style="{StaticResource Title1}"/>
+
+                    <ScrollViewer Margin="0,10,0,0">
+                        <StackPanel>
+                            <Expander Margin="0,0,0,10" IsExpanded="True">
+                                <Expander.Header>
+                                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap"
+                                        Text="{DynamicResource lb_winCalculator_procedures}" VerticalAlignment="Top"
+                                        Style="{StaticResource Title1}"/>
+                                </Expander.Header>
+                                <StackPanel x:Name="sp_pfP" Orientation="Vertical" Background="Gold"></StackPanel>
+                            </Expander>
+
+                            <Expander Margin="0,0,0,10" IsExpanded="True">
+                                <Expander.Header>
+                                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Grid.Column="1"
+                                        Text="{DynamicResource lb_winCalculator_accessories}" VerticalAlignment="Top"
+                                        Style="{StaticResource Title1}"/>
+                                </Expander.Header>
+                                <StackPanel x:Name="sp_pfA" Orientation="Vertical" Background="Magenta"></StackPanel>
+                            </Expander>
+
+                            <Expander Margin="0,0,0,40" IsExpanded="True">
+                                <Expander.Header>
+                                    <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Grid.Column="2"
+                                        Text="{DynamicResource lb_winCalculator_channels}" VerticalAlignment="Top"
+                                        Style="{StaticResource Title1}"/>
+                                </Expander.Header>
+                                <StackPanel x:Name="sp_pfC" Orientation="Vertical" Background="Lime"></StackPanel>
+                            </Expander>
+                        </StackPanel>
+                    </ScrollViewer>
+
+
+                    <ScrollViewer Margin="0,36,0,0" Grid.Column="1" Background="Orange">
+                        <StackPanel x:Name="sp_pfI" Orientation="Vertical"></StackPanel>
+                    </ScrollViewer>
+                    <ScrollViewer Margin="0,36,0,0" Grid.Column="2" Background="Aqua">
+                        <StackPanel x:Name="sp_pfO" Orientation="Vertical"></StackPanel>
+                    </ScrollViewer>
+
+                </Grid>
+            </TabItem>
+
+
+            <TabItem Padding="16" >
+                <TabItem.Header>
+                    <TextBlock Style="{StaticResource Title1}" Text="{DynamicResource lb_winCalculator_preconditions}"/>
+                </TabItem.Header>
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="50*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap"
+                               Text="{DynamicResource lb_winCalculator_manufacture}" VerticalAlignment="Top"
+                               Style="{StaticResource Title1}"/>
+                    <Ctrls:ThingInQuantity x:Name="tiq_targetProduct" Margin="10,36,109,0" VerticalAlignment="Top"
+                                           IsInputEnabled="False" IsCloseEnabled="False"
+                                           IconDoubleClicked="tiq_targetProduct_IconDoubleClicked"/>
+                    <Button x:Name="btn_search" Click="btn_search_Click" 
+                            Content="{DynamicResource lb_winCalculator_search}" HorizontalAlignment="Right" Margin="0,54,14,0" VerticalAlignment="Top"
+                            Style="{StaticResource StandardButton1}"
+                            IsEnabled="False"
+                            />
+                    <ScrollViewer Margin="10,89,14,10">
+                        <StackPanel Orientation="Vertical">
+
+                            <Expander x:Name="expd_preP" IsExpanded="True" Margin="0,0,0,12">
+                                <Expander.Header>
+                                    <TextBlock Text="{DynamicResource lb_winCalculator_procedures}" Style="{StaticResource Title1}"/>
+                                </Expander.Header>
+                                <WrapPanel x:Name="wp_preP" MinHeight="20" Background="Gold"/>
+                            </Expander>
+                            <Expander x:Name="expd_preA" IsExpanded="True" Margin="0,0,0,12">
+                                <Expander.Header>
+                                    <TextBlock Text="{DynamicResource lb_winCalculator_accessories}" Style="{StaticResource Title1}"/>
+                                </Expander.Header>
+                                <WrapPanel x:Name="wp_preA" MinHeight="20" Background="Magenta"/>
+                            </Expander>
+
+                            <Expander x:Name="expd_preC" IsExpanded="True" Margin="0,0,0,12">
+                                <Expander.Header>
+                                    <TextBlock Text="{DynamicResource lb_winCalculator_channels}" Style="{StaticResource Title1}"/>
+                                </Expander.Header>
+                                <WrapPanel x:Name="wp_preC" MinHeight="20" Background="Lime"/>
+                            </Expander>
+
+                            <Expander x:Name="expd_preI" IsExpanded="True" Margin="0,0,0,12">
+                                <Expander.Header>
+                                    <TextBlock Text="{DynamicResource lb_winCalculator_inputs}" Style="{StaticResource Title1}"/>
+                                </Expander.Header>
+                                <WrapPanel x:Name="wp_preI" MinHeight="20" Background="Orange"/>
+                            </Expander>
+                            <Expander x:Name="expd_preO" IsExpanded="False" Margin="0,0,0,64">
+                                <Expander.Header>
+                                    <TextBlock Text="{DynamicResource lb_winCalculator_outputs}" Style="{StaticResource Title1}"/>
+                                </Expander.Header>
+                                <WrapPanel x:Name="wp_preO" MinHeight="20" Background="Aqua"/>
+                            </Expander>
+                        </StackPanel>
+                    </ScrollViewer>
+
+                    <GridSplitter Width="5"/>
+
+                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap"
+                        Text="{DynamicResource lb_winCalculator_possibleCombinations}" VerticalAlignment="Top"
+                        Style="{StaticResource Title1}" Grid.Column="1"/>
+
+                    <DataGrid x:Name="dataGrid_pre" Grid.Column="1" Margin="10,36,10,10"
+                              AutoGenerateColumns="False"
+                              Background="Transparent" Focusable="True"
+                              VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible"
+                              FontFamily="Consolas" SelectionUnit="FullRow" SelectionMode="Single"
+                              HeadersVisibility="Column"
+                              VerticalContentAlignment="Center"
+                              CanUserSortColumns="True" IsReadOnly="True"
+                              CanUserAddRows="False" CanUserDeleteRows="False"                                                      
+                              SelectionChanged="dataGrid_pre_SelectionChanged"
+                              PreviewMouseDown="dataGrid_pre_PreviewMouseDown"
+                              PreviewKeyDown="dataGrid_pre_PreviewKeyDown"
+                              >
+
+                        <DataGrid.RowBackground>
+                            <SolidColorBrush Color="Transparent"></SolidColorBrush>
+                        </DataGrid.RowBackground>
+
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Setter Property="Visibility" Value="Visible" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding IsVisible}" Value="True">
+                                        <Setter Property="Visibility" Value="Visible" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding IsVisible}" Value="False">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+
+                        <DataGrid.Columns>
+
+                            <DataGridTemplateColumn Header="{DynamicResource lb_winCalculator_dg_count}" >
+                                <!--SortMemberPath="Id"-->
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Text="{Binding CountTxA}"></TextBlock>
+                                            <TextBlock Text="{Binding CountTxI}"></TextBlock>
+                                            <TextBlock Text="{Binding CountTxO}"></TextBlock>
+                                            <TextBlock Text="{Binding CountTxC}"></TextBlock>
+                                            <TextBlock Text="{Binding CountTxP}"></TextBlock>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource lb_winCalculator_dg_accessories}" MinWidth="20" Width="Auto" MaxWidth="220">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl  ItemsSource="{Binding Accessories}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel Orientation="Horizontal" Margin="6,0,6,0">
+                                                    </WrapPanel>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Margin="1" BorderThickness="1" BorderBrush="Gray" Width="48" Height="48">
+                                                        <Image Source="{Binding Icon}" ToolTip="{Binding IconToolTip}" 
+                                                               RenderOptions.BitmapScalingMode="NearestNeighbor" Stretch="Fill"></Image>
+                                                    </Border>
+                                                    <!--<Ctrls:ThingWithLabel IsNameLabelsVisible="False" IsNumberLabelsVisible="False" IsCheckable="False"                                                                          
+                                                                          Icon="{Binding Icon}"
+                                                                          ToolTip="{Binding IconToolTip}"
+                                                                          ></Ctrls:ThingWithLabel>-->
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource lb_winCalculator_dg_inputs}" MinWidth="20" Width="Auto" MaxWidth="220">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl  ItemsSource="{Binding Inputs}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel Orientation="Horizontal" Margin="8,0,8,0">
+                                                    </WrapPanel>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Margin="1" BorderThickness="1" BorderBrush="Gray" Width="48" Height="48">
+                                                        <Image Source="{Binding Icon}" ToolTip="{Binding IconToolTip}" 
+                                                               RenderOptions.BitmapScalingMode="NearestNeighbor" Stretch="Fill"></Image>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource lb_winCalculator_dg_outputs}" MinWidth="20" Width="Auto" MaxWidth="220">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl  ItemsSource="{Binding Outputs}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel Orientation="Horizontal" Margin="8,0,8,0">
+                                                    </WrapPanel>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Margin="1" BorderThickness="1" BorderBrush="Gray" Width="48" Height="48">
+                                                        <Image Source="{Binding Icon}" ToolTip="{Binding IconToolTip}" 
+                                                               RenderOptions.BitmapScalingMode="NearestNeighbor" Stretch="Fill"></Image>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource lb_winCalculator_dg_optimizedChannels}" MinWidth="20" Width="Auto" MaxWidth="220">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl  ItemsSource="{Binding Channels}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel Orientation="Horizontal" Margin="8,0,8,0">
+                                                    </WrapPanel>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Margin="1" BorderThickness="1" BorderBrush="Gray" Width="48" Height="48">
+                                                        <Image Source="{Binding Icon}" ToolTip="{Binding IconToolTip}" 
+                                                               RenderOptions.BitmapScalingMode="NearestNeighbor" Stretch="Fill"></Image>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Header="{DynamicResource lb_winCalculator_dg_processors}" MinWidth="20" Width="Auto" MaxWidth="220">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ItemsControl  ItemsSource="{Binding Processors}">
+                                            <ItemsControl.ItemsPanel>
+                                                <ItemsPanelTemplate>
+                                                    <WrapPanel Orientation="Horizontal" Margin="8,0,8,0">
+                                                    </WrapPanel>
+                                                </ItemsPanelTemplate>
+                                            </ItemsControl.ItemsPanel>
+                                            <ItemsControl.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Margin="1" BorderThickness="1" BorderBrush="Gray" Width="48" Height="48">
+                                                        <Image Source="{Binding Icon}" ToolTip="{Binding IconToolTip}" 
+                                                               RenderOptions.BitmapScalingMode="NearestNeighbor" Stretch="Fill"></Image>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </ItemsControl.ItemTemplate>
+                                        </ItemsControl>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+                    <Button x:Name="btn_cal" Content="Cal ==&gt;" Click="btn_cal_Click"
+                            HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom"
+                        Style="{StaticResource StandardButton1}" Grid.Column="1"
+                            Visibility="Collapsed"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Padding="16" >
+                <TabItem.Header>
+                    <TextBlock Style="{StaticResource Title1}" Text="{DynamicResource lb_winCalculator_quantify}"/>
+                </TabItem.Header>
+                <Grid Background="#FFE5E5E5">
+                    <Grid Margin="10,0,10,10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="25*"/>
+                            <ColumnDefinition Width="25*"/>
+                            <ColumnDefinition Width="25*"/>
+                            <ColumnDefinition Width="25*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock HorizontalAlignment="Left" Margin="0,10,0,0" TextWrapping="Wrap"
+                        Text="{DynamicResource lb_winCalculator_manufacture}" VerticalAlignment="Top"
+                        Style="{StaticResource Title1}"/>
+                        <Ctrls:ThingInQuantity x:Name="tip_qt" Margin="0,36,20,0" VerticalAlignment="Top"
+                        IsInputEnabled="False" IsCloseEnabled="False"/>
+
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap"
+                        Text="{DynamicResource lb_winCalculator_outputSpeedPS}" VerticalAlignment="Top"
+                        Style="{StaticResource Title1}" Margin="0,10,0,0" Grid.Column="1"/>
+                        <TextBlock HorizontalAlignment="Left" Grid.Column="2" TextWrapping="Wrap"
+                        Text="{DynamicResource lb_winCalculator_outputSpeedPM}" VerticalAlignment="Top"
+                        Style="{StaticResource Title1}" Margin="0,10,0,0"/>
+                        <TextBlock HorizontalAlignment="Left" Grid.Column="3" TextWrapping="Wrap"
+                        Text="{DynamicResource lb_winCalculator_outputSpeedPH}" VerticalAlignment="Top"
+                        Style="{StaticResource Title1}" Margin="0,10,0,0"/>
+
+                        <UI:NumericUpDown x:Name="nud_qtSec" Grid.Column="1" Margin="0,42,18,0" VerticalAlignment="Top" Height="24" 
+                                          PreviewKeyDown="quantity_nud_PreviewKeyDown" LostFocus="quantity_nud_LostFocus" Increment="0.1"
+                                          ValueChanged="quantity_nud_ValueChanged" Maximum="100000000000000" DecimalPlaces="1"/>
+                        <UI:NumericUpDown x:Name="nud_qtMin" Grid.Column="2" Margin="0,42,18,0" VerticalAlignment="Top" Height="24"
+                                          PreviewKeyDown="quantity_nud_PreviewKeyDown" LostFocus="quantity_nud_LostFocus" Increment="0.1"
+                                          ValueChanged="quantity_nud_ValueChanged" Maximum="100000000000000" DecimalPlaces="1"/>
+                        <UI:NumericUpDown x:Name="nud_qtHour" Grid.Column="3" Margin="0,42,18,0" VerticalAlignment="Top" Height="24"
+                                          PreviewKeyDown="quantity_nud_PreviewKeyDown" LostFocus="quantity_nud_LostFocus" Increment="0.1"
+                                          ValueChanged="quantity_nud_ValueChanged" Maximum="100000000000000" DecimalPlaces="1"/>
+
+
+                        <TextBlock HorizontalAlignment="Left" Margin="0,89,0,0" TextWrapping="Wrap"
+                        Text="{DynamicResource lb_winCalculator_processors}" VerticalAlignment="Top"
+                        Style="{StaticResource Title1}"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,89,0,0" TextWrapping="Wrap" Grid.Column="1"
+                        Text="{DynamicResource lb_winCalculator_accessories}" VerticalAlignment="Top"
+                        Style="{StaticResource Title1}"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,89,0,0" TextWrapping="Wrap" Grid.Column="2"
+                        Text="{DynamicResource lb_winCalculator_inputs}" VerticalAlignment="Top"
+                        Style="{StaticResource Title1}"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="0,89,0,0" TextWrapping="Wrap" Grid.Column="3"
+                        Text="{DynamicResource lb_winCalculator_outputs}" VerticalAlignment="Top"
+                        Style="{StaticResource Title1}"/>
+
+                        <ScrollViewer Margin="0,115,0,0" Background="Gold">
+                            <StackPanel x:Name="sp_qtP" Orientation="Vertical"></StackPanel>
+                        </ScrollViewer>
+                        <ScrollViewer Margin="0,115,0,0" Grid.Column="1" Background="Magenta">
+                            <StackPanel x:Name="sp_qtA" Orientation="Vertical"></StackPanel>
+                        </ScrollViewer>
+                        <ScrollViewer Margin="0,115,0,0" Grid.Column="2" Background="Orange">
+                            <StackPanel x:Name="sp_qtI" Orientation="Vertical"></StackPanel>
+                        </ScrollViewer>
+                        <ScrollViewer Margin="0,115,0,0" Grid.Column="3" Background="Aqua">
+                            <StackPanel x:Name="sp_qtO" Orientation="Vertical"></StackPanel>
+                        </ScrollViewer>
+
+
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Padding="16" >
+                <TabItem.Header>
+                    <TextBlock Style="{StaticResource Title1}" Text="{DynamicResource lb_winCalculator_graphAlpha}"/>
+                </TabItem.Header>
+                <Grid Background="#FFE5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <Button x:Name="btn_graphAlpha_zoomOut" Click="btn_graphAlpha_zoomOut_Click" 
+                                Style="{StaticResource StandardButton1}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,2,0"
+                        Content="{DynamicResource lb_winCalculator_zoomOut}"/>
+                        <Button x:Name="btn_graphAlpha_scaleOrigin" Click="btn_graphAlpha_scaleOrigin_Click"  
+                                Style="{StaticResource StandardButton1}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,2,0"
+                        Content="{DynamicResource lb_winCalculator_originScale}"/>
+                        <Button x:Name="btn_graphAlpha_zoomIn" Click="btn_graphAlpha_zoomIn_Click" 
+                                Style="{StaticResource StandardButton1}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="2,0,2,0"
+                        Content="{DynamicResource lb_winCalculator_zoomIn}"/>
+                        <Button x:Name="btn_graphAlpha_saveAsImage" Click="btn_graphAlpha_saveAsImage_Click" Style="{StaticResource StandardButton1}" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="8,0,2,0"
+                        Content="{DynamicResource lb_winCalculator_saveAsImage}"/>
+                    </StackPanel>
+
+                    <Grid x:Name="grid_graphAlpha" Grid.Row="1">
+                        <ScrollViewer x:Name="sv_graphAlpha"
+                                  HorizontalScrollBarVisibility="Visible">
+                            <Border x:Name="bdr_graphAlpha" BorderBrush="DarkRed" BorderThickness="0.5">
+                                <Canvas x:Name="canvas_graphAlpha" Width="534" Height="397" Background="Transparent"
+                                    HorizontalAlignment="Left" VerticalAlignment="Top"
+                                    SizeChanged="canvas_graphAlpha_SizeChanged"
+                                    PreviewMouseDown="canvas_graphAlpha_PreviewMouseDown"                                         
+                                        PreviewMouseUp="canvas_graphAlpha_PreviewMouseUp"
+                                    PreviewMouseWheel="canvas_graphAlpha_PreviewMouseWheel">
+                                </Canvas>
+                            </Border>
+                        </ScrollViewer>
+                    </Grid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <TextBlock x:Name="tbv_sceneChain" Style="{StaticResource Title1}" Text="SceneA -&gt; SceneB -&gt; ... -&gt; SceneX" 
+                   Margin="454,17,122,0" Height="25" VerticalAlignment="Top" TextAlignment="Center"/>
+        <Button x:Name="btn_newCal" Click="btn_newCal_Click"
+                Style="{StaticResource StandardButton1}" HorizontalAlignment="Right" Margin="0,14,10,0" Width="90" Height="30" VerticalAlignment="Top"
+                Content="{DynamicResource lb_winCalculator_newCalculator}"/>
+
+
+
+    </Grid>
+</Window>
