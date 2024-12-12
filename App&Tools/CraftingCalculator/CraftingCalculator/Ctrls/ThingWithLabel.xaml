@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="MadTomDev.App.Ctrls.ThingWithLabel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MadTomDev.App.Ctrls"
+             mc:Ignorable="d" 
+             d:DesignWidth="200">
+    <Grid x:Name="grid" Background="Transparent">
+
+        <Border BorderBrush="Black" BorderThickness="1" VerticalAlignment="Center" HorizontalAlignment="Left"
+                Margin="3" Width="48" Height="48"
+                Background="Gray">
+            <Image x:Name="img" Source="/Images/QMark_48.png" RenderOptions.BitmapScalingMode="NearestNeighbor"></Image>
+        </Border>
+        
+        <DockPanel x:Name="dp_labels" Margin="56,0,0,0">
+
+            <StackPanel x:Name="sp_numbers" DockPanel.Dock="Right" MinWidth="20"
+                    Orientation="Horizontal">
+                <TextBox x:Name="tbv_label1" Margin="0,4,4,4" Background="Transparent" BorderThickness="0" IsReadOnly="True" AcceptsReturn="True" 
+                     HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" TextAlignment="Right"
+                     Text="&#xD;&#xA;&#xD;&#xA;needs"/>
+                <TextBox x:Name="tbv_label2" Margin="0,4,4,4" Background="Transparent" BorderThickness="0" IsReadOnly="True" AcceptsReturn="True" 
+                     HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" TextAlignment="Right"
+                     Text="#&#xD;&#xA;#&#xD;&#xA;#"/>
+                <TextBox x:Name="tbv_label3" Margin="0,4,4,4" Background="Transparent" BorderThickness="0" IsReadOnly="True" AcceptsReturn="True" 
+                     HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled" 
+                     Text="/s&#xD;&#xA;/m&#xD;&#xA;/h"/>
+            </StackPanel>
+
+            <Grid x:Name="grid_nameNDescription">
+                <TextBlock x:Name="tbv_name" FontWeight="Bold" Text="[Name]" 
+                   Margin="0,4,4,0" VerticalAlignment="Top"></TextBlock>
+                <TextBlock x:Name="tbv_description" Text="Description" TextTrimming="WordEllipsis"
+                   ToolTipService.InitialShowDelay="200"
+                   Margin="0,25,4,0" Height="16" VerticalAlignment="Top"/>
+            </Grid>
+        </DockPanel>
+        <Border x:Name="bdr_cover" BorderBrush="Gray" BorderThickness="1"></Border>
+        <Rectangle x:Name="rect_cover" Fill="Transparent"
+                   ToolTipService.InitialShowDelay="100"
+                   PreviewMouseDown="rect_cover_PreviewMouseDown">
+        </Rectangle>
+    </Grid>
+</UserControl>

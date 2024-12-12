@@ -1,0 +1,242 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MadTomDev.App"
+        xmlns:Ctrls="clr-namespace:MadTomDev.App.Ctrls" xmlns:UI="clr-namespace:MadTomDev.UI;assembly=ExControls" xmlns:Anima="clr-namespace:MadTomDev.UI.Anima;assembly=ExControls" x:Class="MadTomDev.App.WindowCalculatorManu"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
+        Loaded="Window_Loaded"
+        KeyDown="Window_KeyDown"
+    
+        PreviewMouseMove="Window_PreviewMouseMove"
+        PreviewMouseUp="Window_PreviewMouseUp"
+        MouseLeave="Window_MouseLeave"
+        Closing="Window_Closing"
+    
+        Title="{DynamicResource lb_winCalculatorManu_title}" Height="900" Width="1200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TabControl x:Name="tabControl" Margin="0,0,8,0"
+                    SelectionChanged="tabControl_SelectionChanged">
+            <TabItem Padding="16">
+                <TabItem.Header>
+                    <TextBlock Style="{StaticResource Title1}" Text="{DynamicResource lb_winCalculatorManu_recipe}"/>
+                </TabItem.Header>
+                <Grid Background="#FFE5E5E5">
+
+                    <TextBlock HorizontalAlignment="Left" Margin="10,24,0,0" TextWrapping="Wrap"
+                                Text="{DynamicResource lb_winCalculatorManu_lookingFor}" VerticalAlignment="Top"
+                                Style="{StaticResource Title1}"/>
+                    <Ctrls:ThingInQuantity x:Name="tiq_lookingFor"
+                                           IconDoubleClicked="tiq_lookingFor_IconDoubleClicked"
+                        Margin="117,10,10,0" VerticalAlignment="Top"
+                        IsInputEnabled="False" IsCloseEnabled="False"/>
+
+                    <TextBlock HorizontalAlignment="Left" Margin="20,71,0,0" TextWrapping="Wrap"
+                               Text="{DynamicResource lb_winCalculatorManu_inputs}" VerticalAlignment="Top"
+                               Style="{StaticResource Title1}"/>
+                    <TextBlock HorizontalAlignment="Center" Margin="0,71,0,0" TextWrapping="Wrap"
+                                Text="{DynamicResource lb_winCalculatorManu_recipes}" VerticalAlignment="Top"
+                                Style="{StaticResource Title1}"/>
+                    <TextBlock HorizontalAlignment="Right" Margin="0,71,20,0" TextWrapping="Wrap"
+                                Text="{DynamicResource lb_winCalculatorManu_outputs}" VerticalAlignment="Top"
+                                Style="{StaticResource Title1}"/>
+                    <Grid Margin="0,97,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="75*"/>
+                            <ColumnDefinition Width="100*"/>
+                            <ColumnDefinition Width="75*"/>
+                        </Grid.ColumnDefinitions>
+                        <ScrollViewer>
+                            <StackPanel x:Name="sp_recipeInputs" Orientation="Vertical"/>
+                        </ScrollViewer>
+                        <ScrollViewer Grid.Column="1">
+                            <StackPanel x:Name="sp_recipes" Orientation="Vertical"
+                                        PreviewMouseDown="sp_recipes_PreviewMouseDown"
+                                        PreviewMouseUp="sp_recipes_PreviewMouseUp"
+                                        MouseLeave="sp_recipes_MouseLeave"
+                                        PreviewMouseMove="sp_recipes_PreviewMouseMove"/>
+                        </ScrollViewer>
+                        <ScrollViewer Grid.Column="2">
+                            <StackPanel x:Name="sp_recipeOutputs" Orientation="Vertical"/>
+                        </ScrollViewer>
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+
+
+            <TabItem Padding="16">
+                <TabItem.Header>
+                    <TextBlock Style="{StaticResource Title1}" Text="{DynamicResource lb_winCalculatorManu_graph}"/>
+                </TabItem.Header>
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap"
+                                Text="{DynamicResource lb_winCalculatorManu_currentGraph}" VerticalAlignment="Top"
+                                Style="{StaticResource Title1}"/>
+                    <TextBox x:Name="tbv_graphName" Margin="10,36,10,0" FontSize="18"
+                             TextWrapping="Wrap" Text="[No selection]" IsReadOnly="True"
+                             VerticalAlignment="Top"/>
+
+
+
+
+                    <TextBlock HorizontalAlignment="Left" Margin="10,67,0,0" TextWrapping="Wrap"
+                        Text="{DynamicResource lb_winCalculatorManu_currentGraphDescription}" VerticalAlignment="Top"
+                        Style="{StaticResource Title1}"/>
+                    <TextBox x:Name="tb_graphDescription" TextChanged="tb_graphDescription_TextChanged" Margin="10,93,10,0" FontSize="18"
+                        TextWrapping="Wrap" Text="[description]" AcceptsReturn="True"
+                        VerticalAlignment="Top" Height="91"/>
+
+
+                    <Button x:Name="btn_graphDelete" Click="btn_graphDelete_Click"
+                        Content="{DynamicResource lb_winCalculatorManu_graphDelete}" HorizontalAlignment="Left" Margin="10,189,0,0" VerticalAlignment="Top"
+                        Style="{StaticResource StandardButton1}"
+                            />
+                    <Button x:Name="btn_graphClear" Click="btn_graphClear_Click"
+                        Content="{DynamicResource lb_winCalculatorManu_graphClear}" HorizontalAlignment="Left" Margin="105,189,0,0" VerticalAlignment="Top"
+                        Style="{StaticResource StandardButton1}"
+                            />
+                    <Anima:TextBlock_Anima1 x:Name="tba_saved" Margin="0,196,200,0" Text="[ready]" VerticalAlignment="Top" HorizontalAlignment="Right"/>
+
+                    <Button x:Name="btn_graphSave" Click="btn_graphSave_Click"
+                        Content="{DynamicResource lb_winCalculatorManu_graphSave}" HorizontalAlignment="Right" Margin="0,189,105,0" VerticalAlignment="Top"
+                        Style="{StaticResource StandardButton1}"
+                            />
+                    <Button x:Name="btn_graphSaveAs" Click="btn_graphSaveAs_Click"
+                        Content="{DynamicResource lb_winCalculatorManu_graphSaveAs}" HorizontalAlignment="Right" Margin="0,189,10,0" VerticalAlignment="Top"
+                        Style="{StaticResource StandardButton1}"
+                            />
+
+
+                    <TextBlock HorizontalAlignment="Left" Margin="10,224,0,0" TextWrapping="Wrap"
+                        Text="{DynamicResource lb_winCalculatorManu_graphList}" VerticalAlignment="Top"
+                        Style="{StaticResource Title1}"/>
+                    <ScrollViewer Margin="0,250,0,0">
+                        <StackPanel x:Name="sp_graphList"/>
+                    </ScrollViewer>
+
+
+
+                </Grid>
+            </TabItem>
+
+
+
+            <TabItem Padding="16">
+                <TabItem.Header>
+                    <TextBlock Style="{StaticResource Title1}" Text="{DynamicResource lb_winCalculatorManu_simSpeed}"/>
+                </TabItem.Header>
+                <Grid Background="#FFE5E5E5">
+                    <Button x:Name="btn_simSpeedSetToBase" Click="btn_simSpeedSetToBase_Click"
+                        Content="{DynamicResource lb_winCalculatorManu_setToBase}" HorizontalAlignment="Right" Margin="0,45,10,0" VerticalAlignment="Top"
+                        Style="{StaticResource StandardButton1}"
+                            />
+                    <Button x:Name="btn_simSpeedReset" Click="btn_simSpeedReset_Click"
+                        Content="{DynamicResource lb_winCalculatorManu_simSpeedReset}" HorizontalAlignment="Right" Margin="0,80,10,0" VerticalAlignment="Top"
+                        Style="{StaticResource StandardButton1}"
+                            />
+                    <TextBlock HorizontalAlignment="Right" Margin="0,14,122,0" TextWrapping="Wrap" Text="/s" VerticalAlignment="Top"/>
+                    <UI:NumericUpDown x:Name="nud_ssSec" Margin="10,10,144,0" VerticalAlignment="Top" Height="24" 
+                            GotFocus="nud_ssSec_GotFocus"  LostFocus="nud_ssSec_LostFocus"  Increment="0.1" IncrementToInteger="False"
+                            ValueChanged="nud_ssSec_ValueChanged" Maximum="100000000000000" DecimalPlaces="3"/>
+
+
+                    <TextBlock HorizontalAlignment="Right" Margin="0,51,117,0" TextWrapping="Wrap" Text="/m" VerticalAlignment="Top"/>
+                    <UI:NumericUpDown x:Name="nud_ssMin" Margin="10,47,144,0" VerticalAlignment="Top" Height="24"
+                            GotFocus="nud_ssMin_GotFocus"  LostFocus="nud_ssMin_LostFocus"  Increment="0.1" IncrementToInteger="False"
+                            ValueChanged="nud_ssMin_ValueChanged" Maximum="100000000000000" DecimalPlaces="3"/>
+
+
+                    <UI:NumericUpDown x:Name="nud_ssHour" Margin="10,83,144,0" VerticalAlignment="Top" Height="24"
+                            GotFocus="nud_ssHour_GotFocus"  LostFocus="nud_ssHour_LostFocus"  Increment="0.1" IncrementToInteger="False"
+                            ValueChanged="nud_ssHour_ValueChanged" Maximum="100000000000000" DecimalPlaces="3"/>
+                    <TextBlock HorizontalAlignment="Right" Margin="0,87,121,0" TextWrapping="Wrap" Text="/h" VerticalAlignment="Top"/>
+
+
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+
+
+        <GridSplitter HorizontalAlignment="Right" Width="8"/>
+
+        <TextBlock x:Name="tbv_sceneChain" Style="{StaticResource Title1}" Text="SceneA -&gt; SceneB" 
+                Margin="10,15,10,0" Height="25" VerticalAlignment="Top" TextAlignment="Center" Grid.Column="1"/>
+
+        <Grid Grid.Column="1" Margin="0,51,0,0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="64"/>
+                <RowDefinition Height="207*"/>
+            </Grid.RowDefinitions>
+
+            <!--Content="{DynamicResource lb_winCalculatorManu_graphDelete}"-->
+            <StackPanel x:Name="sp_graphToolbar" IsEnabled="False"
+                Orientation="Horizontal" Margin="4">
+                <ToggleButton x:Name="btn_arrow" Click="btn_arrow_Click" 
+                        IsChecked="True" Height="56" Width="90">
+                    <Image Source="/Images/mouse-cursor-pointer.png" />
+                </ToggleButton>
+                <Button x:Name="btn_settingChannels" Click="btn_settingChannels_Click"
+                        Height="56">
+                    <Image Source="/Images/setting-gear.png" />
+                </Button>
+                <Ctrls:ThingWithLabel/>
+            </StackPanel>
+
+            <Grid x:Name="grid_graph" Grid.Row="1"
+                  MouseMove="grid_graph_MouseMove">
+                <ScrollViewer x:Name="sv_graph" AllowDrop="True"
+                          HorizontalScrollBarVisibility="Visible"
+                          Drop="sv_graph_Drop"
+                          >
+                    <Border x:Name="bdr_graph" BorderBrush="DarkRed" BorderThickness="0.5">
+                        <Canvas x:Name="canvas_graph" Height="300" Width="300" Background="AliceBlue"
+                                    SizeChanged="canvas_graph_SizeChanged"                                
+                                    PreviewMouseDown="canvas_graph_PreviewMouseDown" 
+                                    PreviewMouseLeftButtonDown="canvas_graph_PreviewMouseLeftButtonDown"
+                                    PreviewMouseUp="canvas_graph_PreviewMouseUp"
+                                    PreviewMouseWheel="canvas_graph_PreviewMouseWheel"
+                                    PreviewMouseMove="canvas_graph_PreviewMouseMove"
+                                    ContextMenuOpening="canvas_graph_ContextMenuOpening"
+                            HorizontalAlignment="Left" VerticalAlignment="Top">
+                            <Canvas.ContextMenu>
+                                <ContextMenu x:Name="cm_graph">
+                                    <MenuItem x:Name="btn_addNote" Click="btn_addNote_Click"
+                                              Header="Add Note"/>
+                                    <MenuItem x:Name="btn_setNoteColor" Click="btn_setNoteColor_Click"
+                                              Header="Set Notes Color..."/>
+                                    <MenuItem x:Name="btn_setNoteFont" Click="btn_setNoteFont_Click"
+                                              Header="Set Notes Font..."/>
+                                    <MenuItem x:Name="btn_setmultiple" Click="btn_setMultiple_Click"
+                                              Header="{DynamicResource lb_winCalculatorManu_contextMenuItem_setMultiple}"/>
+                                    <Separator x:Name="separator1"/>
+                                    <MenuItem x:Name="btn_deleteNode" Click="btn_deleteNode_Click"
+                                              Header="{DynamicResource lb_winCalculatorManu_contextMenuItem_deleteNode}"/>
+                                    <MenuItem x:Name="btn_deleteLink" Click="btn_deleteLink_Click"
+                                              Header="{DynamicResource lb_winCalculatorManu_contextMenuItem_deleteLink}"/>
+                                    <Separator x:Name="separator2"/>
+                                    <MenuItem x:Name="btn_linkMatchSource" Click="btn_linkMatchSource_Click"
+                                              Header="(_S)Match source"/>
+                                    <MenuItem x:Name="btn_linkMatchTarget" Click="btn_linkMatchTarget_Click"
+                                              Header="(_T)Match target"/>
+                                    <Separator x:Name="separator3"/>
+                                    <MenuItem x:Name="btn_autoFinish" Click="btn_autoFinish_Click"
+                                              Header="{DynamicResource lb_winCalculatorManu_contextMenuItem_autoFinish}"/>
+                                </ContextMenu>
+                            </Canvas.ContextMenu>
+                        </Canvas>
+                    </Border>
+                </ScrollViewer>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

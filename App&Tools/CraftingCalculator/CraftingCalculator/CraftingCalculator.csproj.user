@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Dev\Dev.net\App&amp;Tools\CraftingCalculator\CraftingCalculator\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Ctrls\LinkSpeed.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Ctrls\MovablePanel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Ctrls\PortSpeed.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Ctrls\PortSpeed_linkSpeed.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Ctrls\ThingInQuantity.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Ctrls\ThingWithLabel.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SubWindows\WindowLinkSpeed.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SubWindows\WindowNodeSpeed.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SubWindows\WindowNoteColor.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Window1.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WindowCalculatorAuto.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WindowCalculatorManu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WindowMaintain.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SubWindows\WindowQuantityEdit.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SubWindows\WindowSelectThings.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="SubWindows\WindowSettings.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Ctrls\LinkSpeed.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Ctrls\MovablePanel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Ctrls\PortSpeed.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Ctrls\PortSpeed_linkSpeed.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Ctrls\ThingInQuantity.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Ctrls\ThingWithLabel.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SubWindows\WindowLinkSpeed.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SubWindows\WindowNoteColor.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SubWindows\WindowSelectChannels.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WindowCalculatorAuto.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WindowCalculatorManu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WindowMaintain.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SubWindows\WindowQuantityEdit.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SubWindows\WindowSelectThings.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="SubWindows\WindowSettings.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>
