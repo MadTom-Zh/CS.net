@@ -161,6 +161,7 @@ namespace MadTomDev.UI
                 {
                     return WindowPositionRelations.InScreenMultiScreen;
                 }
+                /*
                 // 检查在哪个屏幕中占比最多
                 double maxArea = 0, testArea = 0;
                 if (wndTL != null)
@@ -198,7 +199,7 @@ namespace MadTomDev.UI
                         maxArea = testArea;
                         nearestcreen = wndBR;
                     }
-                }
+                }*/
             }
 
 
@@ -209,7 +210,7 @@ namespace MadTomDev.UI
                 if (ppr == PointPositionRelations.InScreen)
                 {
                     ++countDifWindows;
-                    if (!tmpSILis.Contains(si))
+                    if (si is not null && !tmpSILis.Contains(si))
                     {
                         tmpSILis.Add(si);
                     }

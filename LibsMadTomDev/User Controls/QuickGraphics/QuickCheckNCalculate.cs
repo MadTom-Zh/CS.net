@@ -34,9 +34,33 @@ namespace MadTomDev.UI
             }
             return false;
         }
+        public static bool CheckPointInWindow(PointF point, RectangleF windowRect)
+        {
+            if (windowRect.Left <= point.X)
+            {
+                if (point.X <= (windowRect.Left + windowRect.Width))
+                {
+                    // in ver range
+                    if (windowRect.Top <= point.Y)
+                    {
+                        if (point.Y <= (windowRect.Top + windowRect.Height))
+                        {
+                            // in hor range
+                            return true;
+                        }
+                    }
+
+                }
+            }
+            return false;
+        }
         public static bool CheckPointInWindowRow(Point point, Rectangle windowRect)
         { return (windowRect.Top <= point.Y && point.Y <= windowRect.Bottom); }
+        public static bool CheckPointInWindowRow(PointF point, RectangleF windowRect)
+        { return (windowRect.Top <= point.Y && point.Y <= windowRect.Bottom); }
         public static bool CheckPointInWindowCol(Point point, Rectangle windowRect)
+        { return (windowRect.Left <= point.X && point.X <= windowRect.Right); }
+        public static bool CheckPointInWindowCol(PointF point, RectangleF windowRect)
         { return (windowRect.Left <= point.X && point.X <= windowRect.Right); }
 
         #endregion
@@ -44,12 +68,54 @@ namespace MadTomDev.UI
         #region check rectangle relation
 
         public enum GraphRelations
-        { Mixed, Inside, Outside, Containing }
+        {
+            /// <summary>
+            /// 两区域有交叉；
+            /// </summary>
+            Mixed,
+            /// <summary>
+            /// 区域在主区域内部；
+            /// </summary>
+            Inside,
+            /// <summary>
+            /// 区域在主区域外部；
+            /// </summary>
+            Outside,
+            /// <summary>
+            /// 区域大于主区域，即测量区域包含主区域；
+            /// </summary>
+            Containing
+        }
         public static GraphRelations CheckRectangleRelationRow(Rectangle mainRect, Rectangle refRect)
         {
             bool topPointInside = CheckPointInWindowRow(mainRect.Location, refRect),
                 bottomPointInside = CheckPointInWindowRow(
                     new Point(mainRect.Location.X, mainRect.Location.Y + mainRect.Height), refRect);
+            if (topPointInside)
+            {
+                if (bottomPointInside)
+                    return GraphRelations.Inside;
+                else return GraphRelations.Mixed;
+            }
+            else
+            {
+                if (bottomPointInside)
+                    return GraphRelations.Mixed;
+                else
+                {
+                    if (mainRect.Top > refRect.Bottom
+                        || refRect.Top > mainRect.Bottom)
+                        return GraphRelations.Outside;
+                    else
+                        return GraphRelations.Containing;
+                }
+            }
+        }
+        public static GraphRelations CheckRectangleRelationRow(RectangleF mainRect, RectangleF refRect)
+        {
+            bool topPointInside = CheckPointInWindowRow(mainRect.Location, refRect),
+                bottomPointInside = CheckPointInWindowRow(
+                    new PointF(mainRect.Location.X, mainRect.Location.Y + mainRect.Height), refRect);
             if (topPointInside)
             {
                 if (bottomPointInside)
@@ -95,21 +161,64 @@ namespace MadTomDev.UI
                 }
             }
         }
+        public static GraphRelations CheckRectangleRelationCol(RectangleF mainRect, RectangleF refRect)
+        {
+            bool leftPointInside = CheckPointInWindowCol(mainRect.Location, refRect),
+                rihgtPointInside = CheckPointInWindowCol(
+                    new PointF(mainRect.Location.X + mainRect.Width, mainRect.Location.Y), refRect);
+            if (leftPointInside)
+            {
+                if (rihgtPointInside)
+                    return GraphRelations.Inside;
+                else return GraphRelations.Mixed;
+            }
+            else
+            {
+                if (rihgtPointInside)
+                    return GraphRelations.Mixed;
+                else
+                {
+                    if (mainRect.Left > refRect.Right
+                        || refRect.Left > mainRect.Right)
+                        return GraphRelations.Outside;
+                    else
+                        return GraphRelations.Containing;
+                }
+            }
+        }
         public static GraphRelations CheckRectangleRelation(Rectangle mainRect, Rectangle refRect)
         {
-            GraphRelations verRela = CheckRectangleRelationRow(mainRect, refRect),
-                horRela = CheckRectangleRelationCol(mainRect, refRect);
-            if (verRela == GraphRelations.Outside
-                || horRela == GraphRelations.Outside)
+            GraphRelations verRela = CheckRectangleRelationRow(mainRect, refRect);
+            if (verRela == GraphRelations.Outside)
                 return GraphRelations.Outside;
-            else if (verRela == GraphRelations.Inside
+            GraphRelations horRela = CheckRectangleRelationCol(mainRect, refRect);
+            if (horRela == GraphRelations.Outside)
+                return GraphRelations.Outside;
+
+            if (verRela == GraphRelations.Inside
                 && horRela == GraphRelations.Inside)
                 return GraphRelations.Inside;
             else if (verRela == GraphRelations.Containing
                 && horRela == GraphRelations.Containing)
                 return GraphRelations.Containing;
             else return GraphRelations.Mixed;
+        }
+        public static GraphRelations CheckRectangleRelation(RectangleF mainRect, RectangleF refRect)
+        {
+            GraphRelations verRela = CheckRectangleRelationRow(mainRect, refRect);
+            if (verRela == GraphRelations.Outside)
+                return GraphRelations.Outside;
+            GraphRelations horRela = CheckRectangleRelationCol(mainRect, refRect);
+            if (horRela == GraphRelations.Outside)
+                return GraphRelations.Outside;
 
+            if (verRela == GraphRelations.Inside
+                && horRela == GraphRelations.Inside)
+                return GraphRelations.Inside;
+            else if (verRela == GraphRelations.Containing
+                && horRela == GraphRelations.Containing)
+                return GraphRelations.Containing;
+            else return GraphRelations.Mixed;
         }
         public static GraphRelations CheckRectangleRelation(Rectangle mainRect, Rectangle refRect,
             out GraphRelations verGR, out GraphRelations horGR)
@@ -128,10 +237,27 @@ namespace MadTomDev.UI
             else return GraphRelations.Mixed;
 
         }
-
-        public static bool CheckRectangleIntersection(RectangleF rect1,RectangleF rect2)
+        public static GraphRelations CheckRectangleRelation(RectangleF mainRect, RectangleF refRect,
+            out GraphRelations verGR, out GraphRelations horGR)
         {
-            double l1 = rect1.Left,r1 = rect1.Right,
+            verGR = CheckRectangleRelationRow(mainRect, refRect);
+            horGR = CheckRectangleRelationCol(mainRect, refRect);
+            if (verGR == GraphRelations.Outside
+                || horGR == GraphRelations.Outside)
+                return GraphRelations.Outside;
+            else if (verGR == GraphRelations.Inside
+                && horGR == GraphRelations.Inside)
+                return GraphRelations.Inside;
+            else if (verGR == GraphRelations.Containing
+                && horGR == GraphRelations.Containing)
+                return GraphRelations.Containing;
+            else return GraphRelations.Mixed;
+
+        }
+
+        public static bool CheckRectangleIntersection(RectangleF rect1, RectangleF rect2)
+        {
+            double l1 = rect1.Left, r1 = rect1.Right,
                 t1 = rect1.Top, b1 = rect1.Bottom,
                 l2 = rect2.Left, r2 = rect2.Right,
                 t2 = rect2.Top, b2 = rect2.Bottom;
@@ -711,6 +837,49 @@ namespace MadTomDev.UI
                     return PointPositionTypes.Right;
             }
         }
+        public static PointPositionTypes CheckPointPosition(PointF point, RectangleF rect)
+        {
+            if (point.X < rect.Left)
+            {
+                if (point.Y < rect.Top)
+                    return PointPositionTypes.UpLeft;
+                else if (point.Y > rect.Bottom)
+                    return PointPositionTypes.DownLeft;
+                else
+                    return PointPositionTypes.Left;
+            }
+            else if (point.X == rect.Left
+                || point.X == rect.Right)
+            {
+                if (point.Y < rect.Top)
+                    return PointPositionTypes.Up;
+                else if (point.Y > rect.Bottom)
+                    return PointPositionTypes.Down;
+                else
+                    return PointPositionTypes.Touching;
+            }
+            else if (rect.Left < point.X && point.X < rect.Right)
+            {
+                if (point.Y < rect.Top)
+                    return PointPositionTypes.Up;
+                else if (point.Y > rect.Bottom)
+                    return PointPositionTypes.Down;
+                else if (point.Y == rect.Top
+                    || point.Y == rect.Bottom)
+                    return PointPositionTypes.Touching;
+                else
+                    return PointPositionTypes.Inside;
+            }
+            else //if (rect.Right < point.X)
+            {
+                if (point.Y < rect.Top)
+                    return PointPositionTypes.UpRight;
+                else if (point.Y > rect.Bottom)
+                    return PointPositionTypes.DownRight;
+                else
+                    return PointPositionTypes.Right;
+            }
+        }
 
         #endregion
 
@@ -881,7 +1050,8 @@ namespace MadTomDev.UI
                 return result;
             bool allNotEmpty = false;
             int top = 0;
-            for (int r = 0, rv = oriImage.Height, c, cv = oriImage.Width; r < rv; r++)
+            int r, rv, rn, c, cv, cn;
+            for (r = 0, rv = oriImage.Height, cv = oriImage.Width; r < rv; r++)
             {
                 allNotEmpty = false;
                 for (c = 0; c < cv; c++)
@@ -902,7 +1072,7 @@ namespace MadTomDev.UI
                 return result;
 
             int bottom = 0;
-            for (int r = oriImage.Height - 1, rn = top, c, cv = oriImage.Width; r > rn; r--)
+            for (r = oriImage.Height - 1, rn = top, cv = oriImage.Width; r > rn; r--)
             {
                 allNotEmpty = false;
                 for (c = 0; c < cv; c++)
@@ -922,7 +1092,7 @@ namespace MadTomDev.UI
 
             int left = 0;
             allNotEmpty = false;
-            for (int c = 0, cv = oriImage.Width, r, rv = oriImage.Height - bottom; c < cv; c++)
+            for (c = 0, cv = oriImage.Width, rv = oriImage.Height - bottom; c < cv; c++)
             {
                 allNotEmpty = false;
                 for (r = top; r < rv; r++)
@@ -943,7 +1113,7 @@ namespace MadTomDev.UI
                 return result;
 
             int right = 0;
-            for (int c = oriImage.Width - 1, cn = left, r, rv = oriImage.Height - bottom; c > cn; c--)
+            for (c = oriImage.Width - 1, cn = left, rv = oriImage.Height - bottom; c > cn; c--)
             {
                 allNotEmpty = false;
                 for (r = top; r < rv; r++)

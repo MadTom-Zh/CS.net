@@ -28,6 +28,8 @@ using System.Diagnostics;
 using DataFormats = System.Windows.DataFormats;
 using System.Drawing.Imaging;
 using System.Runtime.CompilerServices;
+using static System.Net.Mime.MediaTypeNames;
+using Font = System.Drawing.Font;
 
 namespace MadTomDev.UI
 {
@@ -37,7 +39,7 @@ namespace MadTomDev.UI
         {
             public class PinedBitmap : IDisposable
             {
-                public Bitmap bitmap;
+                public Bitmap? bitmap = null;
                 public PointF pinPoint;
                 public void Dispose()
                 {
@@ -51,7 +53,7 @@ namespace MadTomDev.UI
             }
         }
 
-        #region private methords
+        #region  methords
 
         public static WriteableBitmap BitmapToBitmapSource(Bitmap bitmap, bool isDisposeBitmap = true)
         {
@@ -79,6 +81,28 @@ namespace MadTomDev.UI
             }
             return null;
         }
+        //public static BitmapImage ToBitmapImage(this BitmapSource  bitmapSource)
+        //{
+        //    BitmapImage bmi = null;
+        //    try
+        //    {
+        //        string filePath = @"C:\GitRepository\ReceiptAPP\ReceiptApplication\bin\Debug\testing.bmp";
+        //        using (var fileStream = new FileStream(filePath, FileMode.Create))
+        //        {
+        //            BitmapEncoder encoder = new BmpBitmapEncoder();
+        //            encoder.Frames.Add(BitmapFrame.Create(bitmapSource));
+        //            encoder.Save(fileStream);
+        //            fileStream.Close();
+        //        }
+        //        Uri path = new Uri(filePath);
+        //        bmi = new BitmapImage(path);
+        //        File.Delete(filePath);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //    }
+        //    return bmi;
+        //}
         public static Bitmap BitmapSourceToBitmap(BitmapSource bitmapSource)
         {
             Bitmap bmp = new Bitmap(
@@ -760,12 +784,27 @@ namespace MadTomDev.UI
 
             public static Bitmap? FromClipboard_Bitmap()
             {
-                // return null for some cases
-                System.Drawing.Image img = System.Windows.Forms.Clipboard.GetImage();
-                if (img != null)
-                    return (Bitmap)img;
 
-                return FromDragDrop_Bitmap(System.Windows.Clipboard.GetDataObject());
+                Bitmap? result = FromDragDrop_Bitmap(System.Windows.Clipboard.GetDataObject());
+
+                if (result != null)
+                {
+                    return result;
+                }
+                else
+                {
+                    // 2024 0802 复制有透明背景的图片，粘贴后，背景变为黑色；
+                    // return null for some cases
+                    System.Drawing.Image img = System.Windows.Forms.Clipboard.GetImage();
+                    if (img != null)
+                    {
+                        return (Bitmap)img;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
             }
             public static BitmapSource? FromClipboard()
             {
@@ -971,6 +1010,8 @@ namespace MadTomDev.UI
                     return BitmapToBitmapSource(img);
                 }
             }
+
+
 
         }
 
@@ -1986,6 +2027,27 @@ namespace MadTomDev.UI
                 return MeasureWidth(text, textBox.FontSize,
                     textBox.FontFamily, textBox.FontStyle, textBox.FontWeight,
                     textBox.FontStretch, pixelsPerDpi);
+            }
+
+            public static void WriteText(ref Bitmap image, string text, Font? font, Color foreClr, Color? bgClr, int x, int y)
+            {
+                using (Graphics g = Graphics.FromImage(image))
+                {
+                    g.SmoothingMode = SmoothingMode.AntiAlias;
+                    g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAliasGridFit;
+                    //g.Clear(Color.Transparent);
+
+                    if (bgClr is null)
+                    {
+                        TextRenderer.DrawText(g, text, font, new Point(x, y), foreClr);
+                    }
+                    else
+                    {
+                        TextRenderer.DrawText(g, text, font, new Point(x, y), foreClr, bgClr.Value);
+                    }
+                }
+
+
             }
         }
 
