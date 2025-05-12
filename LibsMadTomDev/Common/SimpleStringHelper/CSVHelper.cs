@@ -29,10 +29,11 @@ namespace MadTomDev.Common
             }
 
             public bool IsEoF { get => fsr.EndOfStream; }
-            public string[] ReadRow()
+            public List< string> ReadRow()
             {
                 if (IsEoF)
                 {
+                    //yield break;
                     return null;
                 }
                 List<string> result = new List<string>();
@@ -60,6 +61,7 @@ namespace MadTomDev.Common
                             }
                             if (qStart)
                             {
+                                //yield return fieldBdr.ToString();
                                 result.Add(fieldBdr.ToString());
                                 fieldBdr.Clear();
                                 i++;
@@ -74,8 +76,9 @@ namespace MadTomDev.Common
                         }
                         else
                         {
-                            if (c == ',')
+                            if (c == ',' || c == '\t')
                             {
+                                //yield return fieldBdr.ToString();
                                 result.Add(fieldBdr.ToString());
                                 fieldBdr.Clear();
                             }
@@ -93,6 +96,7 @@ namespace MadTomDev.Common
                     }
                     else
                     {
+                        //yield return fieldBdr.ToString();
                         result.Add(fieldBdr.ToString());
                         fieldBdr.Clear();
                         break;
@@ -101,11 +105,12 @@ namespace MadTomDev.Common
 
                 if (qStart)
                 {
+                    //yield return fieldBdr.ToString();
                     result.Add(fieldBdr.ToString());
                     fieldBdr.Clear();
                 }
 
-                return result.ToArray();
+                return result;
             }
             public void Dispose()
             {

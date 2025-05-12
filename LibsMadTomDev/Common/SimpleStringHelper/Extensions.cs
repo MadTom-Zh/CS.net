@@ -10,38 +10,143 @@ namespace MadTomDev.Common
 {
     public static partial class Extensions
     {
-        public static string ToHexString(this byte[] data, bool withComma = true)
+        public static string ToHexString(this ulong value, bool fillZero = true)
+        {
+            string result = value.ToString("X");
+            if (fillZero)
+            {
+                int len = sizeof(ulong) * 2;
+                if (result.Length < len)
+                {
+                    len -= result.Length;
+                    while (len-- > 0)
+                    {
+                        result = "0" + result;
+                    }
+                }
+            }
+            return result;
+        }
+        public static string ToHexString(this long value, bool fillZero = true)
+        {
+            string result = Convert.ToString(value, 16);
+            if (fillZero)
+            {
+                int len = sizeof(long) * 2;
+                if (result.Length < len)
+                {
+                    len -= result.Length;
+                    while (len-- > 0)
+                    {
+                        result = "0" + result;
+                    }
+                }
+            }
+            return result;
+        }
+        public static string ToHexString(this byte value, bool fillZero = true)
+        {
+            string result = Convert.ToString(value, 16);
+            if (fillZero)
+            {
+                int len = sizeof(byte) * 2;
+                if (result.Length < len)
+                {
+                    len -= result.Length;
+                    while (len-- > 0)
+                    {
+                        result = "0" + result;
+                    }
+                }
+            }
+            return result;
+        }
+        public static string ToHexString(this byte[] data, string spliter = null)
         {
             StringBuilder strBdr = new StringBuilder();
             if (data != null)
             {
                 for (int i = 0, iv = data.Length; i < iv; i++)
                 {
-                    strBdr.Append(data[i].ToString("X2"));
-                    if (withComma) strBdr.Append(",");
+                    strBdr.Append(data[i].ToHexString());
+                    if (spliter != null) strBdr.Append(spliter);
                 }
-                if (withComma && strBdr.Length > 2)
-                    strBdr.Remove(strBdr.Length - 1, 1);
+                if (strBdr.Length > 0
+                    && spliter != null && spliter.Length > 0)
+                {
+                    strBdr.Remove(strBdr.Length - spliter.Length, spliter.Length);
+                }
             }
             return strBdr.ToString();
         }
-        public static string ToHexString(this long value)
-        { return Convert.ToString(value, 16); }
+
         public static string FromBinToHexString(this string binValue)
         { return string.Format("{0:x}", Convert.ToInt32(binValue, 2)); }
+        public static int FromHexToInt(this string hexStr)
+        {            return  Convert.ToInt32(hexStr,16);        }
         public static string FromHexToIntString(this Int32 hexValue)
         { return Convert.ToString(hexValue, 10); }
         public static long FromBinToInt(this string binValue)
         { return Convert.ToInt64(binValue, 2); }
         public static string FromHexToBinString(this Int32 hexValue)
         { return Convert.ToString(hexValue, 2); }
-        public static string ToBinString(this long value)
-        { return Convert.ToString(value, 2); }
+        public static string ToBinString(this long value, bool fillZero = true)
+        {
+            string result = Convert.ToString(value, 2);
+            if (fillZero)
+            {
+                int len = sizeof(long) * 8;
+                if (result.Length < len)
+                {
+                    len -= result.Length;
+                    while (len-- > 0)
+                    {
+                        result = "0" + result;
+                    }
+                }
+            }
+            return result;
+        }
+        public static string ToBinString(this byte value, bool fillZero = true)
+        {
+            string result = Convert.ToString(value, 2);
+            if (fillZero)
+            {
+                int len = sizeof(byte) * 8;
+                if (result.Length < len)
+                {
+                    len -= result.Length;
+                    while (len-- > 0)
+                    {
+                        result = "0" + result;
+                    }
+                }
+            }
+            return result;
+        }
+        public static string ToBinString(this byte[] value, string spliter = null)
+        {
+            StringBuilder result = new StringBuilder();
+            foreach (byte b in value)
+            {
+                result.Append(b.ToBinString());
+                if (spliter != null)
+                {
+                    result.Append(spliter);
+                }
+            }
+            if (result.Length > 0
+                && spliter != null && spliter.Length > 0)
+            {
+                result.Remove(result.Length - spliter.Length, spliter.Length);
+            }
+            return result.ToString();
+        }
 
         public static string ToARGBHexString(this Color color)
         {
             byte[] data = new byte[4] { color.A, color.R, color.G, color.B, };
-            return data.ToHexString(false);
+            return data.ToHexString();
         }
         public static Color FromARGBHexStringToColor(this string hexStr)
         {

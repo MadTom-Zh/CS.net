@@ -336,7 +336,87 @@ namespace MadTomDev.Common
             return false;
         }
 
+        public static bool Check_IsNumber(string str,bool canHaveOneDot = false)
+        {
+            if (string.IsNullOrWhiteSpace(str))
+            {
+                return false;
+            }
+            str = str.Replace(" ","");
+            if (canHaveOneDot)
+            {
+                int dotCount = 0;
+                foreach (char c in str)
+                {
+                    if (c == '.')
+                    {
+                        if (dotCount >= 1)
+                        {
+                            return false;
+                        }
+                        dotCount++;
+                        continue;
+                    }
+                    if (c < '0' || '9' < c)
+                    {
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                foreach (char c in str)
+                {
+                    if (c < '0' || '9' < c)
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
 
+        public static bool Check_IsHexNumber(string str, bool canHaveOneDot = false)
+        {
+            if (string.IsNullOrWhiteSpace(str))
+            {
+                return false;
+            }
+            str = str.Replace(" ", "").ToLower();
+            if (canHaveOneDot)
+            {
+                int dotCount = 0;
+                foreach (char c in str)
+                {
+                    if (c == '.')
+                    {
+                        if (dotCount >= 1)
+                        {
+                            return false;
+                        }
+                        dotCount++;
+                        continue;
+                    }
+                    if ((c < '0' ||  '9' < c )
+                        && (c < 'a' || 'f' < c))
+                    {
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                foreach (char c in str)
+                {
+                    if ((c < '0' || '9' < c)
+                        && (c < 'a' || 'f' < c))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
 
         public class TableFormater
         {
@@ -551,7 +631,8 @@ namespace MadTomDev.Common
                 FormattedCellData.InnerRowData[] cellBlock;
                 ColumnHeadersInner = new FormattedCellData();
                 maxInnerRowsCount = 1;
-                for (int colIdx = 0; colIdx < colsCount; colIdx++)
+                int colIdx, colV;
+                for (colIdx = 0; colIdx < colsCount; colIdx++)
                 {
                     if (_ColumnFormats[colIdx].ToString().EndsWith("Wrapping"))
                     {
@@ -579,8 +660,8 @@ namespace MadTomDev.Common
 
                 int oLs;
                 FormattedCellData innerRow;
-                for (int rowIdx = 0, rowV = _Rows.Count, colIdx, colV;
-                    rowIdx < rowV; rowIdx++)
+                int rowIdx, rowV;
+                for (rowIdx = 0, rowV = _Rows.Count; rowIdx < rowV; rowIdx++)
                 {
                     row = _Rows[rowIdx];
                     innerRow = new FormattedCellData();
@@ -847,8 +928,8 @@ namespace MadTomDev.Common
                         = (TableHeaderLineStyle & TableBorderStyles.VerLines) == TableBorderStyles.VerLines;
                 bool drawDataRowVerLine
                         = (TableDataRowLineStyle & TableBorderStyles.VerLines) == TableBorderStyles.VerLines;
-                for (int i = 0, i2,
-                    iv = _ColumnHeaders.Count, i2v;
+                int i, iv, i2, i2v;
+                for (i = 0, iv = _ColumnHeaders.Count;
                     i < iv; i++)
                 {
                     if (i != 0)
@@ -1075,10 +1156,10 @@ namespace MadTomDev.Common
         public class UnitsOfMeasure
         {
             public static string GetShortString(
-                decimal baseValue, string unitStr,
+                decimal baseValue, string? unitStr = null,
                 int kilo = 1000, int decimalDigits = 2,
                 bool figureUpperCase = true,
-                bool oneSpaceWhenNoFigure = true,
+                bool oneSpaceWhenNoFigure = false,
                 bool figureFullName = false)
             {
                 int kiloDivCount = 0;

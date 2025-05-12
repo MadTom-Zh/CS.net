@@ -9,6 +9,154 @@ namespace MadTomDev.Common
 {
     public static partial class SimpleValueHelper
     {
+		
+        public enum ByteStringFormates
+        {
+            Bin, Dec, Oct, Hex,
+        }
+        public static byte TryGetByte(this object value, ByteStringFormates formate, byte defaultValue = 0)
+        {
+            if (value == null)
+                return defaultValue;
+            if (value is byte)
+                return (byte)value;
+
+            string strValue = value.ToString();
+
+            byte result = defaultValue;
+            switch (formate)
+            {
+                case ByteStringFormates.Bin:
+                    ChopOrFillString(ref strValue, 8);
+                    result = 0;
+                    for (int i = 7; i >= 0; --i)
+                    {
+                        char c = strValue[i];
+                        if (c == '0')
+                        { }
+                        else if (c == '1')
+                        {
+                            if (i == 7) result += 1;
+                            else if (i == 6) result += 2;
+                            else if (i == 5) result += 4;
+                            else if (i == 4) result += 8;
+                            else if (i == 3) result += 16;
+                            else if (i == 2) result += 32;
+                            else if (i == 1) result += 64;
+                            else if (i == 0) result += 128;
+                        }
+                        else
+                        {
+                            result = defaultValue;
+                            break;
+                        }
+                    }
+                    break;
+                case ByteStringFormates.Oct:
+                    ChopOrFillString(ref strValue, 3);
+                    result = 0;
+                    for (int i = 2; i >= 0; --i)
+                    {
+                        char c = strValue[i];
+                        if (c == '0')
+                        { }
+                        else if (c >= '1' && c <= '7')
+                        {
+                            int baseNum = int.Parse(c.ToString());
+                            if (i == 2) result += (byte)baseNum;
+                            else if (i == 1) result += (byte)(baseNum * 8);
+                            else if (i == 0) result += (byte)(baseNum * 64);
+                        }
+                        else
+                        {
+                            result = defaultValue;
+                            break;
+                        }
+                    }
+                    break;
+                case ByteStringFormates.Dec:
+                    ChopOrFillString(ref strValue, 3);
+                    if (int.TryParse(strValue, out int outInt))
+                    {
+                        if (outInt < 0 || outInt > 255)
+                        {
+                            result = defaultValue;
+                        }
+                        else
+                        {
+                            result = (byte)outInt;
+                        }
+                    }
+                    else
+                    {
+                        result = defaultValue;
+                    }
+                    break;
+                case ByteStringFormates.Hex:
+                    ChopOrFillString(ref strValue, 2);
+                    strValue = strValue.ToUpper();
+                    for (int i = 1; i >= 0; --i)
+                    {
+                        char c = strValue[i];
+                        if (c == '0')
+                        { }
+                        else if (c >= '1' && c <= '9')
+                        {
+                            int baseNum = int.Parse(c.ToString());
+                            if (i == 1) result += (byte)baseNum;
+                            else if (i == 0) result += (byte)(baseNum * 16);
+                        }
+                        else if (c >= 'A' && c <= 'F')
+                        {
+                            int baseNum = c - 'A' + 10;
+                            if (i == 1) result += (byte)baseNum;
+                            else if (i == 0) result += (byte)(baseNum * 16);
+                        }
+                        else
+                        {
+                            result = defaultValue;
+                            break;
+                        }
+                    }
+                    break;
+            }
+
+            return result;
+
+
+
+            void ChopOrFillString(ref string str, int length, char filler = '0')
+            {
+                if (str.Length > length)
+                {
+                    str = str.Substring(str.Length - length, length);
+                }
+                else
+                {
+                    while (str.Length < length)
+                    {
+                        str = filler + str;
+                    }
+                }
+            }
+        }
+        public static byte[] TryGetBytes(this object value, ByteStringFormates formate, byte defaultValue = 0)
+        {
+            if (value == null)
+                return null;
+            if (value is byte[])
+                return (byte[])value;
+
+            string[] parts = value.ToString().Split(new string[] {" ","\t","\\","/",",", ".", "-", "_", "|",":",";" },StringSplitOptions.RemoveEmptyEntries);
+            List<byte> bytes = new List<byte>();
+            for (int i=0,iv = parts.Count();i<iv;++i)
+            {
+                bytes.Add(parts[i].TryGetByte(formate,defaultValue));
+            }
+            return bytes.ToArray();
+        }
+		
+		
         public static int TryGetInt(this object value, int defaultValue = -1)
         {
             if (value == null)
@@ -101,7 +249,53 @@ namespace MadTomDev.Common
             { return defaultValue; }
         }
 
-        public static Point? TryGetPoint(this object value, Point? defaultValue = null)
+        public static System.Drawing.Point? TryGetDPoint(this object value, System.Drawing.Point? defaultValue = null)
+        {
+            if (value == null)
+                return defaultValue;
+            if (value is System.Drawing.Point)
+                return (System.Drawing.Point)value;
+            try
+            {
+                string testStr = value.ToString().Trim();
+                if (string.IsNullOrWhiteSpace(testStr))
+                    return defaultValue;
+
+                StringBuilder xStr = new StringBuilder();
+                StringBuilder yStr = new StringBuilder();
+                GetStringPair(testStr, out xStr, out yStr);
+                if (xStr.Length > 0 && yStr.Length > 0)
+                    return new System.Drawing.Point(int.Parse(xStr.ToString()), int.Parse(yStr.ToString()));
+                else
+                    return defaultValue;
+            }
+            catch (Exception)
+            { return defaultValue; }
+        }
+        public static System.Drawing.PointF? TryGetDPointF(this object value, System.Drawing.Point? defaultValue = null)
+        {
+            if (value == null)
+                return defaultValue;
+            if (value is System.Drawing.PointF)
+                return (System.Drawing.PointF)value;
+            try
+            {
+                string testStr = value.ToString().Trim();
+                if (string.IsNullOrWhiteSpace(testStr))
+                    return defaultValue;
+
+                StringBuilder xStr = new StringBuilder();
+                StringBuilder yStr = new StringBuilder();
+                GetStringPair(testStr, out xStr, out yStr, false);
+                if (xStr.Length > 0 && yStr.Length > 0)
+                    return new System.Drawing.PointF(float.Parse(xStr.ToString()), float.Parse(yStr.ToString()));
+                else
+                    return defaultValue;
+            }
+            catch (Exception)
+            { return defaultValue; }
+        }
+        public static Point? TryGetWPoint(this object value, Point? defaultValue = null)
         {
             if (value == null)
                 return defaultValue;
@@ -115,38 +309,110 @@ namespace MadTomDev.Common
 
                 StringBuilder xStr = new StringBuilder();
                 StringBuilder yStr = new StringBuilder();
-                bool firstRec = true;
-                foreach (char c in testStr)
-                {
-                    if ((c >= '0' && c <= '9'))
-                    {
-                        if (firstRec)
-                            xStr.Append(c);
-                        if (!firstRec)
-                            yStr.Append(c);
-                    }
-                    else
-                    {
-                        if (firstRec)
-                        {
-                            firstRec = false;
-                        }
-                        else
-                        {
-                            if (yStr.Length > 0)
-                                break;
-                        }
-                    }
-                }
+                GetStringPair(testStr, out xStr, out yStr, false);
                 if (xStr.Length > 0 && yStr.Length > 0)
-                    return new Point(int.Parse(xStr.ToString()), int.Parse(yStr.ToString()));
+                    return new Point(double.Parse(xStr.ToString()), double.Parse(yStr.ToString()));
                 else
                     return defaultValue;
             }
             catch (Exception)
             { return defaultValue; }
         }
-        public static Size? TryGetSize(this object value, Size? defaultValue = null)
+        private static void GetStringPair(string source, out StringBuilder xStr, out StringBuilder yStr, bool isIntOrDouble = true)
+        {
+            xStr = new StringBuilder();
+            yStr = new StringBuilder();
+            int startIdx = 0;
+            GetNumberStr(xStr, ref startIdx);
+            GetNumberStr(yStr, ref startIdx);
+
+            void GetNumberStr(StringBuilder strBdr, ref int startIdx)
+            {
+                bool hasNav = false;
+                bool hasNum = false;
+                bool hasDot = false;
+                int i, iv;
+                for (i = startIdx, iv = source.Length; i < iv; ++i)
+                {
+                    char c = source[i];
+                    if ((c >= '0' && c <= '9'))
+                    {
+                        strBdr.Append(c);
+                        hasNum = true;
+                    }
+                    else if (c == '-')
+                    {
+                        if (hasNum || hasNav)
+                        {
+                            break;
+                        }
+                        strBdr.Append(c);
+                        hasNav = true;
+                    }
+                    else if (c == '.' && !isIntOrDouble && !hasDot)
+                    {
+                        if (hasDot)
+                        {
+                            break;
+                        }
+                        strBdr.Append(c);
+                        hasDot = true;
+                    }
+                    else if (c != ' ')
+                    {
+                        break;
+                    }
+                }
+                startIdx = i + 1;
+            }
+        }
+        public static System.Drawing.Size? TryGetDSize(this object value, System.Drawing.Size? defaultValue = null)
+        {
+            if (value == null)
+                return defaultValue;
+            if (value is System.Drawing.Size)
+                return (System.Drawing.Size)value;
+            try
+            {
+                string testStr = value.ToString().Trim();
+                if (string.IsNullOrWhiteSpace(testStr))
+                    return defaultValue;
+
+                StringBuilder xStr = new StringBuilder();
+                StringBuilder yStr = new StringBuilder();
+                GetStringPair(testStr, out xStr, out yStr);
+                if (xStr.Length > 0 && yStr.Length > 0)
+                    return new System.Drawing.Size(int.Parse(xStr.ToString()), int.Parse(yStr.ToString()));
+                else
+                    return defaultValue;
+            }
+            catch (Exception)
+            { return defaultValue; }
+        }
+        public static System.Drawing.SizeF? TryGetDSizeF(this object value, System.Drawing.SizeF? defaultValue = null)
+        {
+            if (value == null)
+                return defaultValue;
+            if (value is System.Drawing.SizeF)
+                return (System.Drawing.SizeF)value;
+            try
+            {
+                string testStr = value.ToString().Trim();
+                if (string.IsNullOrWhiteSpace(testStr))
+                    return defaultValue;
+
+                StringBuilder xStr = new StringBuilder();
+                StringBuilder yStr = new StringBuilder();
+                GetStringPair(testStr, out xStr, out yStr, false);
+                if (xStr.Length > 0 && yStr.Length > 0)
+                    return new System.Drawing.SizeF(float.Parse(xStr.ToString()), float.Parse(yStr.ToString()));
+                else
+                    return defaultValue;
+            }
+            catch (Exception)
+            { return defaultValue; }
+        }
+        public static Size? TryGetWSize(this object value, Size? defaultValue = null)
         {
             if (value == null)
                 return defaultValue;
@@ -160,31 +426,9 @@ namespace MadTomDev.Common
 
                 StringBuilder xStr = new StringBuilder();
                 StringBuilder yStr = new StringBuilder();
-                bool firstRec = true;
-                foreach (char c in testStr)
-                {
-                    if ((c >= '0' && c <= '9'))
-                    {
-                        if (firstRec)
-                            xStr.Append(c);
-                        if (!firstRec)
-                            yStr.Append(c);
-                    }
-                    else
-                    {
-                        if (firstRec)
-                        {
-                            firstRec = false;
-                        }
-                        else
-                        {
-                            if (yStr.Length > 0)
-                                break;
-                        }
-                    }
-                }
+                GetStringPair(testStr, out xStr, out yStr, false);
                 if (xStr.Length > 0 && yStr.Length > 0)
-                    return new Size(int.Parse(xStr.ToString()), int.Parse(yStr.ToString()));
+                    return new Size(double.Parse(xStr.ToString()), double.Parse(yStr.ToString()));
                 else
                     return defaultValue;
             }
@@ -256,12 +500,12 @@ namespace MadTomDev.Common
             b = BitConverter.ToUInt32(bytes, 4);
         }
 
-        public static double Cal(string str)
+        public static decimal Cal(string str)
         {
             Formula f = new Formula(str);
             return f.Calculate();
         }
-        public static bool TryCal(string str, out double result)
+        public static bool TryCal(string str, out decimal result)
         {
             try
             {
@@ -312,7 +556,7 @@ namespace MadTomDev.Common
                 this.op = op;
                 this.right = right;
             }
-            public double Calculate()
+            public decimal Calculate()
             {
                 if (left != null)
                 {
@@ -332,7 +576,7 @@ namespace MadTomDev.Common
                 }
                 if (string.IsNullOrWhiteSpace(selfStr))
                 {
-                    return 0.0;
+                    return 0;
                 }
 
 
@@ -347,15 +591,15 @@ namespace MadTomDev.Common
                 }
                 else
                 {
-                    return double.Parse(selfStr);
+                    return decimal.Parse(selfStr);
                 }
 
-                int FindPriorRootOP( )
-                {                    
+                int FindPriorRootOP()
+                {
                     int countBra = 0;
                     char c;
                     int idxLv2 = -1;
-                    for (int i = selfStr.Length-1; i>=0;--i)
+                    for (int i = selfStr.Length - 1; i >= 0; --i)
                     {
                         c = selfStr[i];
                         if (c == ')')
