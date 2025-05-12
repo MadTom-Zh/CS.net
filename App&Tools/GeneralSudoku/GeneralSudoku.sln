@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneralSudoku", "GeneralSudoku\GeneralSudoku.csproj", "{BFB10AE2-0652-4DBA-8135-FB2B98764209}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependency", "Dependency", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExControls", "..\..\LibsMadTomDev\User Controls\ExControls\ExControls.csproj", "{8C41458F-B885-4DB1-F1FA-D5F1971AC4C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickGraphics", "..\..\LibsMadTomDev\User Controls\QuickGraphics\QuickGraphics.csproj", "{86252E62-87FA-45EB-8887-6CDF7DAD0580}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleStringHelper", "..\..\LibsMadTomDev\Common\SimpleStringHelper\SimpleStringHelper.csproj", "{20CF230B-9A2C-40CE-0DCC-00457D9E3469}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFB10AE2-0652-4DBA-8135-FB2B98764209}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFB10AE2-0652-4DBA-8135-FB2B98764209}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFB10AE2-0652-4DBA-8135-FB2B98764209}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFB10AE2-0652-4DBA-8135-FB2B98764209}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C41458F-B885-4DB1-F1FA-D5F1971AC4C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C41458F-B885-4DB1-F1FA-D5F1971AC4C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C41458F-B885-4DB1-F1FA-D5F1971AC4C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C41458F-B885-4DB1-F1FA-D5F1971AC4C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86252E62-87FA-45EB-8887-6CDF7DAD0580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86252E62-87FA-45EB-8887-6CDF7DAD0580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86252E62-87FA-45EB-8887-6CDF7DAD0580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86252E62-87FA-45EB-8887-6CDF7DAD0580}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20CF230B-9A2C-40CE-0DCC-00457D9E3469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20CF230B-9A2C-40CE-0DCC-00457D9E3469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20CF230B-9A2C-40CE-0DCC-00457D9E3469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20CF230B-9A2C-40CE-0DCC-00457D9E3469}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8C41458F-B885-4DB1-F1FA-D5F1971AC4C5} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{86252E62-87FA-45EB-8887-6CDF7DAD0580} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{20CF230B-9A2C-40CE-0DCC-00457D9E3469} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4DD20532-6336-4913-B1FF-6C2CB46FEC19}
+	EndGlobalSection
+EndGlobal
